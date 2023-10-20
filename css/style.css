@@ -2,12 +2,7 @@
 /* ------------------ Calendar CSS ------------------ */
 /* Import Google font - Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
+
 .wrapper body{
 
   padding: 0 10px;
@@ -29,7 +24,6 @@
   padding: 25px 30px 10px;
   justify-content: space-between;
   
-
 }
 
 
@@ -123,9 +117,13 @@ header .current-date{
     background: #f2f2f2;
   }
 
+/* ================================================= */
 /* ------------------ General CSS ------------------ */
 /* ================================================= */
 
+/* ================================================= */
+/* ------------------ General CSS ------------------ */
+/* ================================================= */
 
 body {
     color: #666;
