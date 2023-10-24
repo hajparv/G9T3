@@ -5,7 +5,7 @@ class ConnectionManager {
     public function connect() {
         $servername = 'localhost';
         $username = 'root';
-        $password = ''; // -> WAMP server
+        $password = 'root'; // -> WAMP server
         $dbname = 'blog';
         
         // Create connection
