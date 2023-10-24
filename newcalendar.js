@@ -1,3 +1,19 @@
+axios.get("http://localhost:8888/G9T3/PHP/getRecord.php")
+.then(response=>{
+    var information = response.data;
+    var date = response.data.datetime;
+    var year = date.slice(0,4)
+    var month = date.slice(5,7);
+    var day = date.slice(8,10);
+    console.log(date);
+    console.log(year);
+    console.log(month);
+    console.log(day);
+
+
+})
+
+
 var date = new Date();
 var today = date.getDate();
 console.log(today);
