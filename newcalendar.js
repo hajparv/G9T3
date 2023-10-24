@@ -117,12 +117,11 @@ function days_in_month(month, year) {
 
 //Event handler when a date is clicked
 function date_click(event) {
-    console.log(event);
     var eventsContainer = document.getElementById("events-container");
     if (eventsContainer) {
         eventsContainer.style.display = "block";
     }
-    
+
     var dialog = document.getElementById("dialog");
     if (dialog) {
         dialog.style.display = "none";
@@ -130,20 +129,18 @@ function date_click(event) {
 
     // Remove the "active-date" class from any previously selected date element
     var activeDates = document.querySelectorAll(".active-date");
-   
     activeDates.forEach(function (activeDate) {
         activeDate.classList.remove("active-date");
     });
 
     // Add the "active-date" class to the clicked date element
-    console.log(event.day);
-    if (event.day) {
-        
-        event.day.classList.add("active-date");
+    if (event.target && event.target.classList) {
+        event.target.classList.add("active-date");
     }
 
     show_events(event.events, event.month, event.day);
 }
+
 
 
 //event handler when a month is clicked
@@ -176,6 +173,7 @@ function month_click(event) {
     currentDate.setMonth(new_month);
 
     // Remove the "active-month" class from all elements with that class
+    var monthElements = document.querySelectorAll(".month");
     monthElements.forEach(function (element) {
         element.classList.remove("active-month");
     });
@@ -187,10 +185,6 @@ function month_click(event) {
     init_calendar(currentDate);
 }
 
-// Add a click event listener to each element with the "month" class
-monthElements.forEach(function (element) {
-    element.addEventListener("click", month_click);
-});
 
 
 
