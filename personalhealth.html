@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Dr. Johnson</title>
+    <title>Medi Mate</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -30,6 +30,33 @@
     <!-- Main Stylesheet File -->
     <link href="css/hover-style.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <style>
+        .medimatemain {
+            text-decoration: none;
+        }
+
+        .profile-icon {
+            float: right;
+            margin-right: 20px;
+            /* Adjust margin as needed */
+        }
+
+        .profile-icon a {
+            text-decoration: none;
+            color: #333;
+            /* Change the text color */
+            display: block;
+            text-align: center;
+        }
+
+        .profile-icon img {
+            width: 32px;
+            /* Set the icon size */
+            height: 32px;
+            border-radius: 50%;
+            /* Make it circular */
+        }
+    </style>
 </head>
 
 <body>
@@ -38,12 +65,17 @@
         <div class="container">
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li class="menu-active"></li>><a href="index.html">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="booking.html">Book Appointment</a></li>
                     <li><a href="newcalendar.html">Calendar</a></li>
                     <li><a href="service.html">Make Payment</a></li>
                     <li><a href="login.html">Log In</a></li>
-
+                    <li class="profile-icon menu-active">
+                        <a href="personalhealth.html">
+                            <img src="profile icon.webp" alt="Profile Icon">
+                            My Health
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -54,7 +86,7 @@
         <div class="container text-center">
             <div class="row">
                 <div class="col-md-12">
-                    <h1><a href="index.html">Medi Mate</a></h1>
+                    <h1><a href="index.html" class="medimatemain">Medi Mate</a></h1>
                     <!-- <a class="brand" href="index.html" title="Home"><img alt="Logo" src="img/logo.png"></a> -->
                     <form action="#" method="post" class="search-bar">
                         <input type="text" name="search-query" placeholder="Find a clinic" />

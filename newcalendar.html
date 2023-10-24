@@ -30,7 +30,29 @@
   <!-- Main Stylesheet File -->
   <link href="css/hover-style.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
+  <style>
+    .profile-icon {
+      float: right;
+      margin-right: 20px;
+      /* Adjust margin as needed */
+    }
 
+    .profile-icon a {
+      text-decoration: none;
+      color: #333;
+      /* Change the text color */
+      display: block;
+      text-align: center;
+    }
+
+    .profile-icon img {
+      width: 32px;
+      /* Set the icon size */
+      height: 32px;
+      border-radius: 50%;
+      /* Make it circular */
+    }
+  </style>
 </head>
 
 <body>
@@ -38,12 +60,17 @@
     <div class="container">
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li class="menu-active"></li>><a href="index.html">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="booking.html">Book Appointment</a></li>
-          <li><a href="newcalendar.html">Calendar</a></li>
+          <li class="menu-active"><a href="newcalendar.html">Calendar</a></li>
           <li><a href="service.html">Make Payment</a></li>
           <li><a href="login.html">Log In</a></li>
-
+          <li class="profile-icon">
+            <a href="personalhealth.html">
+              <img src="profile icon.webp" alt="Profile Icon">
+              My Health
+            </a>
+          </li>
         </ul>
       </nav>
     </div>
