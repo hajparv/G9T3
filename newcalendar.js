@@ -117,31 +117,34 @@ function days_in_month(month, year) {
 
 //Event handler when a date is clicked
 function date_click(event) {
-    console.log(event)
+    console.log(event);
     var eventsContainer = document.getElementById("events-container");
     if (eventsContainer) {
         eventsContainer.style.display = "block";
-        // You can add a transition effect using JavaScript if needed.
     }
-
+    
     var dialog = document.getElementById("dialog");
     if (dialog) {
         dialog.style.display = "none";
-        // You can add a transition effect using JavaScript if needed.
     }
 
-    var activeDate = document.getElementById("active-date");
-    if (activeDate) {
+    // Remove the "active-date" class from any previously selected date element
+    var activeDates = document.querySelectorAll(".active-date");
+   
+    activeDates.forEach(function (activeDate) {
         activeDate.classList.remove("active-date");
-    }
+    });
 
-    // Check if event.target has a classList property
-    if (event.target && event.target.classList) {
-        event.target.classList.add("active-date");
+    // Add the "active-date" class to the clicked date element
+    console.log(event.day);
+    if (event.day) {
+        
+        event.day.classList.add("active-date");
     }
 
     show_events(event.events, event.month, event.day);
 }
+
 
 //event handler when a month is clicked
 
