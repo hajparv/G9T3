@@ -144,7 +144,8 @@ WAD
   
   .calendar {
     width: 100%;
-    padding: 0; }
+    padding: 0; 
+    }
   
   /* Calendar Header */
   .year-header {
@@ -305,15 +306,11 @@ WAD
       border-radius: 50%;
       z-index: -1; }
   
-  .event-date {
-    
-    border-color:#A52A2A;
-    background: #A52A2A;
-    color: #fff; }
+ 
     .event-date:after {
       position: absolute;
-      top: 0;
-      left: 0;
+      top : 0;
+      left: 1px;
       width: 10px;
       height: 10px;
       border-radius: 50%;

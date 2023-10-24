@@ -406,22 +406,24 @@ function show_events(events, month, day) {
 //checks if a specific date has any events
 function check_events(day, month, year) {
     var events = [];
-    console.log(event_data.length);
-    console.log(day);
-    for (let i = 0; i < event_data.length; i++){
-        var event = event_data[i];
-        console.log(i)
-        console.log(`Event ${i + 1}: day ${event.day}, month ${event.month}, year ${event.year}`);
+    console.log(event_data[0]);
+    console.log(event_data[1]);
+    console.log(event_data[2]);
+    console.log(event_data[3]);
 
-    if (info.day == day &&
-        info.month == month &&
-        info.year == year) {
+    console.log(day);
+    for (let i=0; i<event_data.length;i++){
+        console.log(event_data[i].day)
+    
+    if (event_data[i].day == day &&
+        event_data[i].month == month &&
+        event_data[i].year == year) {
         events.push(event_data);
-    }
+    }}
     console.log(events);
     return events;
     
-}
+
 
 }
 
