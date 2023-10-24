@@ -1,27 +1,36 @@
 axios.get("http://localhost:8888/G9T3/PHP/getRecord.php")
 .then(response=>{
     var information = response.data;
-    var date = response.data.datetime;
-    var year = date.slice(0,4)
-    var month = date.slice(5,7);
-    var day = date.slice(8,10);
-    console.log(date);
-    console.log(year);
-    console.log(month);
-    console.log(day);
+    var event_data = [];
+    for (info in information){
+        var appointmentInfo = information[info];
+        var date = appointmentInfo.datetime;
+        console.log(date);
+        if (typeof date === 'string'){
+        var infoYear = date.slice(0,4);
+        var infoMonth = date.slice(5,7);
+        var infoDay = date.slice(8,10);
+        let event = {
+            day : infoDay,
+            month : infoMonth,
+            year : infoYear
+        };
+        event_data.push(event);
+        }
+        else{
+            console.log("invalid")
+        }
+    }
+    
+    console.log(event_data);
 
 
-})
 
 
 var date = new Date();
 var today = date.getDate();
 console.log(today);
-let event_data = {
-    day: 5,
-    month: 10,
-    year: 2023
-}
+
 
 const months = [
     "January",
@@ -356,7 +365,7 @@ function show_events(events, month, day) {
         eventsContainer.style.display = "block";
     }
 
-    console.log(event_data["events"]);
+    console.log(event_data);
 
     if (events.length === 0) {
         var eventCard = document.createElement("div");
@@ -397,14 +406,22 @@ function show_events(events, month, day) {
 //checks if a specific date has any events
 function check_events(day, month, year) {
     var events = [];
+    console.log(event_data.length);
+    console.log(day);
+    for (let i = 0; i < event_data.length; i++){
+        var event = event_data[i];
+        console.log(i)
+        console.log(`Event ${i + 1}: day ${event.day}, month ${event.month}, year ${event.year}`);
 
-
-    if (event_data["day"] === day &&
-        event_data["month"] === month &&
-        event_data["year"] === year) {
+    if (info.day == day &&
+        info.month == month &&
+        info.year == year) {
         events.push(event_data);
     }
+    console.log(events);
     return events;
+    
+}
 
 }
 
@@ -426,7 +443,7 @@ function new_event_json(name, date, day) {
     event_data["events"].push(event);
 }
 
-
+})
 
 //data for events in JSON
 
