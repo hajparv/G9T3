@@ -11,7 +11,7 @@
 </head>
 <body>
     <script>
-        axios.get("http://localhost:8888/PHP/getRecord.php")
+        axios.get("/PHP/getRecord.php")
         .then(response=>{
             var informations = response.data;
             console.log(informations.vaccinationStatus);
