@@ -216,13 +216,16 @@ function next_year(event) {
 
 //event handler when the year left-button is clicked 
 function prev_year(event) {
+   
     var dialog = document.getElementById("dialog");
     if (dialog) {
         dialog.style.display = "none";
         // You can add a transition effect using JavaScript if needed.
     }
 
-    var date = event.date; // Access the date directly from the event object.
+    var date = event.date; 
+    console.log(event);
+    // Access the date directly from the event object.
     var new_year = date.getFullYear() - 1;
 
     // Update the content of the element with ID "year."
@@ -319,7 +322,7 @@ function new_event(event) {
             
                 dialog.style.display = "none";
                 console.log("new event");
-                new_event_json(name, date, day);
+                new_event_json(name, count, date, day);
                 date.setDate(day);
                 init_calendar(date);
             }
@@ -328,9 +331,6 @@ function new_event(event) {
     }
 }
 
-// Add a click event listener to the calendar element (where you want to attach the event)
-var calendarElement = document.getElementById("calendar"); // Replace with your actual element
-calendarElement.addEventListener("click", new_event);
 
 
 function show_events(events, month, day) {
@@ -405,6 +405,7 @@ function check_events(day, month, year) {
 function new_event_json(name, date, day) {
     var event = {
         "occasion": name,
+  
         "year": date.getFullYear(),
         "month": date.getMonth() + 1,
         "day": day
