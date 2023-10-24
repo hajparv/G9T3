@@ -11,10 +11,10 @@
 </head>
 <body>
     <script>
-        axios.get("/PHP/getRecord.php")
+        axios.get("http://localhost:8888/G9T3/PHP/getRecord.php")
         .then(response=>{
             var informations = response.data;
-            console.log(informations.vaccinationStatus);
+            console.log(informations);
 
 
         })

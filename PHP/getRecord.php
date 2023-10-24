@@ -6,7 +6,7 @@ $records = $dao->getAll(); // Get an Indexed Array of Post objects
 
 $information = [];
 foreach( $records as $record ) {
-    $information = [];
+    
     $information["appointmentID"] = $record->getID();
     $information["clinicName"] = $record->getClinicName();
     $information["nric"] = $record->getNric();
