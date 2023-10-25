@@ -2,14 +2,30 @@ axios.get("http://localhost:8888/G9T3/PHP/getSchedule.php")
 .then(response=>{
     var information = response.data;
     console.log(information);
+    console.log(information.date)
     var event_data = [];
-    for (var i = 0; i < information.length; i++) {
-        var date = information[i]["date"];
-        event_data.push(date);
+    for (info in information){
+        var scheduleInfo = information[info];
+        
+        var date = scheduleInfo.date;
+       
+        
+        if (typeof date === 'string'){
+        var infoYear = date.slice(0,4);
+        var infoMonth = date.slice(5,7);
+        var infoDay = date.slice(8,10);
+        let event = {
+            day : infoDay,
+            month : infoMonth,
+            year : infoYear
+        };
+        event_data.push(event);
+        }
+       
     }
 
-    console.log(event_data);
 
+   
 
 
 
