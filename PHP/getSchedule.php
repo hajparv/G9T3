@@ -5,14 +5,17 @@ $dao = new ScheduleDAO();
 $schedules = $dao->getAll(); // Get an Indexed Array of Post objects
 
 $info = [];
-foreach ($schedules as $schedule){
-    $info["scheduleID"] = $schedule->getID();
-    $info["scheduleName"] = $schedule->getScheuleName();
-    $info["scheduleDescription"] = $schedule->getScheduleDescription();
-    $info["date"] = $schedule->getDate();
-    $info["time"] = $schedule->getTime();
-    $info[] = $info;
+foreach ($schedules as $schedule) {
+    $scheduleInfo = [
+        "scheduleID" => $schedule->getID(),
+        "scheduleName" => $schedule->getScheduleName(),
+        "scheduleDescription" => $schedule->getScheduleDescription(),
+        "date" => $schedule->getDate(),
+        "time" => $schedule->getTime(),
+    ];
+    $info[] = $scheduleInfo;
 }
+
 $postJSON = json_encode($info);
 echo $postJSON;
 ?>
