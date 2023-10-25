@@ -25,15 +25,9 @@
     <link href="vendor/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="vendor/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 
-    <!--strips-->
-    <script src="https://js.stripe.com/v3/"></script>
-
-
     <!-- Main Stylesheet File -->
     <link href="css/hover-style.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    
-
     <style>
         .profile-icon {
             float: right;
@@ -68,9 +62,9 @@
         }
     </style>
 </head>
-<body>
-    <!-- Your existing HTML content -->
 
+<body>
+    <!--nav-->
     <header id="header">
         <div class="container">
             <nav id="nav-menu-container">
@@ -214,104 +208,213 @@
                                     </p> 
                                 </div> 
                             </div> 
-
-    <div id="stripe-form">
-        <label for="card-element">
-            Credit or Debit Card
-        </label>
-        <div id="card-element">
-            <!-- A Stripe Element will be inserted here. -->
-        </div>
-
-        <!-- Used to display form errors. -->
-        <div id="card-errors" role="alert"></div>
+                            <div class=""> 
+                                <p class="h7 fw-bold mb-1"></p> 
+                                <div id="paypal-button"></div> 
+                            </div> 
+                        </div> 
+                    </div> 
+                </div> 
+            </div>
         
-        <button id="submit-payment">Submit Payment</button>
-    </div>
-
-    <!-- Include jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            var stripe = Stripe('your-publishable-key'); // Replace with your own publishable key
-            var elements = stripe.elements();
-            var card = elements.create('card');
-            card.mount('#card-element');
-
-            var form = document.getElementById('stripe-form');
-            var errorElement = document.getElementById('card-errors');
-
-            form.addEventListener('submit', function(event) {
-                event.preventDefault();
-
-                stripe.createPaymentMethod({
-                    type: 'card',
-                    card: card
-                }).then(function(result) {
-                    if (result.error) {
-                        errorElement.textContent = result.error.message;
-                    } else {
-                        // Payment method is created and can be used to confirm a payment
-                        console.log(result.paymentMethod);
-
-                        // Send payment method to your server for further processing and confirmation
-                        // Example using jQuery:
-                        $.post('your-server-endpoint', { paymentMethod: result.paymentMethod.id }, function(data) {
-                            if (data.success) {
-                                alert("Payment successful!");
-                                window.location.href = "http://your-redirect-url";
-                            } else {
-                                alert("Payment failed. Please try again.");
-                            }
+            <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+            
+            <script>
+                var CREATE_PAYMENT_URL  = 'http://127.0.0.1:8100/payment';
+                var EXECUTE_PAYMENT_URL = 'http://127.0.0.1:8100/execute';
+                var ADD_PAYMENT_URL = 'http://127.0.0.1:8100/add/';
+            
+                paypal.Button.render({
+            
+                    env: 'sandbox', // Or 'sandbox'
+            
+                    commit: true, // Show a 'Pay Now' button
+            
+                    payment: function() {
+                        return paypal.request.post(CREATE_PAYMENT_URL).then(function(data) {
+                            return data.paymentID;
+                        });
+                    },
+            
+                    onAuthorize: function(data) {
+                        return paypal.request.post(EXECUTE_PAYMENT_URL, {
+                            paymentID: data.paymentID,
+                            payerID:   data.payerID
+                            
+                        }).then(function(res) {
+                            alert("Your Transaction is Successful!");
+                            window.location.href = "http://127.0.0.1:8100/" ;
+                            res.success
+    
+                        }).then(function(){
+    
+                            ADD_PAYMENT_URL = ADD_PAYMENT_URL + data.paymentID
+                            return paypal.request.post(ADD_PAYMENT_URL)
+                            .then(function(res){
+                                alert('Added to history!')
+                            })
+                            
                         });
                     }
+            
+                }, '#paypal-button');
+            </script>
+    
+    
+            <script>
+                $(async () => {
+                    var serviceURL = "http://127.0.0.1:8100/paymentrecord";
+                    try {
+                        const response =
+                            await fetch(
+                                serviceURL, { mode: 'cors', method: 'GET' }
+                            );
+                        const result = await response.json();
+                        if (response.status === 200) {
+                            // success case
+                            var paymentrecords = result.data.paymentrecords;
+                            // for loop to setup all table rows with obtained payment data
+                            var rows = "";
+    
+                            for (const record of paymentrecords) {
+                                eachRow =
+                                    "<td>" + record.invoiceID + "</td>" +
+                                    "<td>" + record.date + "</td>" +
+                                    "<td>" + record.receiptID + "</td>" +
+                                    "<td>" + record.appointmentID + "</td>" +
+                                    "<td>" + record.clinicName + "</td>"+
+                                    "<td>" + record.cost + "</td>";
+        
+                                rows += "<tr>" + eachRow + "</tr>";
+                     
+                            }
+                            // add all the rows to the table
+                            $('#PaymentrecordTable').append(rows);
+        
+                        } else if (response.status == 404) {
+                            // No books
+                            showError
+                                (result.message);
+                        } else {
+                            // unexpected outcome, throw the error
+                            throw response.status;
+                        }
+        
+                    } catch (error) {
+                        // Errors when calling the service; such as network error, 
+                        // service offline, etc
+                        showError
+                            ('There is a problem retrieving data, please try again later.<br />' + error);
+                    } // error
                 });
-            });
-        });
-    </script>
-
-
-</main>
-
-<!-- Footer Start -->
-<footer id="footer">
-    <div class="container">
-        <div class="copyright">
-            <p>&copy; Copyright <a href="#">Medi Mate</a>. All Rights Reserved</p>
+            </script>
+    
+            <script>
+                $(async () => {
+                // Change serviceURL to your own
+                var serviceURL = "http://127.0.0.1:8100/pendingpayment";
+    
+                try {
+                    const response =
+                        await fetch(
+                            serviceURL, { mode: 'cors', method: 'GET' }
+                        );
+                    const result = await response.json();
+                    if (response.status === 200) {
+                        // success case
+                        var pendingpayments = result.data.pendingpayment;
+                        // for loop to setup all table rows with obtained payment data
+                        var rows = "";
+                        let totalcost = 0;
+                        for (const pending of pendingpayments) {
+    
+                            eachRow =
+                                "<td><input class='custom-checkbox' type='checkbox' onclick='UpdateCost(this)' value="+pending.cost+"></td>" +
+                                "<td>" + pending.date + "</td>" +
+                                "<td>" + pending.receiptID + "</td>" +
+                                "<td>" + pending.appointmentID + "</td>" +
+                                "<td>" + pending.clinicName + "</td>"+
+                                "<td>" + pending.cost + "</td>"+
+                                "<td>" + pending.duedate + "</td>";
+    
+                            rows += "<tr>" + eachRow + "</tr>";
+                            totalcost = totalcost + pending.cost;
+                            
+                        }
+                        document.getElementById("totalcost").innerHTML = "Total amount: $" + totalcost.toFixed(2);
+                        // add all the rows to the table
+                        $('#pendingTable').append(rows);
+    
+                    } else if (response.status == 404) {
+                        // No books
+                        showError
+                            (result.message);
+                    } else {
+                        // unexpected outcome, throw the error
+                        throw response.status;
+                    }
+    
+                } catch (error) {
+                    // Errors when calling the service; such as network error, 
+                    // service offline, etc
+                    showError
+                        ('There is a problem retrieving data, please try again later.<br />' + error);
+                } // error
+                });
+            </script>  
+    
         </div>
-    </div>
-</footer>
-<!-- Footer end -->
+    
+    
+ 
 
-<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-<!-- Uncomment below i you want to use a preloader -->
-<div id="preloader"></div> 
+        <section id="support" class="wow fadeInUp">
+            <div class="container">
+                <h1>
+                    <!-- Need help? Call me 24/7 at +1-234-567-8900 -->
+                </h1>
+            </div>
+        </section>
+        <!-- Support Section end -->
+
+    </main>
+
+    <!-- Footer Start -->
+    <footer id="footer">
+        <div class="container">
+            <div class="copyright">
+                <p>&copy; Copyright <a href="#">Medi Mate</a>. All Rights Reserved</p>
+
+                <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+            </div>
+        </div>
+    </footer>
+    <!-- Footer end -->
+
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+    <!-- Uncomment below i you want to use a preloader -->
+    <!-- <div id="preloader"></div> -->
 
 
-<!-- JavaScript Libraries -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/jquery/jquery-migrate.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="vendor/easing/easing.min.js"></script>
-<script src="vendor/stickyjs/sticky.js"></script>
-<script src="vendor/superfish/hoverIntent.js"></script>
-<script src="vendor/superfish/superfish.min.js"></script>
-<script src="vendor/owlcarousel/owl.carousel.min.js"></script>
-<script src="vendor/touchSwipe/jquery.touchSwipe.min.js"></script>
-<script src="vendor/tempusdominus/js/moment.min.js"></script>
-<script src="vendor/tempusdominus/js/moment-timezone.min.js"></script>
-<script src="vendor/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- JavaScript Libraries -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/jquery/jquery-migrate.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/easing/easing.min.js"></script>
+    <script src="vendor/stickyjs/sticky.js"></script>
+    <script src="vendor/superfish/hoverIntent.js"></script>
+    <script src="vendor/superfish/superfish.min.js"></script>
+    <script src="vendor/owlcarousel/owl.carousel.min.js"></script>
+    <script src="vendor/touchSwipe/jquery.touchSwipe.min.js"></script>
+    <script src="vendor/tempusdominus/js/moment.min.js"></script>
+    <script src="vendor/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="vendor/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
 
-<!-- Main Javascript File -->
-<script src="js/payment.js"></script>
-<script src="js/stripe.js>"></script>
+    <!-- Main Javascript File -->
+    <script src="js/payment.js"></script>
 
 </body>
 
 
 
-</html>
-
-</body>
 </html>
