@@ -1,7 +1,7 @@
 <?php
 
 require_once 'common.php';
-$dao = new RecordDAO();
+$dao = new ScheduleDAO();
 $schedules = $dao->getAll(); // Get an Indexed Array of Post objects
 
 $info = [];
