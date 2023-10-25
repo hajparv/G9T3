@@ -114,7 +114,8 @@ WAD
   
   .event-name {
     padding-right: 0;
-    text-align: left; }
+    text-align: left;
+    font-size: 20px; }
   
   .event-cancelled {
     color: #A52A2A;
@@ -127,7 +128,7 @@ WAD
     height: 100%;
     width: 100%;
     background: #fff;
-    font: 13px Helvetica, Arial, san-serif;
+    font: 30px Helvetica, Arial, san-serif;
     display: inline-block;
     padding: 20px;
     float: right; }
@@ -150,7 +151,7 @@ WAD
   /* Calendar Header */
   .year-header {
     background: #fff;
-    height: 40px;
+    height: 60px;
     text-align: center;
     position: relative;
     color: #fff;
@@ -159,7 +160,7 @@ WAD
   
   .year-header span {
     display: inline-block;
-    font-size: 20px;
+    font-size: 25px;
     line-height: 40px;
     color: #000; }
   
@@ -239,11 +240,11 @@ WAD
   .day {
     height: 26px;
     width: 26px;
-    padding: 0 10px;
+    padding: 10px 10px;
     line-height: 26px;
     border: 2px solid transparent;
     text-transform: uppercase;
-    font-size: 10px;
+    font-size: 20px;
     color: #000; }
   
   .month {
@@ -254,7 +255,7 @@ WAD
     padding-top: 10px;
     line-height: 26px;
     text-transform: uppercase;
-    font-size: 11px;
+    font-size: 20px;
     color: #cccccc;
     -webkit-transition: all 250ms;
     -o-transition: all 250ms;
@@ -279,7 +280,7 @@ WAD
     color: #2b2b2b;
     height: 26px;
     width: 26px;
-    font-size: 15px;
+    font-size: 20px;
     padding: 10px;
     line-height: 26px;
     text-align: center;

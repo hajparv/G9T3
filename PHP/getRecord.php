@@ -18,6 +18,7 @@ foreach( $records as $record ) {
     $information["vaccinationStatus"] = $record->getVaccinationStatus();
     $information[] = $information;
 }
+var_dump($information);
 // make posts into json and return json data
 $postJSON = json_encode($information);
 echo $postJSON;
