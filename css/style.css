@@ -95,7 +95,7 @@ WAD
     padding: 20px 0;
     max-width: 100%;
     display: block;
-    background: #A52A2A;
+    background: #C36262;
     border: none !important;
     margin: 20px;
     color: #fff;
@@ -130,6 +130,7 @@ WAD
     background: #fff;
     font: 30px Helvetica, Arial, san-serif;
     display: inline-block;
+    border:#A52A2A 10px solid;
     padding: 20px;
     float: right; }
     @media (max-width: 991.98px) {
