@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Medi Mate</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicons -->
+    <link href="img/favicon.ico" rel="icon">
+    <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600|Nunito:600,700,800,900" rel="stylesheet">
+
+    <!-- Bootstrap CSS File -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Libraries CSS Files -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="vendor/animate/animate.min.css" rel="stylesheet">
+    <link href="vendor/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="vendor/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="vendor/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!--strips-->
+    <script src="https://js.stripe.com/v3/"></script>
+
+
+    <!-- Main Stylesheet File -->
+    <link href="css/hover-style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    
+
+    <style>
+        .profile-icon {
+            float: right;
+            margin-right: 20px;
+            /* Adjust margin as needed */
+        }
+
+        .profile-icon a {
+            text-decoration: none;
+            color: #333;
+            /* Change the text color */
+            display: block;
+            text-align: center;
+        }
+
+        .profile-icon img {
+            width: 32px;
+            /* Set the icon size */
+            height: 32px;
+            border-radius: 50%;
+            /* Make it circular */
+        }
+
+        /* Remove background image */
+        .banner-header {
+            background-image: none;
+        }
+
+        /* Remove "Medi Mate" text */
+        .banner-header h1 {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Your existing HTML content -->
+
+    <header id="header">
+        <div class="container">
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="booking.html">Book Appointment</a></li>
+                    <li><a href="newcalendar.html">Calendar</a></li>
+                    <li class="menu-active"><a href="payment.html">Make Payment</a></li>
+                    <li><a href="login.html">Log In</a></li>
+                    <li class="profile-icon">
+                        <a href="personalhealth.html">
+                            <img src="profile icon.webp" alt="Profile Icon">
+                            My Health
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <main>
+
+            <script>
+                var total=0;
+                function UpdateCost(elem) {
+                
+                    if (elem.checked == true) { 
+                        total += Number(elem.value); 
+                    }else{
+                        total -=Number(elem.value);
+                    }
+    
+                    document.getElementById('total').value = total.toFixed(2);
+                }
+    
+            </script>
+    
+    
+            <div class="container"> 
+                <div class="row m-0"> 
+                    <div class="col-md-8 col-12"> 
+                        <div class="row"> 
+                            <div class="col-12 mb-4"> 
+                                <div class="row box-right"> 
+                                    <div class="col-md-8">
+                                        <p class="amount">
+                                            <span class="text">Pending</span>
+                                            <p class="amount" id="totalcost"></p>
+                                
+                                        </p>
+                                        <p>
+                                            <table class='table'>
+                                                <thead class='table'>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th>Date of Appointment</th>
+                                                        <th>ReceiptID</th>
+                                                        <th>AppointmentID</th>
+                                                        <th>ClinicName</th>
+                                                        <th>Cost</th>
+                                                        <th>Due Date</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="pendingTable"></tbody>
+                                            </table>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 mb-4">
+                                <div class="row box-right">
+                                    <div class="col-md-8">
+                                        <p class="amount">
+                                            <span class="text">Recently Paid</span>
+                                        </p>
+                                        <div class="table">
+                                            <table class='table'>
+                                                <thead class='table'>
+                                                    <tr>
+                                                        <th>InvoiceID</th>
+                                                        <th>Payment Date</th>
+                                                        <th>ReceiptID</th>
+                                                        <th>AppointmentID</th>
+                                                        <th>ClinicName</th>
+                                                        <th>Cost</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="PaymentrecordTable"></tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div> 
+                    </div> 
+                    <div class="col-md-4 col-12 ps-md-5 p-0 "> 
+                        <div class="box-left"> 
+                            <p class="textmuted h8">Invoice</p> 
+                            <p class="fw-bold h7">NRIC: SXXXX485J</p> 
+                            <div class="h8"> 
+                                <div class="row m-0 border mb-3"> 
+                                    <div class="col-6 h8 pe-0 ps-2"> 
+                                        <p class="textmuted py-2">Description</p> 
+                                        <span class="d-block py-2 border-bottom">Consultation</span>
+                                        <span class="d-block py-2 border-bottom">Acetaminophen</span>
+                                        <span class="d-block py-2">Aspirin</span> 
+                                    </div> <div class="col-2 text-center p-0"> 
+                                        <p class="textmuted p-2">Qty</p> 
+                                        <span class="d-block p-2 border-bottom">-</span> 
+                                        <span class="d-block p-2 border-bottom">2</span> 
+                                        <span class="d-block p-2">2</span> 
+                                    </div> 
+                                    <div class="col-2 p-0 text-center h8 border-end"> 
+                                        <p class="textmuted p-2">Price</p> 
+                                        <span class="d-block border-bottom py-2">
+                                            <span class="fas fa-dollar-sign">17</span>
+                                        </span>
+                                        <span class="d-block border-bottom py-2">
+                                            <span class="fas fa-dollar-sign">9</span>
+                                        </span> 
+                                        <span class="d-block py-2 ">
+                                            <span class="fas fa-dollar-sign">10.50</span>
+                                        </span> 
+                                    </div> 
+                                    <div class="col-2 p-0 text-center"> 
+                                        <p class="textmuted p-2">Total</p> 
+                                        <span class="d-block py-2 border-bottom">
+                                            <span class="fas fa-dollar-sign"></span>17
+                                        </span> 
+                                        <span class="d-block py-2 border-bottom">
+                                            <span class="fas fa-dollar-sign"></span>18
+                                        </span> 
+                                        <span class="d-block py-2">
+                                            <span class="fas fa-dollar-sign"></span>21
+                                        </span> 
+                                    </div> 
+                                </div> 
+                                <div class="d-flex h7 mb-2"> 
+                                    <p class="">Total Amount</p> 
+                                    <p class="ms-auto">
+                                        <span class="fas fa-dollar-sign"></span><input type="text" size="10" id="total" disabled="disabled"/>
+                                    </p> 
+                                </div> 
+                            </div> 
+
+    <div id="stripe-form">
+        <label for="card-element">
+            Credit or Debit Card
+        </label>
+        <div id="card-element">
+            <!-- A Stripe Element will be inserted here. -->
+        </div>
+
+        <!-- Used to display form errors. -->
+        <div id="card-errors" role="alert"></div>
+        
+        <button id="submit-payment">Submit Payment</button>
+    </div>
+
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var stripe = Stripe('your-publishable-key'); // Replace with your own publishable key
+            var elements = stripe.elements();
+            var card = elements.create('card');
+            card.mount('#card-element');
+
+            var form = document.getElementById('stripe-form');
+            var errorElement = document.getElementById('card-errors');
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                stripe.createPaymentMethod({
+                    type: 'card',
+                    card: card
+                }).then(function(result) {
+                    if (result.error) {
+                        errorElement.textContent = result.error.message;
+                    } else {
+                        // Payment method is created and can be used to confirm a payment
+                        console.log(result.paymentMethod);
+
+                        // Send payment method to your server for further processing and confirmation
+                        // Example using jQuery:
+                        $.post('your-server-endpoint', { paymentMethod: result.paymentMethod.id }, function(data) {
+                            if (data.success) {
+                                alert("Payment successful!");
+                                window.location.href = "http://your-redirect-url";
+                            } else {
+                                alert("Payment failed. Please try again.");
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+
+</main>
+
+<!-- Footer Start -->
+<footer id="footer">
+    <div class="container">
+        <div class="copyright">
+            <p>&copy; Copyright <a href="#">Medi Mate</a>. All Rights Reserved</p>
+        </div>
+    </div>
+</footer>
+<!-- Footer end -->
+
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+<!-- Uncomment below i you want to use a preloader -->
+<div id="preloader"></div> 
+
+
+<!-- JavaScript Libraries -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/jquery/jquery-migrate.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="vendor/easing/easing.min.js"></script>
+<script src="vendor/stickyjs/sticky.js"></script>
+<script src="vendor/superfish/hoverIntent.js"></script>
+<script src="vendor/superfish/superfish.min.js"></script>
+<script src="vendor/owlcarousel/owl.carousel.min.js"></script>
+<script src="vendor/touchSwipe/jquery.touchSwipe.min.js"></script>
+<script src="vendor/tempusdominus/js/moment.min.js"></script>
+<script src="vendor/tempusdominus/js/moment-timezone.min.js"></script>
+<script src="vendor/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+<!-- Main Javascript File -->
+<script src="js/payment.js"></script>
+<script src="js/stripe.js>"></script>
+
+</body>
+
+
+
+</html>
+
+</body>
+</html>
