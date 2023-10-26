@@ -57,15 +57,24 @@
             /* Make it circular */
         }
 
-        /* Remove background image */
-        .banner-header {
-            background-image: none;
-        }
+        .container-fluid {
+      min-height: calc(100vh - 60px); /* Adjust 60px according to your header height */
+      display: flex;
+      flex-direction: column;
+    }
 
-        /* Remove "Medi Mate" text */
-        .banner-header h1 {
-            display: none;
-        }
+    .cal {
+      flex: 1;
+      /* This will push the footer to the bottom */
+    }
+
+    /* Adjust footer styles as needed */
+    #footer {
+      background-color: #333; /* Change this to your desired footer background color */
+      color: #fff; /* Change this to your desired footer text color */
+      padding: 20px;
+      text-align: center;
+    }
     </style>
 </head>
 <body>
@@ -94,8 +103,8 @@
 
             <div class="container-fluid">
                 <div class="row justify-content-center">
-                    <div class="col-12 col-lg-11">
-                        <div class="card card0 rounded-0">
+                    <div class="col-sm-12 col-lg-11">
+                        <div class="card card rounded-0">
                             <div class="row">
                                 <div class="col-md-5 d-md-block d-none p-0 box">
                                     <div class="card rounded-0 border-0 card1" id="bill">
