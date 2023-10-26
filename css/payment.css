@@ -8,22 +8,23 @@ html {
 }
 
 body {
-	background-color: #000000;
+	background-color: white;
 }
 
 /*Card containing 2 cards*/
 .card0 {
 	margin: 40px 12px 15px 12px;
 	border: 0;
+    background: #BDBDBD;
 }
 
 /*Left Side card*/
 .card1 {
 	margin: 0;
 	padding: 15px;
-	padding-top: 25px;
+	padding-top: 50px;
 	padding-bottom: 0px;
-	background: #263238;
+	background: grey;
 	height: 100%;
 }
 
@@ -47,7 +48,7 @@ body {
 	margin-top: 25px;
 	margin-left: 0px;
 	margin-right: 0px;
-	background-color: #F44336;
+	background-color: #A52A2A;
 	padding-left: 20px !important;
 	padding: 25px 10px 25px 15px;
 }

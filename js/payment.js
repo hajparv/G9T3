@@ -8,7 +8,7 @@ function calculateTotal() {
     var total = consultationCost + medicineCost - insuranceCost;
 
     // Update the total amount in the HTML
-    document.getElementById('total-amount').textContent = '$ ' + total.toFixed(2);
+    document.getElementById('total-amount').textContent = total.toFixed(2);
 }
 
 // Call the calculateTotal function when the page loads
