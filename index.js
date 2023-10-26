@@ -1,8 +1,8 @@
 const { google } = require('googleapis');
 const { OAuth2 } = google.auth;
-const oAuth2Client = new OAuth2('725612089696-1h3ifh5lmlnsd8iu2nfmnjg5i7aq5sfr.apps.googleusercontent.com','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');
+const oAuth2Client = new OAuth2('1038309708510-9qmvt9lf75qhrhii4ivhns85ko8k62e6.apps.googleusercontent.com','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');
 
-oAuth2Client.setCredentials({ refresh_token: '1//04i6EJDrzOAFACgYIARAAGAQSNwF-L9IrfwrLX1EvfBaXcnni8uMtTWWoOU9oyUoX1HRfGD_s1bOrEPrLGgkDQywxvwR5tLUmlRo' })
+oAuth2Client.setCredentials({ refresh_token: '1//048g9fs5_b45yCgYIARAAGAQSNwF-L9IrGkP-lg2D2mSAA4ZiDl5QIfaGFHnKDyAFPUs5WFSdnHa3LhpkYL0MGFX4PMiK9rV4c3s' })
 
 const calendar = google.calendar({ version: 'v3', auth: oAuth2Client });
 
