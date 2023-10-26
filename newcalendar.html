@@ -49,6 +49,26 @@
       border-radius: 50%;
       /* Make it circular */
     }
+    .container-fluid {
+      min-height: calc(100vh - 60px); /* Adjust 60px according to your header height */
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cal {
+      flex: 1;
+      /* This will push the footer to the bottom */
+    }
+
+    /* Adjust footer styles as needed */
+    #footer {
+      background-color: #333; /* Change this to your desired footer background color */
+      color: #fff; /* Change this to your desired footer text color */
+      padding: 20px;
+      text-align: center;
+    }
+
+    
   </style>
 </head>
 
@@ -149,18 +169,15 @@
     </div>
     </div>
   </section>
-  <!-- Footer Start -->
   <footer id="footer">
     <div class="container">
-      <div class="copyright">
-        <p></p>
+        <div class="copyright">
+            <p></p>
 
-        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-        <p>Designed By us <a href="https://htmlcodex.com"></a></p>
-      </div>
+            <p>Designed By us <a href="https://htmlcodex.com"></a></p>
+        </div>
     </div>
-  </footer>
-  <!-- Footer end -->
+</footer>
 
 
 </body>
