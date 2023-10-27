@@ -195,6 +195,7 @@ body.nav-active {
 .headline-md {
   font-size: var(--headline-md);
   font-weight: var(--fw-700);
+  text-align: center;
 }
 
 .headline-lg,
@@ -370,7 +371,9 @@ body.nav-active {
 /*-----------------------------------*\
   #HEADER
 \*-----------------------------------*/
-
+.header .navbar-link{
+  text-decoration: none;
+}
 .header .btn {
   display: none;
 }
@@ -565,7 +568,9 @@ body.nav-active {
 /*-----------------------------------*\
   #SERVICE
 \*-----------------------------------*/
-
+.service{
+  padding-top: 50px;
+}
 .service-list {
   padding-block: 60px 30px;
   padding-inline: 25px;
@@ -575,10 +580,13 @@ body.nav-active {
   margin-block-start: -60px;
   background-color: var(--white);
   box-shadow: var(--shadow-1);
+  
 }
 
 .service-card {
   text-align: center;
+  border : 3px var(--midnight-green) solid;
+  padding-top: 10px;
 }
 
 .service-card .card-icon,
@@ -611,19 +619,33 @@ body.nav-active {
 
 
 /*-----------------------------------*\
-  #health.html
+  #HEALTH.HTML
 \*-----------------------------------*/
 
 .healthpage {
   background-color: var(--midnight-green);
   color: white;
-  padding-top : 80px;
+  padding : 100px;
 
 }
+.health{
+  background-color: var(--verdigris);
+}
+.row-title{
+  text-align: center;
+}
+.row-body{
+  padding: 10px 10px;
+}
+.health-card{
+  border: var(--midnight-green) 3px solid;
+  border-radius: 10px;
+}
+.immunisation{
+  background-color: var(--midnight-green);
+  color: white;
+  padding : 100px;
 
-
-.health-subtitle {
-  color:black;
 }
 
 /*-----------------------------------*\
