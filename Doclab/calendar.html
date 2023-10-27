@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 
+    - primary meta tags
+  -->
+  <title>Doclab - home</title>
+  <meta name="title" content="Doclab - home">
+  <meta name="description" content="This is a madical html template made by codewithsadee">
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Rubik:wght@400;500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- 
+    - preload images
+  -->
+  <link rel="preload" as="image" href="./assets/images/hero-banner.png">
+  <link rel="preload" as="image" href="./assets/images/hero-bg.png">
+<!--Javascript-->
+<script src="assets/js/script.js"></script>
+<script src="assets/js/calendar.js" defer></script>
+
+    <!-- Axios -->
+    <script src="https://unpkg.com/axios/dist/axios.js"></script>
+</head>
+
+<body id="top">
+
+  <!-- 
+    - #PRELOADER
+  -->
+
+  <div class="preloader" data-preloader>
+    <div class="circle"></div>
+  </div>
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="#" class="logo">
+        <img src="./assets/images/logo.svg" width="136" height="46" alt="Doclab home">
+      </a>
+
+      <nav class="navbar" data-navbar>
+
+        <div class="navbar-top">
+
+          <a href="#" class="logo">
+            <img src="./assets/images/logo.svg" width="136" height="46" alt="Doclab home">
+          </a>
+
+          <button class="nav-close-btn" aria-label="clsoe menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+
+        </div>
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <a href="#" class="navbar-link title-md">Home</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#" class="navbar-link title-md">Search Clinic</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="calendar.html" class="navbar-link title-md">Calendar</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#" class="navbar-link title-md">Payment</a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#" class="navbar-link title-md">My Health</a>
+          </li>
+
+        </ul>
+
+        <ul class="social-list">
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-pinterest"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <ion-icon name="menu-outline"></ion-icon>
+      </button>
+
+      <a href="#" class="btn has-before title-md">Make Appointment</a>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+  </header>
+
+
+
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-md-6 text-center mb-5">
+          <h2 class="heading section"></h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2 col-lg-2"></div>
+        <div class="col-md-8 col-sm-12 col-lg-8" >
+          <div class="content w-100">
+            <div class="calendar-container">
+              <div id="calendar">
+                <div class="year-header">
+                  <span class="left-button fa fa-chevron-left" id="prev"> </span>
+                  <span class="year" id="label"></span>
+                  <span class="right-button fa fachevron-right" id="next"> </span>
+                </div>
+                <table class="months-table w-100">
+                  <tbody>
+                    <tr class="months-row">
+                      <td class="month">Jan</td>
+                      <td class="month">Feb</td>
+                      <td class="month">Mar</td>
+                      <td class="month">Apr</td>
+                      <td class="month">May</td>
+                      <td class="month">Jun</td>
+                      <td class="month">Jul</td>
+                      <td class="month">Aug</td>
+                      <td class="month">Sep</td>
+                      <td class="month">Oct</td>
+                      <td class="month">Nov</td>
+                      <td class="month">Dec</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <table class="days-table w-100">
+                  <td class="day">Sun</td>
+                  <td class="day">Mon</td>
+                  <td class="day">Tue</td>
+                  <td class="day">Wed</td>
+                  <td class="day">Thu</td>
+                  <td class="day">Fri</td>
+                  <td class="day">Sat</td>
+                </table>
+                <div class="frame">
+                  <table class="dates-table w-100">
+                    <tbody class="tbody">
+                    </tbody>
+                  </table>
+                </div>
+                <button class="button" id="add-button">Add Event</button>
+              </div>
+            </div>
+            <div class="events-container">
+            </div>
+            <div class="dialog" id="dialog">
+              <h2 class="dialog-header"> Add New Event </h2>
+              <form class="form" id="form">
+                <div class="form-container" align="center">
+                  <label class="text" id="eventname" for="name">Event name</label>
+                  <input class="input" type="text" id="name" maxlength="36">
+                  <span><textarea>Event Description</textarea></span>
+                  <br>
+                  <input type="button" value="Cancel" class="button" id="cancel-button">
+                  <input type="button" value="OK" class="button button-white" id="ok-button">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 col-lg-2"></div>
+
+      </div>
+    </div>
+    </div>
+
+  <footer id="footer">
+    <div class="container">
+        <div class="copyright">
+            <p></p>
+
+            <p>Designed By us <a href="https://htmlcodex.com"></a></p>
+        </div>
+    </div>
+</footer>
+
+
+<a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+    <ion-icon name="chevron-up"></ion-icon>
+  </a>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
