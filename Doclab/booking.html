@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -242,13 +240,12 @@
                 <div class="form-row">
                   <div class="control-group col-sm-6">
                     <label>Appointment Date</label>
-                    <input type="text" class="form-control datetimepicker-input" id="date" data-toggle="datetimepicker"
-                      data-target="#date" placeholder="E.g. MM/DD/YYYY" required="required" />
+                    <input type="date" class="form-control" id="date" placeholder="E.g. MM/DD/YYYY"
+                      required="required" />
                   </div>
                   <div class="control-group col-sm-6">
                     <label>Appointment Time</label>
-                    <input type="text" class="form-control datetimepicker-input" id="time" data-toggle="datetimepicker"
-                      data-target="#time" placeholder="E.g. HH:MM AM" required="required" />
+                    <input type="time" class="form-control" id="time" placeholder="E.g. HH:MM AM" required="required" />
                   </div>
                 </div>
                 <div class="control-group">
@@ -265,7 +262,21 @@
     </section>
     <!-- Booking Section End -->
 
-
+    <!-- Include flatpickr library for date and time picking -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+      // Initialize flatpickr for date and time input fields
+      flatpickr('#date', {
+        enableTime: false, // Date only
+        dateFormat: "m/d/Y", // Format as MM/DD/YYYY
+      });
+      flatpickr('#time', {
+        enableTime: true, // Enable time selection
+        noCalendar: true, // Time only
+        dateFormat: "h:i K", // Format as HH:MM AM/PM
+      });
+    </script>
     </div>
 
     <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
