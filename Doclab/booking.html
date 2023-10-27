@@ -26,9 +26,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Rubik:wght@400;500;700&display=swap"
     rel="stylesheet">
 
-  <!-- 
-    - custom css link
-  -->
+
   <link rel="stylesheet" href="./assets/css/style.css">
 
   <!-- 
@@ -38,6 +36,56 @@
   <link rel="preload" as="image" href="./assets/images/hero-bg.png">
 
 </head>
+
+<style>
+  /* ================================================= */
+  /* ----------------- Booking Style ----------------- */
+  /* ================================================= */
+
+  #booking {
+    position: relative;
+    padding: 60px 0;
+  }
+
+  #booking .container {
+    max-width: 900px;
+  }
+
+  #booking label {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  #booking .booking-form input,
+  #booking .booking-form select {
+    font-size: 16px;
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    box-shadow: none;
+    margin-bottom: 15px;
+  }
+
+  #booking .booking-form input:focus,
+  #booking .booking-form textarea:focus {
+    border: 1px solid #A52A2A;
+  }
+
+  #booking .booking-form button[type="submit"] {
+    background: #FFFFFF;
+    border: none;
+    padding: 8px 30px 10px 30px;
+    color: #ffffff;
+    background: #A52A2A;
+    transition: 0.4s;
+    cursor: pointer;
+    border-radius: 30px;
+  }
+
+  #booking .booking-form button[type="submit"]:hover {
+    background: #540000;
+  }
+</style>
 
 <body id="top">
 
@@ -57,7 +105,7 @@
     <div class="container">
 
       <a href="#" class="logo">
-        <img src="./assets/images/logo.svg" width="136" height="46" alt="Doclab home">
+        <img src="./assets/images/medimatelogo2.png" width="100" height="46" alt="Medimate home">
       </a>
 
       <nav class="navbar" data-navbar>
@@ -65,7 +113,7 @@
         <div class="navbar-top">
 
           <a href="#" class="logo">
-            <img src="./assets/images/logo.svg" width="136" height="46" alt="Doclab home">
+            <img src="./assets/images/logo.svg" width="136" height="46" alt="Medimate home">
           </a>
 
           <button class="nav-close-btn" aria-label="clsoe menu" data-nav-toggler>
@@ -144,29 +192,93 @@
 
     </div>
   </header>
+  
   <!--insert your own css -->
-<body class="">
-    
-    
+
+  <body class="">
+
+
     <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
-        <ion-icon name="chevron-up"></ion-icon>
-      </a>
-    
-    
-    
-    
-    
-      <!-- 
+      <ion-icon name="chevron-up"></ion-icon>
+    </a>
+
+
+    <section id="booking" style="background-image: url('./assets/images/hero-bg.png');" aria-label="booking">
+      <div class="container">
+        <div class="section-header">
+          <h3>Book Your Clinic Appointment</h3>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="booking-form">
+              <form>
+                <div class="form-row">
+                  <div class="control-group col-sm-6">
+                    <label>Full Name</label>
+                    <input type="text" class="form-control" placeholder="E.g. Jamie Tan" required="required" />
+                  </div>
+                  <div class="control-group col-sm-6">
+                    <label>Email</label>
+                    <input type="email" class="form-control" placeholder="E.g. email@example.com" required="required" />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="control-group col-sm-6">
+                    <label>Mobile</label>
+                    <input type="text" class="form-control" placeholder="8772 2367" required="required" />
+                  </div>
+                  <div class="control-group col-sm-6">
+                    <label>Select a Service</label>
+                    <select class="custom-select">
+                      <option value="">Consultation</option>
+                      <option>Health Checkup</option>
+                      <option>Flu Shots</option>
+                      <option>Blood Test</option>
+                      <option>Physical Exams</option>
+                      <option>Prevention</option>
+                      <option>Family Planning</option>
+                      <option>Home Visits</option>
+                      <option>Insurance</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="control-group col-sm-6">
+                    <label>Appointment Date</label>
+                    <input type="text" class="form-control datetimepicker-input" id="date" data-toggle="datetimepicker"
+                      data-target="#date" placeholder="E.g. MM/DD/YYYY" required="required" />
+                  </div>
+                  <div class="control-group col-sm-6">
+                    <label>Appointment Time</label>
+                    <input type="text" class="form-control datetimepicker-input" id="time" data-toggle="datetimepicker"
+                      data-target="#time" placeholder="E.g. HH:MM AM" required="required" />
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label>Special Request</label>
+                  <input type="text" class="form-control"
+                    placeholder="E.g. Patient has poor mobility, requires wheelchair." required="required" />
+                </div>
+                <div class="button"><button type="submit">Book Now</button></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 
         - custom js link
       -->
-      <script src="./assets/js/script.js"></script>
-    
-      <!-- 
+    <script src="./assets/js/script.js"></script>
+
+    <!-- 
         - ionicon link
       -->
-      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    
-    </body>
-    
-    </html>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  </body>
+
+</html>
