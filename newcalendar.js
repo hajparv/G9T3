@@ -1,4 +1,4 @@
-axios.get("http://localhost:8888/G9T3/PHP/getSchedule.php")
+axios.get("http://localhost:8888/G9T3/PHP/getRecord.php")
 .then(response=>{
     var information = response.data;
     console.log(information);
@@ -8,7 +8,7 @@ axios.get("http://localhost:8888/G9T3/PHP/getSchedule.php")
         
         var scheduleInfo = information[info];
         
-        var date = scheduleInfo.date;
+
        
         
         if (typeof date === 'string'){

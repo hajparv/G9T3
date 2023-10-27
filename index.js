@@ -1,22 +1,53 @@
-<!doctype html>
-<html lang="en">
+const { google } = require('googleapis');
+const { OAuth2 } = google.auth;
+const oAuth2Client = new OAuth2('1038309708510-9qmvt9lf75qhrhii4ivhns85ko8k62e6.apps.googleusercontent.com','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');
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+oAuth2Client.setCredentials({ refresh_token: '1//048g9fs5_b45yCgYIARAAGAQSNwF-L9IrGkP-lg2D2mSAA4ZiDl5QIfaGFHnKDyAFPUs5WFSdnHa3LhpkYL0MGFX4PMiK9rV4c3s' })
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+const calendar = google.calendar({ version: 'v3', auth: oAuth2Client });
 
-    <title>Hello, world!</title>
+const eventStartTime = new Date();
+eventStartTime.setDate(eventStartTime.getDay() + 2);
 
-</head>
+const eventEndTime = new Date();
+eventEndTime.setDate(eventEndTime.getDate() + 2);
+eventEndTime.setMinutes(eventEndTime.getMinutes() + 45);
 
-<body>
-    <h1>Hello, world!</h1>
+const event = {
+    summary: 'Meet for project',
+    location: '80 Stamford Rd, Singapore 178902',
+    description: 'Finish up the project with zia and priya. We are struggling bad',
+    start: {
+        dateTime: eventStartTime,
+        timeZone: 'Singapore',
+    },
+    end: {
+        dateTime: eventEndTime,
+        timeZone: 'Singapore'
+    },
+    colorID: 1,
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-</body>
+}
+calendar.freebusy.query({
+    resource: {
+        timeMin: eventStartTime,
+        timeMax: eventEndTime,
+        timeZone: 'Singapore',
+        items: [{ id: 'primary' }],
+    },
+}, (err, res) => {
+    if (err)
+        return console.error('Free Busy Query Error', err)
+    const eventsArr = res.data.calendars.primary.busy;
+    console.log(eventsArr);
+    if (eventsArr.length === 0)
+        return calendar.event.insert(
+    {calendarId : 'primary',resource : event},(err)=>{
+        if (err)
+        return console.error('Calendar Event Creation Error: ',err)
+    return console.log('Calendar Event Created.')
+    })
+    return console.log(`Sorry I'm Busy`)
+    
+})
 
-</html>
