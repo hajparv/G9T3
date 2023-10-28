@@ -15,7 +15,7 @@ foreach ($schedules as $schedule) {
    
     $info[] = $scheduleInfo;
 }
-
+var_dump(array_unique($info));
 $postJSON = json_encode($info);
 echo $postJSON;
 ?>

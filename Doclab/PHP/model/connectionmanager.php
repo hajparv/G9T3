@@ -6,7 +6,7 @@ class ConnectionManager {
         $servername = 'localhost';
         $username = 'root';
         $password = 'root';// -> WAMP server
-        $dbname = 'appointment';
+        $dbname = 'healthrecord';
         
         // Create connection
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);     
