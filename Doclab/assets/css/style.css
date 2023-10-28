@@ -644,8 +644,7 @@ body.nav-active {
 .immunisation{
   background-color: var(--midnight-green);
   color: white;
-  padding : 100px;
-
+  padding : 200px;
 }
 
 /*-----------------------------------*\
@@ -1404,7 +1403,7 @@ body.nav-active {
    */
 
   .service-list {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 
 
@@ -1430,7 +1429,7 @@ body.nav-active {
    */
 
   .listing .grid-list {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 
   .listing .grid-list>li:first-child {
