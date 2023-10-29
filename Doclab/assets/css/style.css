@@ -50,7 +50,7 @@
 
   --headline-lg: 5rem;
   --headline-md: 3rem;
-  --headline-sm: 2rem;
+  --headline-sm: 1rem;
   --title-lg: 1.8rem;
   --title-md: 1.5rem;
   --title-sm: 1.4rem;
@@ -590,6 +590,7 @@ body.nav-active {
 .service-card {
   text-align: center;
   border : 3px var(--midnight-green) solid;
+  border-radius: 10px;
   padding-top: 10px;
 }
 
@@ -637,6 +638,8 @@ body.nav-active {
 }
 .row-title{
   text-align: center;
+  color : var(--midnight-green)
+
 }
 .row-body{
   padding: 10px 10px;
@@ -720,6 +723,7 @@ body.nav-active {
 .listing-card {
   padding: 25px 16px;
   display: flex;
+  flex-direction: column;
   gap: 20px;
   border: 2px solid var(--middle-blue-green_40);
   border-radius: var(--radius-12);
@@ -733,10 +737,12 @@ body.nav-active {
 .listing-card .card-title {
   margin-block-end: 5px;
   font-family: var(--ff-oswald);
+  font-size: 20px;
 }
 
 .listing-card .card-text {
   color: var(--midnight-green);
+  font-size : 10px;
 }
 
 
@@ -1073,7 +1079,7 @@ body.nav-active {
 
 
 /*-----------------------------------*\
-  #BLOG
+  #IMMUNISATION
 \*-----------------------------------*/
 
 .blog {
@@ -1086,7 +1092,7 @@ body.nav-active {
 }
 
 .blog-card {
-  padding: 50px 36px;
+  padding: 50px 16px;
   border-radius: var(--radius-12);
   border: 2px solid var(--alice-blue);
   background-image: url('../images/blog-card.jpg');
@@ -1126,7 +1132,7 @@ body.nav-active {
 .blog-card .card-meta {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 3px;
   color: var(--midnight-green);
 }
 
