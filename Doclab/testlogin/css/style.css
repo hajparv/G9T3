@@ -27,7 +27,7 @@
 }
 
 .container .content h3 span{
-   background: hsl(186, 100%, 19%);;
+   background: hsl(186, 100%, 19%);
    color:#fff;
    border-radius: 5px;
    padding:0 15px;
@@ -39,7 +39,7 @@
 }
 
 .container .content h1 span{
-   color:hsl(186, 100%, 19%);;
+   color:hsl(186, 100%, 19%);
 }
 
 .container .content p{
@@ -58,7 +58,7 @@
 }
 
 .container .content .btn:hover{
-   background: hsl(186, 100%, 19%);;
+   background: hsl(186, 100%, 19%);
 }
 
 .form-container{
@@ -103,14 +103,14 @@
 
 .form-container form .form-btn{
    background: #fbd0d9;
-   color:hsl(186, 100%, 19%);;
+   color:hsl(186, 100%, 19%);
    text-transform: capitalize;
    font-size: 20px;
    cursor: pointer;
 }
 
 .form-container form .form-btn:hover{
-   background: hsl(186, 100%, 19%);;
+   background: hsl(186, 100%, 19%);
    color:#fff;
 }
 
@@ -121,13 +121,13 @@
 }
 
 .form-container form p a{
-   color:hsl(186, 100%, 19%);;
+   color:hsl(186, 100%, 19%);
 }
 
 .form-container form .error-msg{
    margin:10px 0;
    display: block;
-   background: hsl(186, 100%, 19%);;
+   background: hsl(186, 100%, 19%);
    color:#fff;
    border-radius: 5px;
    font-size: 20px;
