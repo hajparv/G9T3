@@ -1083,8 +1083,7 @@ body.nav-active {
 \*-----------------------------------*/
 
 .blog {
-  background-image: linear-gradient(to bottom, var(--alice-blue) 60%, var(--white) 60%);
-  padding-block-start: 0;
+  background-color: var(--alice-blue);
 }
 
 .blog .section-title {
