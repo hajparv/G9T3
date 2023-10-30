@@ -54,9 +54,9 @@
                 }
             },
             created() { // created is a hook that executes as soon as Vue instance is created
-                axios.get('http://localhost:8888/G9T3/PHP/getHealth.php')
+                axios.get('http://localhost:8888/G9T3/PHP/display.php')
                     .then(response => {
-                        console.log(typeof(response.data)); // Log the response data
+                        console.log((response.data)); // Log the response data
                         this.posts = response.data;
                     })
                     .catch(error => {
