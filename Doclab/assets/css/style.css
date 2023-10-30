@@ -1090,15 +1090,25 @@ body.nav-active {
 .blog .section-title {
   margin-block-end: 60px;
 }
+.blog .card-title {
+  margin-block-end: 1px;
+  font-family: var(--ff-oswald);
+  font-size: 20px;
+}
+
+.blog .card-text {
+  color: var(--midnight-green);
+  font-size : 10px;
+}
 
 .blog-card {
-  padding: 50px 16px;
+  padding : 25px 16px;
   border-radius: var(--radius-12);
   border: 2px solid var(--alice-blue);
   background-image: url('../images/blog-card.jpg');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: contain;
   overflow: hidden;
 }
 
@@ -1163,6 +1173,24 @@ body.nav-active {
 
 .blog-card:is(:hover, :focus-within) :is(.card-meta, .card-title, .date, .card-text, .btn-text) {
   color: var(--white);
+}
+@media (max-width: 767px) {
+  .blog-card {
+    padding: 10px; /* Adjust padding as needed */
+    margin: 5px; /* Adjust margin as needed */
+  }
+}
+
+@media (max-width: 767px) {
+  .blog-card::before {
+    opacity: 0.7; /* Adjust opacity as needed */
+  }
+}
+.blog-card .card-title,
+.blog-card .card-text,
+.blog-card .date,
+.blog-card .btn-text {
+  z-index: 1; /* Ensure that the content is on top of background */
 }
 
 
