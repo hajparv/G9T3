@@ -4,7 +4,7 @@ class HealthDAO{
     public function getAll(){
         $connMgr = new ConnectionManager();
         $conn = $connMgr->connect();
-        $sql = "SELECT * FROM healthrecord.healthrecord;
+        $sql = "SELECT recordID,name,record_date,location FROM record;
         ";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
@@ -15,7 +15,7 @@ class HealthDAO{
             new Health(
                 $row['recordID'],
                 $row['name'],
-                $row['date'],
+                $row['record_date'],
                 $row['location']
             );
         }
@@ -46,7 +46,7 @@ class HealthDAO{
             new Health(
                 $row['recordID'],
                 $row['name'],
-                $row['date'],
+                $row['record_date'],
                 $row['location']
             );
     }

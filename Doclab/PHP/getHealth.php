@@ -1,16 +1,16 @@
 <?php
 require_once 'common.php';
 
-$sdao = new HealthDAO();
-$schedules = $sdao->getAll();
+$dao = new HealthDAO();
+$schedules = $dao->getAll();
 $items = [];
 
 foreach ($schedules as $schedule) {
     $item = [];
     $item["recordID"] = $schedule->getID();
     $item["name"] = $schedule->getName();
-    $item['date'] = $schedule->getDate();
-    $item['location'] = $schedule->getLocation();
+    $item["record_date"] = $schedule->getDate();
+    $item["location"] = $schedule->getLocation();
     $items[] = $item;
 }
 
