@@ -99,6 +99,10 @@
     display: flex;
     flex-direction: column;
 }
+/* .input:focus {
+  background-color: white;
+} */
+
 
   </style>
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">  -->
@@ -262,25 +266,27 @@
                     </tbody>
                   </table>
                 </div>
-                <button class="button" id="add-button">Add Event</button>
+                <button class="button" id="add-button">Book appointment</button>
               </div>
             </div>
             <div class="events-container">
             </div>
             <div class="dialog" id="dialog">
-              <h2 class="dialog-header"> Add New Event </h2>
+              <h2 class="dialog-header"> Add Appointment Details </h2>
               <form class="form" id="form">
                 <div class="form-container" align="center">
 
                   <div class="event-name-container">
                     <label class="text" id="eventname" for="name">Event name</label>
-                    <input class="input" type="text" id="name" maxlength="36">
+                    <input class="text text-center" style="font-size: 10px; color: aqua;" id="valueFromMyButton" placeholder="Please key in your event name">
+                    <!-- <input class="input" type="text" id="name" maxlength="36"> -->
                   </div>
               
 
                   <!-- <span><textarea pplaceholder ="Event Description">Event </textarea></span> -->
+                  <br><br>
                   <span>
-                    <textarea id="event-description" placeholder="Event Description"></textarea>
+                    <textarea id="event-description" placeholder="Appointment Description"></textarea>
                   </span>
                   
                   <br>
