@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- 
+    - primary meta tags
+  -->
+    <title>MediMate - health</title>
+    <meta name="title" content="MediMate - home">
+    <meta name="description" content="This is a madical html template made by codewithsadee">
+
+    <!-- 
+    - favicon
+  -->
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+    <!-- 
+    - google font link
+  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Rubik:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- 
+    - custom css link
+  -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/payment.css">
+
+    <!-- 
+    - preload images
+  -->
+    <link rel="preload" as="image" href="./assets/images/hero-banner.png">
+    <link rel="preload" as="image" href="./assets/images/hero-bg.png">
+    <style>
+        /* ================================================= */
+        /* ----------------- Booking Style ----------------- */
+        /* ================================================= */
+
+        #booking {
+            position: relative;
+            padding: 60px 0;
+        }
+
+        #booking .container {
+            max-width: 900px;
+        }
+
+        #booking label {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        #booking .booking-form input,
+        #booking .booking-form select {
+            font-size: 16px;
+            padding: 10px 14px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            box-shadow: none;
+            margin-bottom: 15px;
+        }
+
+        #booking .booking-form input:focus,
+        #booking .booking-form textarea:focus {
+            border: 1px solid #A52A2A;
+        }
+
+        #booking .booking-form button[type="submit"] {
+            background: #FFFFFF;
+            border: none;
+            padding: 8px 30px 10px 30px;
+            color: #ffffff;
+            background: #A52A2A;
+            transition: 0.4s;
+            cursor: pointer;
+            border-radius: 30px;
+        }
+
+        #booking .booking-form button[type="submit"]:hover {
+            background: #540000;
+        }
+
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+        }
+
+        .container-fluid {
+            height: 100%;
+        }
+
+        .card1,
+        .card2 {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #bill {
+            flex: 1;
+        }
+        #bill-container{
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body id="top">
+
+    <!-- 
+    - #PRELOADER
+  -->
+
+    <div class="preloader" data-preloader>
+        <div class="circle"></div>
+    </div>
+
+    <!-- 
+    - #HEADER
+  -->
+
+    <header class="header" data-header>
+        <div class="container">
+
+            <a href="index.html" class="logo">
+                <img src="./assets/images/medimatelogo2.png" width="100" height="46" alt="Medimate home">
+            </a>
+
+            <nav class="navbar" data-navbar>
+
+                <div class="navbar-top">
+
+                    <a href="index.html" class="logo">
+                        <img src="./assets/images/medimatelogo2.png" width="136" height="46" alt="MediMate home">
+                    </a>
+
+                    <button class="nav-close-btn" aria-label="clsoe menu" data-nav-toggler>
+                        <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+                    </button>
+
+                </div>
+
+                <ul class="navbar-list">
+
+                    <li class="navbar-item">
+                        <a href="index.html" class="navbar-link title-md">Home</a>
+                    </li>
+
+                    <li class="navbar-item">
+                        <a href="searchclinic.html" class="navbar-link title-md">Search Clinic</a>
+                    </li>
+
+                    <li class="navbar-item">
+                        <a href="calendar.html" class="navbar-link title-md">Calendar</a>
+                    </li>
+
+                    <li class="navbar-item">
+                        <a href="payment.html" class="navbar-link title-md">Payment</a>
+                    </li>
+
+                    <li class="navbar-item">
+                        <a href="health.html" class="navbar-link title-md">My Health</a>
+                    </li>
+
+                </ul>
+
+                <ul class="social-list">
+
+                    <li>
+                        <a href="#" class="social-link">
+                            <ion-icon name="logo-twitter"></ion-icon>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="social-link">
+                            <ion-icon name="logo-facebook"></ion-icon>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="social-link">
+                            <ion-icon name="logo-pinterest"></ion-icon>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="social-link">
+                            <ion-icon name="logo-instagram"></ion-icon>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="social-link">
+                            <ion-icon name="logo-youtube"></ion-icon>
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+            <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+                <ion-icon name="menu-outline"></ion-icon>
+            </button>
+
+            <!-- <a href="#" class="btn has-before title-md">Make Appointment</a> -->
+
+            <a href="booking.html" class="btn has-before title-md">Make Appointment</a>
+            <div class="overlay" data-nav-toggler data-overlay></div>
+
+        </div>
+    </header>
+
+    <body class="healthpage">
+
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-sm-12 col-lg-11">
+                    <div class="card card rounded-0">
+                        <div class="row">
+                            <div class="col-md-5 p-0 box left">
+                                <div class="card rounded-0 border-0 card1" id="bill" style="overflow: hidden;">
+                                    <h3 id="heading1">Payment Summary</h3>
+                                    <div class="row">
+                                        <div class="col-lg-7 col-8 mt-4 line pl-4">
+                                            <h2 class="bill-head">Consultation Fee</h2>
+                                        </div>
+                                        <div class="col-lg-5 col-4 mt-4">
+                                            <h2 class="bill-head px-xl-5 px-lg-4" id="consultationCost">$35.00</h2>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-7 col-8 mt-4 line pl-4">
+                                            <h2 class="bill-head">Medicine</h2>
+                                        </div>
+                                        <div class="col-lg-5 col-4 mt-4">
+                                            <h2 class="bill-head px-xl-5 px-lg-4" id="medicineCost">$20.00</h2>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-7 col-8 mt-4 line pl-4">
+                                            <h2 class="bill-head">Claimable Insurance</h2>
+                                        </div>
+                                        <div class="col-lg-5 col-4 mt-4">
+                                            <h2 class="bill-head px-xl-5 px-lg-4" id="insuranceCost">$35.00</h2>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 red-bg">
+                                            <p class="bill-date" id="total-label">Total Price</p>
+                                            <h2 class="bill-head" id="total">
+                                                <span id="total-amount">$523.65</span>
+                                            </h2>
+                                            <small class="bill-date" id="total-includes">Price includes all
+                                                taxes</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-7 col-sm-12 p-0 box">
+                                <div class="card rounded-0 border-0 card2" id="paypage"
+                                    style="background-color: #fff; overflow: hidden;">
+                                    <!--payment card details container: the one on the right-->
+                                    <div class="form-card">
+                                        <h2 id="heading2" class="text-danger">Payment</h2>
+                                        <label class="pay" style="color: black;">Name on Card</label>
+                                        <input type="text" name="holdername" placeholder="John Smith">
+                                        <div class="row">
+                                            <div class="col-8 col-md-6">
+                                                <label class="pay" style="color: black;">Card Number</label>
+                                                <input type="text" name="cardno" id="cr_no"
+                                                    placeholder="0000-0000-0000-0000" minlength="19" maxlength="19">
+                                            </div>
+                                            <div class="col-4 col-md-6">
+                                                <label class="pay" style="color: black;">CVV</label>
+                                                <input type="password" name="cvcpwd" placeholder="&#9679;&#9679;&#9679;"
+                                                    class="placeicon" minlength="3" maxlength="3">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <label class="pay" style="color: black;">Expiration Date</label>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <input type="text" name="exp" id="exp" placeholder="MM/YY" minlength="5"
+                                                    maxlength="5">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 offset-md-3">
+                                                <div class="text-center">
+                                                    <button class="btn btn-info placeicon d-block mx-auto">
+                                                        MAKE A PAYMENT <i class="fas fa-coins"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+            <ion-icon name="chevron-up"></ion-icon>
+        </a>
+
+        <!-- 
+        - custom js link
+      -->
+        <script src="./assets/js/script.js"></script>
+        <script src="/assets/js/payment.js"></script>
+        <script src="./assets/js/stripe.js"></script>
+
+        <!-- 
+        - ionicon link
+      -->
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    </body>
+
+</html>
