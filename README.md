@@ -1,3 +1,11 @@
 # MediMate - G9T3
 
-Version 5 was attempt to build a core module and build other modules like bootstrap 3/4 that handled rendering. Unfortunately, due to my health and other factors you can read about on [my blog](https://eonasdan.com/posts/state-of-my-picker.html) I was unable to maintain 3 extra projects. V6 is a work in progress and is come back under the [orginial repo which as been renamed as tempus-dominus](https://github.com/Eonasdan/tempus-dominus).
+The primary objective of this web page is to help users find the nearest clinics and help them book an appointment when they need it.
+
+In this webpage, we have key features that will direct the user to make a booking at the clinic nearest to them. Upon completion of the consultation, users can make payment directly through the webpage. 
+
+The tech stack used in this web page is listed below:
+1. Bootstrap Version 5.2
+2. HTML
+3. Vanilla CSS
+4. Javascript
