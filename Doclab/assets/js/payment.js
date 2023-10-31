@@ -7,12 +7,13 @@ function calculateTotal() {
     // Calculate the total price
     var total = consultationCost + medicineCost - insuranceCost;
 
-    // Update the total amount in the HTML
+    // Update the total amount in the HTML with a dollar sign and rounded to two decimal places
     document.getElementById('total-amount').textContent = total.toFixed(2);
 }
 
 // Call the calculateTotal function when the page loads
 window.addEventListener('load', calculateTotal);
+
 
 $(document).ready(function(){
 
