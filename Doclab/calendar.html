@@ -214,9 +214,9 @@
 
     <div class="container-fluid">
       <div class="row justify-content-center">
-        <div class="col-md-6 text-center mb-5">
+        <!-- <div class="col-md-6 text-center mb-5">
           <h2 class="heading section"></h2>
-        </div>
+        </div> -->
       </div>
       <div class="row">
         <div class="col-md-2 col-lg-2"></div>
@@ -278,7 +278,11 @@
                   </div>
               
 
-                  <span><textarea>Event Description</textarea></span>
+                  <!-- <span><textarea pplaceholder ="Event Description">Event </textarea></span> -->
+                  <span>
+                    <textarea id="event-description" placeholder="Event Description"></textarea>
+                  </span>
+                  
                   <br>
                   <br>
                   <br>
@@ -303,6 +307,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
+
       // Initialize flatpickr for date and time input fields
       flatpickr('#date', {
         enableTime: false, // Date only
