@@ -65,10 +65,5 @@ $(document).ready(function(){
         this.selectionStart = this.selectionEnd = caretPosition;
     }
     
-    // Radio button
-    $('.radio-group .radio').click(function(){
-        $(this).parent().find('.radio').removeClass('selected');
-        $(this).addClass('selected');
-    });
     
     })
