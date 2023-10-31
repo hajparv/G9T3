@@ -9,7 +9,7 @@
   <!-- 
     - primary meta tags
   -->
-  <title>MediMate - home</title>
+  <title>MediMate - health</title>
   <meta name="title" content="MediMate - home">
   <meta name="description" content="This is a madical html template made by codewithsadee">
 
@@ -36,12 +36,71 @@
   -->
   <link rel="preload" as="image" href="./assets/images/hero-banner.png">
   <link rel="preload" as="image" href="./assets/images/hero-bg.png">
-<!--Javascript-->
-<script src="assets/js/script.js"></script>
-<script src="assets/js/calendar.js" defer></script>
+  <style>
+    /* ================================================= */
+    /* ----------------- Booking Style ----------------- */
+    /* ================================================= */
 
-    <!-- Axios -->
-    <script src="https://unpkg.com/axios/dist/axios.js"></script>
+    #booking {
+      position: relative;
+      padding: 60px 0;
+    }
+
+    #booking .container {
+      max-width: 900px;
+    }
+
+    #booking label {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    #booking .booking-form input,
+    #booking .booking-form select {
+      font-size: 16px;
+      padding: 10px 14px;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      box-shadow: none;
+      margin-bottom: 15px;
+    }
+
+    #booking .booking-form input:focus,
+    #booking .booking-form textarea:focus {
+      border: 1px solid #2aa1a5;
+    }
+
+    #booking .booking-form button[type="submit"] {
+      background: #FFFFFF;
+      border: none;
+      padding: 8px 30px 10px 30px;
+      color: #ffffff;
+      background: #2aa1a5;
+      transition: 0.4s;
+      cursor: pointer;
+      border-radius: 30px;
+    }
+
+    button[type="submit"]:hover {
+      background: #54002a;
+    }
+
+    button[type="submit"] {
+      background: #FFFFFF;
+      border: none;
+      padding: 8px 30px 10px 30px;
+      color: #ffffff;
+      background: #2aa1a5;
+      transition: 0.4s;
+      cursor: pointer;
+      border-radius: 30px;
+    }
+
+    #booking .booking-form button[type="submit"]:hover {
+      background: #54002a;
+    }
+  </style>
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">  -->
 </head>
 
 <body id="top">
@@ -50,9 +109,9 @@
     - #PRELOADER
   -->
 
-  <!-- <div class="preloader" data-preloader>
+  <div class="preloader" data-preloader>
     <div class="circle"></div>
-  </div> -->
+  </div>
 
   <!-- 
     - #HEADER
@@ -61,8 +120,8 @@
   <header class="header" data-header>
     <div class="container">
 
-      <a href="#" class="logo">
-        <img src="./assets/images/medimatelogo2.png" width="136" height="46" alt="MediMate home">
+      <a href="index.html" class="logo">
+        <img src="./assets/images/medimatelogo2.png" width="100" height="46" alt="Medimate home">
       </a>
 
       <nav class="navbar" data-navbar>
@@ -70,7 +129,7 @@
         <div class="navbar-top">
 
           <a href="index.html" class="logo">
-            <img src="./assets/images/medimatelogo2.png" width="100" height="46" alt="Medimate home">
+            <img src="./assets/images/medimatelogo2.png" width="136" height="46" alt="MediMate home">
           </a>
 
           <button class="nav-close-btn" aria-label="clsoe menu" data-nav-toggler>
@@ -143,15 +202,14 @@
         <ion-icon name="menu-outline"></ion-icon>
       </button>
 
-      <a href="#" class="btn has-before title-md">Make Appointment</a>
+      <!-- <a href="#" class="btn has-before title-md">Make Appointment</a> -->
 
-      <a href="booking.html" class="btn has-before title-md">Make Appointment</a>
       <div class="overlay" data-nav-toggler data-overlay></div>
 
     </div>
   </header>
 
-
+  <body class="healthpage">
 
     <div class="container-fluid">
       <div class="row justify-content-center">
@@ -216,8 +274,9 @@
                   <input class="input" type="text" id="name" maxlength="36">
                   <span><textarea>Event Description</textarea></span>
                   <br>
-                  <input type="button" value="Cancel" class="button" id="cancel-button">
-                  <input type="button" value="OK" class="button button-white" id="ok-button">
+                  <button type="submit" style='width: 100%;'>Ok</button>
+                  <br>
+                  <button type="submit" style='width: 100%;'>Cancel</button>
                 </div>
               </form>
             </div>
@@ -229,21 +288,40 @@
     </div>
     </div>
 
-  <footer id="footer">
-    <div class="container">
-        <div class="copyright">
-            <p></p>
 
-            <p>Designed By us <a href="https://htmlcodex.com"></a></p>
-        </div>
+
+
+    <!-- Include flatpickr library for date and time picking -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+      // Initialize flatpickr for date and time input fields
+      flatpickr('#date', {
+        enableTime: false, // Date only
+        dateFormat: "m/d/Y", // Format as MM/DD/YYYY
+      });
+      flatpickr('#time', {
+        enableTime: true, // Enable time selection
+        noCalendar: true, // Time only
+        dateFormat: "h:i K", // Format as HH:MM AM/PM
+      });
+    </script>
     </div>
-</footer>
 
+    <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+      <ion-icon name="chevron-up"></ion-icon>
+    </a>
 
-<a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
-    <ion-icon name="chevron-up"></ion-icon>
-  </a>
+    <!-- 
+        - custom js link
+      -->
+    <script src="./assets/js/script.js"></script>
 
+    <!-- 
+        - ionicon link
+      -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 
 
@@ -251,14 +329,64 @@
   <!-- 
     - custom js link
   -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="./assets/js/script.js"></script>
-
+  <script src="../calendar-08/js/main.js"></script>
+  <script src="./assets/js/date.js"></script>
   <!-- 
     - ionicon link
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
+<script> // Initialize the calendar by appending the HTML dates
+  function init_calendar(date) {
+      $(".tbody").empty();
+      $(".events-container").empty();
+      var calendar_days = $(".tbody");
+      var month = date.getMonth();
+      var year = date.getFullYear();
+      var day_count = days_in_month(month, year);
+      var row = $("<tr class='table-row'></tr>");
+      var today = date.getDate();
+      // Set date to 1 to find the first day of the month
+      date.setDate(1);
+      var first_day = date.getDay();
+      // 35+firstDay is the number of date elements to be added to the dates table
+      // 35 is from (7 days in a week) * (up to 5 rows of dates in a month)
+      for(var i=0; i<35+first_day; i++) {
+          // Since some of the elements will be blank, 
+          // need to calculate actual date from index
+          var day = i-first_day+1;
+          // If it is a sunday, make a new row
+          if(i%7===0) {
+              calendar_days.append(row);
+              row = $("<tr class='table-row'></tr>");
+          }
+          // if current index isn't a day in this month, make it blank
+          if(i < first_day || day > day_count) {
+              var curr_date = $("<td class='table-date nil'>"+"</td>");
+              row.append(curr_date);
+          }   
+          else {
+              var curr_date = $("<td class='table-date'>"+day+"</td>");
+              var events = check_events(day, month+1, year);
+              if(today===day && $(".active-date").length===0) {
+                  curr_date.addClass("active-date");
+                  show_events(events, months[month], day);
+              }
+              // If this date has any events, style it with .event-date
+              if(events.length!==0) {
+                  curr_date.addClass("event-date");
+              }
+              // Set onClick handler for clicking a date
+              curr_date.click({events: events, month: months[month], day:day}, date_click);
+              row.append(curr_date);
+          }
+      }
+      // Append the last row and set the current year
+      calendar_days.append(row);
+      $(".year").text(year);
+  }</script>
 </body>
 
 </html>
