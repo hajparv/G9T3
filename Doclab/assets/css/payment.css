@@ -19,10 +19,11 @@ body {
 
 /*Left Side card*/
 .card1 {
-	margin: 0;
-	padding: 15px;
+	margin-bottom: 10px;
+	padding: 15px 0 0 0;
 	padding-top: 25px;
 	padding-bottom: 0px;
+	padding-right: 10px;
 	background: #263238;
 	height: 100%;
 }
@@ -83,7 +84,7 @@ body {
 .card2 {
 	padding: 25px;
 	margin: 0;
-	height: 50%;
+	height: 100%;
 }
 
 .form-card .pay {
@@ -147,6 +148,6 @@ body {
 
 /*Fit image in bootstrap div*/
 .fit-image{
-    width: 50%;
+    width: 100%;
     object-fit: cover;
 }
