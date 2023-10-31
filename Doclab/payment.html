@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <!-- 
     - primary meta tags
@@ -202,8 +203,8 @@
                 <div class="col-sm-12 col-lg-11">
                     <div class="card card rounded-0">
                         <div class="row">
-                            <div class="col-md-5 d-md-block d-none p-0 box">
-                                <div class="card rounded-0 border-0 card1" id="bill">
+                            <div class="col-md-5 p-0 box">
+                                <div class="card rounded-0 border-0 card1" id="bill" style="overflow: hidden;">
                                     <h3 id="heading1">Payment Summary</h3>
                                     <div class="row">
                                         <div class="col-lg-7 col-8 mt-4 line pl-4">
@@ -242,7 +243,7 @@
                             </div>
         
                             <div class="col-md-7 col-sm-12 p-0 box">
-                                <div class="card rounded-0 border-0 card2" id="paypage">
+                                <div class="card rounded-0 border-0 card2" id="paypage" style="background-color: #fff; overflow: hidden;">
                                     <div class="form-card">
                                         <h2 id="heading2" class="text-danger">Payment</h2>
                                         <label class="pay">Name on Card</label>
@@ -266,8 +267,12 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-6 offset-md-3 text-center"> <!-- Use offset-md-3 and text-center -->
-                                                <input type="submit" value="MAKE A PAYMENT &nbsp; &#xf178;" class="btn btn-info placeicon">
+                                            <div class="col-md-6 offset-md-3">
+                                                <div class="text-center">
+                                                    <button class="btn btn-info placeicon d-block mx-auto">
+                                                        MAKE A PAYMENT <i class="fas fa-coins"></i>
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
