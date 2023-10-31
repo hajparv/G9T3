@@ -8,7 +8,7 @@ var application = new Vue({
   },
   methods:{
    fetchAllData:function(){
-    axios.post('action.php', {
+    axios.post('http://localhost:8888/Doclab/action.php', {
      action:'fetchall'
     }).then(function(response){
       result = '';
@@ -27,11 +27,10 @@ var application = new Vue({
               </div>
             </div>
             <h3 class="headline-sm card-title"></h3>
-            <time class="title-sm date" datetime=${date} style="color:black">${date}</time>
+            <time class="title-sm date" datetime=${date}>${date}</time>
             <p class="card-text d-lg-block">
               ${location}
             </p>
-            <a href="#" class="btn-text title-lg">Read More</a>
           </div>
         </div>`
       
