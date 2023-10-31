@@ -7,6 +7,7 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+
     <!-- 
     - primary meta tags
   -->
@@ -87,6 +88,9 @@
             background: #540000;
         }
     </style>
+
+    <script src="https://js.stripe.com/v3/"></script>
+
 </head>
 
 <body id="top">
@@ -223,26 +227,56 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-lg-7 col-8 mt-4 line pl-4">
-                                            <h2 class="bill-head">Claimable Insurance</h2>
-                                        </div>
-                                        <div class="col-lg-5 col-4 mt-4">
-                                            <h2 class="bill-head px-xl-5 px-lg-4" id="insuranceCost">$35.00</h2>
-                                        </div>
-                                    </div>
-                                    <div class="row">
                                         <div class="col-md-12 red-bg">
                                             <p class="bill-date" id="total-label">Total Price</p>
                                             <h2 class="bill-head" id="total">
                                                 <span id="total-amount">$45.00</span>
                                             </h2>                                                  
                                             <small class="bill-date" id="total-includes">Price includes all taxes</small>
+                                            <div class="row">
+                                                <div class="col-md-6 offset-md-3">
+                                                    <div class="text-center">
+                                                        <button id="checkout" class="btn btn-info placeicon d-block mx-auto">
+                                                            MAKE A PAYMENT <i class="fas fa-coins"></i>
+                                                        </button>
+                                                        <script>
+                                                            var stripe = Stripe(
+                                                                "pk_test_51O54RGHLkcB4nnlEHW0YPWzG8Y6Kdlobr7r54iABVBlU220yaacYmvtHu2SO3Uye06lJtQP9GI6uzPBKbpNq4iqm00JROJRvCw"
+                                                            );
+                                                            
+                                                            document.getElementById("checkout").addEventListener("click", function () {
+                                                                stripe.redirectToCheckout({
+                                                                    lineItems: [
+                                                                        {
+                                                                            price: "price_1O7DDCHLkcB4nnlEEa46MIoD", // Replace with your actual Price ID
+                                                                            quantity: 1,
+                                                                        },
+                                                                        {
+                                                                            price: "price_1O7DDdHLkcB4nnlEZlrjFMZq", // Replace with your actual Price ID
+                                                                            quantity: 1,
+                                                                        }
+                                                                    ],
+                                                                    mode: "payment",
+                                                                    successUrl: "https://google.com/",
+                                                                    cancelUrl: "https://youtube.com/",
+                                                                }).then(function (result) {
+                                                                    if (result.error) {
+                                                                        // Handle any errors that occurred during the redirect
+                                                                        console.error(result.error.message);
+                                                                    }
+                                                                });
+                                                            });
+                                                            
+                                                        </script>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>                                          
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-md-7 col-sm-12 p-0 box">
+                            <!--<div class="col-md-7 col-sm-12 p-0 box">
                                 <div class="card rounded-0 border-0 card2" id="paypage"
                                     style="background-color: #fff; overflow: hidden;">
                                     <div class="form-card">
@@ -269,16 +303,8 @@
                                                 <input type="text" name="exp" id="exp" placeholder="MM/YY" minlength="5"
                                                     maxlength="5">
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6 offset-md-3">
-                                                <div class="text-center">
-                                                    <button class="btn btn-info placeicon d-block mx-auto">
-                                                        MAKE A PAYMENT <i class="fas fa-coins"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        </div>-->
+                                        
                                     </div>
                                 </div>
                             </div>

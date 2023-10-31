@@ -7,12 +7,13 @@ function calculateTotal() {
     // Calculate the total price
     var total = consultationCost + medicineCost - insuranceCost;
 
-    // Update the total amount in the HTML
+    // Update the total amount in the HTML with a dollar sign and rounded to two decimal places
     document.getElementById('total-amount').textContent = total.toFixed(2);
 }
 
 // Call the calculateTotal function when the page loads
 window.addEventListener('load', calculateTotal);
+
 
 $(document).ready(function(){
 
@@ -64,10 +65,5 @@ $(document).ready(function(){
         this.selectionStart = this.selectionEnd = caretPosition;
     }
     
-    // Radio button
-    $('.radio-group .radio').click(function(){
-        $(this).parent().find('.radio').removeClass('selected');
-        $(this).addClass('selected');
-    });
     
     })
