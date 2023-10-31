@@ -1,10 +1,6 @@
-<<<<<<< HEAD
+
+
 // 'use strict';
-=======
->>>>>>> ff11e012844025971eef6ccef4fa1ef9a63d18c6
-
-
-
 /**
  * add event listener on multiple elements
  */
