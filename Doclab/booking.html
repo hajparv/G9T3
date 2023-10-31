@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Axios -->
+<script src='https://unpkg.com/axios/dist/axios.min.js'></script>
 
   <!-- 
     - primary meta tags
@@ -254,13 +256,41 @@
                   <input type="text" class="form-control"
                     placeholder="E.g. Patient has poor mobility, requires wheelchair." />
                 </div>
-                <button type="submit" style='width: 100%;'>Book Now</button>
+                <button type="submit" onclick="bookAppointment()" style='width: 100%;'>Book Now</button>
               </form>
             </div>
           </div>
         </div>
       </div>
     </section>
+    <script>
+      function bookAppointment() {
+        const fullName = document.querySelector('input[name="full-name"]').value;
+        const email = document.querySelector('input[name="email"]').value;
+        const mobile = document.querySelector('input[name="mobile"]').value;
+        const service = document.querySelector('select[name="service"]').value;
+        const date = document.querySelector('input[name="date"]').value;
+        const time = document.querySelector('input[name="time"]').value;
+    
+        const eventData = {
+          eventName: fullName,
+          service,
+          time,
+        };
+    
+        axios
+          .post('http://localhost:3000/appointment', eventData)
+          .then((response) => {
+            console.log('Data sent successfully.');
+            // You can also update the UI with a success message
+          })
+          .catch((error) => {
+            console.error('Error sending data: ', error);
+            // Handle the error, show an error message, etc.
+          });
+      }
+    </script>
+    
     <!-- Booking Section End -->
 
     <!-- Include flatpickr library for date and time picking -->
