@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,10 +56,12 @@
       font-size: 14px;
       font-weight: 600;
     }
-    .event-card{
+
+    .event-card {
       margin-top: 12px;
       margin-bottom: 12px;
     }
+
     #booking .booking-form input,
     #booking .booking-form select {
       font-size: 16px;
@@ -73,9 +77,10 @@
       border: 1px solid #2aa1a5;
     }
 
-    #add-button{
+    #add-button {
       background-color: #42a2ad;
-      padding: 10px 20px; /* Adjust the padding as needed */
+      padding: 10px 20px;
+      /* Adjust the padding as needed */
       font-size: 16px
     }
 
@@ -96,16 +101,16 @@
     }
 
     .event-name-container {
-    display: flex;
-    flex-direction: column;
-}
-/* .input:focus {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* .input:focus {
   background-color: white;
 } */
-
-
   </style>
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">  -->
+
 </head>
 
 <body id="top">
@@ -278,26 +283,33 @@
 
                   <div class="event-name-container">
                     <label class="text" id="eventname" for="name">Event name</label>
-                    <input class="text text-center" style="font-size: 10px; color: aqua;" id="valueFromMyButton" placeholder="Please key in your event name">
+                    <input class="text text-center" style="font-size: 10px; color: aqua;" id="valueFromMyButton"
+                      placeholder="Please key in your event name">
                     <!-- <input class="input" type="text" id="name" maxlength="36"> -->
                   </div>
-              
+
 
                   <!-- <span><textarea pplaceholder ="Event Description">Evegitnt </textarea></span> -->
                   <br><br>
                   <span>
                     <textarea id="event-description" placeholder="Appointment Description"></textarea>
                   </span>
-                  
+
                   <br>
                   <br>
                   <br>
                   <button type="submit" style="width: 100%;">Ok</button>
                   <br>
-                  <button type="submit" style='width: 100%;'>Cancel</button>
+                  <button type="submit" style='width: 100%;' id="cancel-event">Cancel</button>
                 </div>
               </form>
             </div>
+            <div id="booking-success" style="display: none;">
+              <h2>Booking Successful</h2>
+            </div>
+            <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+              <ion-icon name="chevron-up"></ion-icon>
+            </a>
           </div>
         </div>
         <div class="col-md-2 col-lg-2"></div>
@@ -309,9 +321,7 @@
 
 
 
-    <!-- Include flatpickr library for date and time picking -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
     <script>
 
       // Initialize flatpickr for date and time input fields
@@ -324,6 +334,34 @@
         noCalendar: true, // Time only
         dateFormat: "h:i K", // Format as HH:MM AM/PM
       });
+      // Handle form submission
+      const form = document.getElementById('form');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        // Handle form submission (saving appointment details) here
+      });
+
+      // Handle cancel button click
+      const cancelButton = document.getElementById('cancel-event');
+      cancelButton.addEventListener('click', function () {
+        // Handle cancel button click here
+      });
+
+      const bookingData = JSON.parse(localStorage.getItem('bookingData'));
+
+      if (bookingData) {
+        // Display a success message if bookingData is present
+        const bookingSuccessMessage = document.getElementById('booking-success');
+        bookingSuccessMessage.style.display = 'block';
+
+        // You can also access the booking data here and display it as needed
+        // For example:
+        // document.getElementById('eventname').value = bookingData.fullName;
+        // document.getElementById('event-description').value = bookingData.specialRequest;
+
+        // Clear the booking data from local storage to avoid displaying it again
+        localStorage.removeItem('bookingData');
+      }
     </script>
     </div>
 
@@ -349,15 +387,15 @@
     - custom js link
   -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/script.js"></script>
     <script src="../calendar-08/js/main.js"></script>
-  <script src="./assets/js/date.js"></script>
+    <script src="./assets/js/date.js"></script>
     <!-- 
     - ionicon link
   -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-</body>
+  </body>
 
 </html>

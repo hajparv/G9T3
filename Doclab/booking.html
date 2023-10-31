@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- 
+  <!-- zz
     - primary meta tags
   -->
   <title>MediMate - health</title>
@@ -207,25 +207,27 @@
         <div class="row">
           <div class="col-12">
             <div class="booking-form">
-              <form>
+              <form id="bookingForm">
                 <div class="form-row">
                   <div class="control-group col-sm-6">
                     <label>Full Name</label>
-                    <input type="text" class="form-control" placeholder="E.g. Jamie Tan" required="required" />
+                    <input type="text" name="full-name" class="form-control" placeholder="E.g. Jamie Tan"
+                      required="required" />
                   </div>
                   <div class="control-group col-sm-6">
                     <label>Email</label>
-                    <input type="email" class="form-control" placeholder="E.g. email@example.com" required="required" />
+                    <input type="email" name="email" class="form-control" placeholder="E.g. email@example.com"
+                      required="required" />
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="control-group col-sm-6">
                     <label>Mobile</label>
-                    <input type="text" class="form-control" placeholder="8772 2367" required="required" />
+                    <input type="text" name="mobile" class="form-control" placeholder="8772 2367" required="required" />
                   </div>
                   <div class="control-group col-sm-6">
                     <label>Select a Service</label>
-                    <select class="custom-select">
+                    <select name = "service" class="custom-select">
                       <option value="">Consultation</option>
                       <option>Health Checkup</option>
                       <option>Flu Shots</option>
@@ -241,17 +243,17 @@
                 <div class="form-row">
                   <div class="control-group col-sm-6">
                     <label>Appointment Date</label>
-                    <input type="date" class="form-control" id="date" placeholder="E.g. MM/DD/YYYY"
+                    <input type="date" class="form-control" id="date" name = "date" placeholder="E.g. MM/DD/YYYY"
                       required="required" />
                   </div>
                   <div class="control-group col-sm-6">
                     <label>Appointment Time</label>
-                    <input type="time" class="form-control" id="time" placeholder="E.g. HH:MM AM" required="required" />
+                    <input type="time" name ="time"class="form-control" id="time" placeholder="E.g. HH:MM AM" required="required" />
                   </div>
                 </div>
                 <div class="control-group">
                   <label>Special Request</label>
-                  <input type="text" class="form-control"
+                  <input type="text" name = "special-request" class="form-control"
                     placeholder="E.g. Patient has poor mobility, requires wheelchair." />
                 </div>
                 <button type="submit" style='width: 100%;'>Book Now</button>
@@ -276,6 +278,31 @@
         enableTime: true, // Enable time selection
         noCalendar: true, // Time only
         dateFormat: "h:i K", // Format as HH:MM AM/PM
+      });
+      document.getElementById('bookingForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        // Extract user input data
+        const fullName = document.querySelector('input[name="full-name"]').value;
+        const email = document.querySelector('input[name="email"]').value;
+        const mobile = document.querySelector('input[name="mobile"]').value;
+        const service = document.querySelector('select[name="service"]').value;
+        const date = document.querySelector('input[name="date"]').value;
+        const time = document.querySelector('input[name="time"]').value;
+        const specialRequest = document.querySelector('input[name="special-request"]').value;
+
+        // Store the data in local storage to pass to the calendar page
+        localStorage.setItem('bookingData', JSON.stringify({
+          fullName,
+          email,
+          mobile,
+          service,
+          date,
+          time,
+          specialRequest,
+        }));
+
+        // Redirect to the calendar page
+        window.location.href = 'calendar.html';
       });
     </script>
     </div>
