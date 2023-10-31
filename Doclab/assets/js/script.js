@@ -1,4 +1,3 @@
-'use strict';
 
 
 
@@ -46,7 +45,7 @@ const toggleNav = function () {
   document.body.classList.toggle("nav-active");
 }
 
-addEventOnElements(navTogglers, "click", toggleNav);
+// addEventOnElements(navTogglers, "click", toggleNav);
 
 
 
