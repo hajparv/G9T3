@@ -20,12 +20,14 @@ body {
 /*Left Side card*/
 .card1 {
 	margin-bottom: 10px;
-	padding: 15px 0 0 0;
-	padding-top: 25px;
-	padding-bottom: 0px;
-	padding-right: 10px;
-	background: #263238;
-	height: 100%;
+    padding: 15px 0 0 0;
+    padding-top: 25px;
+    padding-bottom: 0px;
+    padding-right: 10px;
+    background: #263238;
+    height: auto; /* Remove the height: 100% property. */
+    width: 90%; /* Adjust the width as needed. */
+    max-width: 600px; /* Limit the maximum width to keep the card centered. */
 }
 
 .bill-head {
@@ -150,4 +152,11 @@ body {
 .fit-image{
     width: 100%;
     object-fit: cover;
+}
+
+.container {
+	height: 100vh; /* Make the container take up the full viewport height. */
+	display: flex;
+	justify-content: center; /* Center horizontally. */
+	align-items: center; /* Center vertically. */
 }
