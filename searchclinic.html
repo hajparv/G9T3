@@ -54,10 +54,7 @@
       font-size: 14px;
       font-weight: 600;
     }
-    .event-card{
-      margin-top: 12px;
-      margin-bottom: 12px;
-    }
+
     #booking .booking-form input,
     #booking .booking-form select {
       font-size: 16px;
@@ -70,40 +67,23 @@
 
     #booking .booking-form input:focus,
     #booking .booking-form textarea:focus {
-      border: 1px solid #2aa1a5;
+      border: 1px solid #A52A2A;
     }
 
-    #add-button{
-      background-color: #42a2ad;
-      padding: 10px 20px; /* Adjust the padding as needed */
-      font-size: 16px
-    }
-
-
-    button[type="submit"]:hover {
-      background: #1c948e;
-    }
-
-    button[type="submit"] {
+    #booking .booking-form button[type="submit"] {
       background: #FFFFFF;
       border: none;
       padding: 8px 30px 10px 30px;
       color: #ffffff;
-      background: #2aa1a5;
+      background: #A52A2A;
       transition: 0.4s;
       cursor: pointer;
       border-radius: 30px;
     }
 
-    .event-name-container {
-    display: flex;
-    flex-direction: column;
-}
-/* .input:focus {
-  background-color: white;
-} */
-
-
+    #booking .booking-form button[type="submit"]:hover {
+      background: #540000;
+    }
   </style>
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">  -->
 </head>
@@ -133,8 +113,8 @@
 
         <div class="navbar-top">
 
-          <a href="index.html" class="logo">
-            <img src="./assets/images/medimatelogo2.png" width="136" height="46" alt="MediMate home">
+          <a href="#" class="logo">
+            <img src="./assets/images/logo.svg" width="136" height="46" alt="MediMate home">
           </a>
 
           <button class="nav-close-btn" aria-label="clsoe menu" data-nav-toggler>
@@ -216,104 +196,77 @@
 
   <body class="healthpage">
 
-    <div class="container-fluid">
-      <div class="row justify-content-center">
-        <!-- <div class="col-md-6 text-center mb-5">
-          <h2 class="heading section"></h2>
-        </div> -->
-      </div>
-      <div class="row">
-        <div class="col-md-2 col-lg-2"></div>
-        <div class="col-md-8 col-sm-12 col-lg-8">
-          <div class="content w-100">
-            <div class="calendar-container">
-              <div id="calendar">
-                <div class="year-header">
-                  <span class="left-button fa fa-chevron-left" id="prev"> </span>
-                  <span class="year" id="label"></span>
-                  <span class="right-button fa fachevron-right" id="next"> </span>
-                </div>
-                <table class="months-table w-100">
-                  <tbody>
-                    <tr class="months-row">
-                      <td class="month">Jan</td>
-                      <td class="month">Feb</td>
-                      <td class="month">Mar</td>
-                      <td class="month">Apr</td>
-                      <td class="month">May</td>
-                      <td class="month">Jun</td>
-                      <td class="month">Jul</td>
-                      <td class="month">Aug</td>
-                      <td class="month">Sep</td>
-                      <td class="month">Oct</td>
-                      <td class="month">Nov</td>
-                      <td class="month">Dec</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <table class="days-table w-100">
-                  <td class="day">Sun</td>
-                  <td class="day">Mon</td>
-                  <td class="day">Tue</td>
-                  <td class="day">Wed</td>
-                  <td class="day">Thu</td>
-                  <td class="day">Fri</td>
-                  <td class="day">Sat</td>
-                </table>
-                <div class="frame">
-                  <table class="dates-table w-100">
-                    <tbody class="tbody">
-                    </tbody>
-                  </table>
-                </div>
-                <button class="button" id="add-button">Book appointment</button>
-              </div>
-            </div>
-            <div class="events-container">
-            </div>
-            <div class="dialog" id="dialog">
-              <h2 class="dialog-header"> Add Appointment Details </h2>
-              <form class="form" id="form">
-                <div class="form-container" align="center">
 
-                  <div class="event-name-container">
-                    <label class="text" id="eventname" for="name">Event name</label>
-                    <input class="text text-center" style="font-size: 10px; color: aqua;" id="valueFromMyButton" placeholder="Please key in your event name">
-                    <!-- <input class="input" type="text" id="name" maxlength="36"> -->
+
+    <!-- Booking Section Start -->
+    <section id="booking">
+      <div class="container">
+        <div class="section-header">
+          <h3>Book Your Clinic Appointment</h3>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="booking-form">
+              <form>
+                <div class="form-row">
+                  <div class="control-group col-sm-6">
+                    <label>Full Name</label>
+                    <input type="text" class="form-control" placeholder="E.g. Jamie Tan" required="required" />
                   </div>
-              
-
-                  <!-- <span><textarea pplaceholder ="Event Description">Evegitnt </textarea></span> -->
-                  <br><br>
-                  <span>
-                    <textarea id="event-description" placeholder="Appointment Description"></textarea>
-                  </span>
-                  
-                  <br>
-                  <br>
-                  <br>
-                  <button type="submit" style="width: 100%;">Ok</button>
-                  <br>
-                  <button type="submit" style='width: 100%;'>Cancel</button>
+                  <div class="control-group col-sm-6">
+                    <label>Email</label>
+                    <input type="email" class="form-control" placeholder="E.g. email@example.com" required="required" />
+                  </div>
                 </div>
+                <div class="form-row">
+                  <div class="control-group col-sm-6">
+                    <label>Mobile</label>
+                    <input type="text" class="form-control" placeholder="8772 2367" required="required" />
+                  </div>
+                  <div class="control-group col-sm-6">
+                    <label>Select a Service</label>
+                    <select class="custom-select">
+                      <option value="">Consultation</option>
+                      <option>Health Checkup</option>
+                      <option>Flu Shots</option>
+                      <option>Blood Test</option>
+                      <option>Physical Exams</option>
+                      <option>Prevention</option>
+                      <option>Family Planning</option>
+                      <option>Home Visits</option>
+                      <option>Insurance</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="control-group col-sm-6">
+                    <label>Appointment Date</label>
+                    <input type="date" class="form-control" id="date" placeholder="E.g. MM/DD/YYYY"
+                      required="required" />
+                  </div>
+                  <div class="control-group col-sm-6">
+                    <label>Appointment Time</label>
+                    <input type="time" class="form-control" id="time" placeholder="E.g. HH:MM AM" required="required" />
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label>Special Request</label>
+                  <input type="text" class="form-control"
+                    placeholder="E.g. Patient has poor mobility, requires wheelchair." />
+                </div>
+                <div class="button"><button type="submit">Book Now</button></div>
               </form>
             </div>
           </div>
         </div>
-        <div class="col-md-2 col-lg-2"></div>
-
       </div>
-    </div>
-    </div>
-
-
-
+    </section>
+    <!-- Booking Section End -->
 
     <!-- Include flatpickr library for date and time picking -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
-
       // Initialize flatpickr for date and time input fields
       flatpickr('#date', {
         enableTime: false, // Date only
@@ -342,22 +295,6 @@
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-
-
-
-    <!-- 
-    - custom js link
-  -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="./assets/js/script.js"></script>
-    <script src="../calendar-08/js/main.js"></script>
-  <script src="./assets/js/date.js"></script>
-    <!-- 
-    - ionicon link
-  -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
-</body>
+  </body>
 
 </html>
