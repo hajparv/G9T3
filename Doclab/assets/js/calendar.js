@@ -8,9 +8,6 @@ axios.get("http://localhost:8888/G9T3/PHP/getRecord.php")
         
         var scheduleInfo = information[info];
         
-
-       
-        
         if (typeof date === 'string'){
         var infoYear = date.slice(0,4);
         var infoMonth = date.slice(5,7);
