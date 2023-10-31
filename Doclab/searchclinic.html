@@ -84,6 +84,11 @@
     #booking .booking-form button[type="submit"]:hover {
       background: #540000;
     }
+
+    #map {
+      height: 400px;
+      width: 100%;
+    }
   </style>
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">  -->
 </head>
@@ -196,8 +201,91 @@
 
   <body class="healthpage">
 
+    <input type="text" id="searchInput" placeholder="Search for a clinic">
+    <select id="filterSelect">
+      <option value="all">All</option>
+      <option value="hospital">Hospital</option>
+      <option value="clinic">Clinic</option>
+    </select>
+    <div id="map"></div>
 
+<script>
+function initMap() {
+      // Create a map object
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: 1.3521, lng: 103.8198}, // Singapore coordinates
+        zoom: 12
+      });
 
+      // Get user's location
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var userLocation = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+
+          map.setCenter(userLocation);
+
+          // Sample clinic locations
+          var locations = [
+            {name: 'Hospital A', type: 'hospital', lat: 37.7831, lng: -122.4039},
+            {name: 'Clinic B', type: 'clinic', lat: 37.7749, lng: -122.4194},
+            {name: 'Pharmacy C', type: 'pharmacy', lat: 37.7694, lng: -122.4862}
+            // Add more clinic locations here
+          ];
+
+          // Create markers for each clinic location
+          var markers = locations.map(function(location) {
+            var marker = new google.maps.Marker({
+              position: {lat: location.lat, lng: location.lng},
+              map: map,
+              title: location.name
+            });
+
+            // Attach location data to the marker
+            marker.data = location;
+
+            return marker;
+          });
+
+          // Filter markers based on selected option
+          function filterMarkers() {
+            var selectedType = document.getElementById('filterSelect').value;
+
+            markers.forEach(function(marker) {
+              if (selectedType === 'all' || marker.data.type === selectedType) {
+                marker.setVisible(true);
+              } else {
+                marker.setVisible(false);
+              }
+            });
+          }
+
+          // Search for a clinic
+          function searchClinic() {
+            var searchQuery = document.getElementById('searchInput').value.toLowerCase();
+
+            markers.forEach(function(marker) {
+              var clinicName = marker.data.name.toLowerCase();
+
+              if (clinicName.includes(searchQuery)) {
+                marker.setVisible(true);
+              } else {
+                marker.setVisible(false);
+              }
+            });
+          }
+
+          // Event listeners for filter and search
+          document.getElementById('filterSelect').addEventListener('change', filterMarkers);
+          document.getElementById('searchInput').addEventListener('input', searchClinic);
+        });
+      }
+    }
+  </script>
+
+</script>
     
 
     <!-- Include flatpickr library for date and time picking -->
@@ -225,6 +313,7 @@
         - custom js link
       -->
     <script src="./assets/js/script.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhmX0sPrd7ESqMZfTW8U3MwJ6jUe2T8V0&callback=initMap" async defer></script>
 
     <!-- 
         - ionicon link
