@@ -54,7 +54,10 @@
       font-size: 14px;
       font-weight: 600;
     }
-
+    .event-card{
+      margin-top: 12px;
+      margin-bottom: 12px;
+    }
     #booking .booking-form input,
     #booking .booking-form select {
       font-size: 16px;
@@ -70,19 +73,15 @@
       border: 1px solid #2aa1a5;
     }
 
-    #booking .booking-form button[type="submit"] {
-      background: #FFFFFF;
-      border: none;
-      padding: 8px 30px 10px 30px;
-      color: #ffffff;
-      background: #2aa1a5;
-      transition: 0.4s;
-      cursor: pointer;
-      border-radius: 30px;
+    #add-button{
+      background-color: #42a2ad;
+      padding: 10px 20px; /* Adjust the padding as needed */
+      font-size: 16px
     }
 
+
     button[type="submit"]:hover {
-      background: #54002a;
+      background: #1c948e;
     }
 
     button[type="submit"] {
@@ -96,9 +95,11 @@
       border-radius: 30px;
     }
 
-    #booking .booking-form button[type="submit"]:hover {
-      background: #54002a;
-    }
+    .event-name-container {
+    display: flex;
+    flex-direction: column;
+}
+
   </style>
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">  -->
 </head>
@@ -219,7 +220,7 @@
       </div>
       <div class="row">
         <div class="col-md-2 col-lg-2"></div>
-        <div class="col-md-8 col-sm-12 col-lg-8" >
+        <div class="col-md-8 col-sm-12 col-lg-8">
           <div class="content w-100">
             <div class="calendar-container">
               <div id="calendar">
@@ -270,11 +271,18 @@
               <h2 class="dialog-header"> Add New Event </h2>
               <form class="form" id="form">
                 <div class="form-container" align="center">
-                  <label class="text" id="eventname" for="name">Event name</label>
-                  <input class="input" type="text" id="name" maxlength="36">
+
+                  <div class="event-name-container">
+                    <label class="text" id="eventname" for="name">Event name</label>
+                    <input class="input" type="text" id="name" maxlength="36">
+                  </div>
+              
+
                   <span><textarea>Event Description</textarea></span>
                   <br>
-                  <button type="submit" style='width: 100%;'>Ok</button>
+                  <br>
+                  <br>
+                  <button type="submit" style="width: 100%;">Ok</button>
                   <br>
                   <button type="submit" style='width: 100%;'>Cancel</button>
                 </div>
@@ -326,67 +334,19 @@
 
 
 
-  <!-- 
+    <!-- 
     - custom js link
   -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="./assets/js/script.js"></script>
-  <script src="../calendar-08/js/main.js"></script>
+    <script src="../calendar-08/js/main.js"></script>
   <script src="./assets/js/date.js"></script>
-  <!-- 
+    <!-- 
     - ionicon link
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-<script> // Initialize the calendar by appending the HTML dates
-  function init_calendar(date) {
-      $(".tbody").empty();
-      $(".events-container").empty();
-      var calendar_days = $(".tbody");
-      var month = date.getMonth();
-      var year = date.getFullYear();
-      var day_count = days_in_month(month, year);
-      var row = $("<tr class='table-row'></tr>");
-      var today = date.getDate();
-      // Set date to 1 to find the first day of the month
-      date.setDate(1);
-      var first_day = date.getDay();
-      // 35+firstDay is the number of date elements to be added to the dates table
-      // 35 is from (7 days in a week) * (up to 5 rows of dates in a month)
-      for(var i=0; i<35+first_day; i++) {
-          // Since some of the elements will be blank, 
-          // need to calculate actual date from index
-          var day = i-first_day+1;
-          // If it is a sunday, make a new row
-          if(i%7===0) {
-              calendar_days.append(row);
-              row = $("<tr class='table-row'></tr>");
-          }
-          // if current index isn't a day in this month, make it blank
-          if(i < first_day || day > day_count) {
-              var curr_date = $("<td class='table-date nil'>"+"</td>");
-              row.append(curr_date);
-          }   
-          else {
-              var curr_date = $("<td class='table-date'>"+day+"</td>");
-              var events = check_events(day, month+1, year);
-              if(today===day && $(".active-date").length===0) {
-                  curr_date.addClass("active-date");
-                  show_events(events, months[month], day);
-              }
-              // If this date has any events, style it with .event-date
-              if(events.length!==0) {
-                  curr_date.addClass("event-date");
-              }
-              // Set onClick handler for clicking a date
-              curr_date.click({events: events, month: months[month], day:day}, date_click);
-              row.append(curr_date);
-          }
-      }
-      // Append the last row and set the current year
-      calendar_days.append(row);
-      $(".year").text(year);
-  }</script>
+
 </body>
 
 </html>
