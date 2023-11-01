@@ -232,24 +232,23 @@
                 <div class="form-row">
                   <div class="control-group col-sm-6">
                     <label>Full Name</label>
-                    <input style="background-color: white;" type="text" name="full-name" class="form-control"
-                      placeholder="E.g. Jamie Tan" required="required" />
+                    <input type="text" name="full-name" class="form-control" placeholder="E.g. Jamie Tan" id="name"
+                      required="required" />
                   </div>
                   <div class="control-group col-sm-6">
                     <label>Email</label>
-                    <input style="background-color: white;" type="email" name="email" class="form-control"
-                      placeholder="E.g. email@example.com" required="required" />
+                    <input type="email" name="email" class="form-control" placeholder="E.g. email@example.com" id="email"
+                      required="required" />
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="control-group col-sm-6">
                     <label>Mobile</label>
-                    <input style="background-color: white;" type="text" name="mobile" class="form-control"
-                      placeholder="8772 2367" required="required" />
+                    <input type="text" name="mobile" class="form-control" placeholder="8772 2367" required="required" id="mobile" />
                   </div>
                   <div class="control-group col-sm-6">
-                    <label>Select a Service</label><br>
-                    <select style="background-color: white;" name="service" class="custom-select">
+                    <label>Select a Service</label>
+                    <select name="service" class="custom-select" id="service">
                       <option value="">Consultation</option>
                       <option>Health Checkup</option>
                       <option>Flu Shots</option>
@@ -276,46 +275,58 @@
                 </div>
                 <div class="control-group">
                   <label>Special Request</label>
-                  <input style="background-color: white;" type="text" name="special-request" class="form-control"
+                  <input type="text" name="special-request" class="form-control"  id="specialRequest"
                     placeholder="E.g. Patient has poor mobility, requires wheelchair." />
                 </div>
-                <button type="submit" onclick="bookAppointment()" style='width: 100%; '>Book Now</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <script>
-      function bookAppointment() {
-        const fullName = document.querySelector('input[name="full-name"]').value;
-        const email = document.querySelector('input[name="email"]').value;
-        const mobile = document.querySelector('input[name="mobile"]').value;
-        const service = document.querySelector('select[name="service"]').value;
-        const date = document.querySelector('input[name="date"]').value;
-        const time = document.querySelector('input[name="time"]').value;
+                <button type="submit" onclick="book()" style='width: 100%;'>Book Now</button>
+                </form>
+                </div>
+                </div>
+                </div>
+                </div>
+                </section>
+                <script>
+                function book() {
+                  console.log('inside bookAppointment')
+                  const fullName = document.getElementById('name').value;
+                  const email = document.getElementById('email').value;
+                  const mobile = document.getElementById('mobile').value;
+                  const service = document.getElementById('service').value;
+                  const date = document.getElementById('date').value;
+                  const time = document.getElementById('time').value;
+                  const specialRequest = document.getElementById('specialRequest').value;
+                  console.log('fullName',fullName)
+                  const payload = {
+                    name: fullName,
+                    email: email,
+                    time: time,
+                    date: date,
+                    mobile: mobile,
+                    service: service ? service : 'Consultation',
+                    specialRequest: specialRequest,
+                  };
+                  
 
-        const eventData = {
-          eventName: fullName,
-          service,
-          time,
-        };
+                  console.log('payload',payload)
+                  // eventData
+                  axios
+                    .post('http://localhost:5000/appointment', payload)
+                    .then((response) => {
+                      console.log('Data sent successfully.');
+                      // You can also update the UI with a success message
+                    })
+                    .catch((error) => {
+                      console.error('Error sending data: ', error);
+                      // Handle the error, show an error message, etc.
+                    });
 
-        axios
-          .post('http://localhost:3000/appointment', eventData)
-          .then((response) => {
-            console.log('Data sent successfully.');
-            // You can also update the UI with a success message
-          })
-          .catch((error) => {
-            console.error('Error sending data: ', error);
-            // Handle the error, show an error message, etc.
-          });
+                  // // Store the date in local storage
+                  // localStorage.setItem('bookingDate', date);
 
-        // Store the date in local storage
-        localStorage.setItem('bookingDate', date);
-      }
-    </script>
+                   // Redirect to the calendar page
+                  window.location.href = 'calendar.html';
+                }
+                </script>
 
     <!-- Booking Section End -->
 
@@ -355,11 +366,11 @@
           specialRequest,
         }));
 
-        // Redirect to the calendar page
-        window.location.href = 'calendar.html';
-      });
-    </script>
-    </div>
+                  // Redirect to the calendar page
+                  // window.location.href = 'calendar.html';
+                });
+                </script>
+                </div>
 
     <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
       <ion-icon name="chevron-up"></ion-icon>

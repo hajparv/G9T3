@@ -45,6 +45,18 @@
     /* ----------------- Booking Style ----------------- */
     /* ================================================= */
 
+
+    .wrapper{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .th{
+      min-width: 15rem;
+    }
+
+
     #booking {
       position: relative;
       padding: 60px 0;
@@ -138,6 +150,8 @@
 
   <header class="header" data-header>
     <div class="container">
+
+
 
       <a href="index.html" class="logo">
         <img src="./assets/images/medimatelogo2.png" width="100" height="46" alt="Medimate home">
@@ -235,7 +249,7 @@
 
   <body class="healthpage">
 
-    <div class="container-fluid">
+    <div class="wrapper">
       <div class="row justify-content-center">
         <!-- <div class="col-md-6 text-center mb-5">
           <h2 class="heading section"></h2>
@@ -245,7 +259,7 @@
         <div class="col-md-2 col-lg-2"></div>
         <div class="col-md-8 col-sm-12 col-lg-8">
           <div class="content w-100">
-            <div class="calendar-container">
+            <!-- <div class="calendar-container">
               <div id="calendar">
                 <div class="year-header">
                   <span class="left-button fa fa-chevron-left" id="prev"> </span>
@@ -285,12 +299,33 @@
                     </tbody>
                   </table>
                 </div>
-                <button class="button" id="add-button">Book appointment</button>
+                
               </div>
-            </div>
-            <div class="events-container">
-            </div>
-            <div class="dialog" id="dialog">
+            </div> -->
+            <!-- appointment table here  -->
+            <button class="button" id="add-button" onclick="fetchAppointments()">Fetch appointment</button>
+            <h1>Reserved Bookings</h1>
+            <table border="1">
+              <thead>
+                <tr>
+                  <!-- <th>Appointment Id</th> -->
+                  <!-- <th>Name</th> -->
+                  <!-- <th>Email</th> -->
+                  <th style="min-width: 25rem;">Time</th>
+                  <th style="min-width: 25rem;">Date</th>
+                  <!-- <th>Mobile</th> -->
+                  <th style="min-width: 25rem;">Service</th>
+                  <!-- <th>Special Request</th> -->
+                  <!-- <th>Creation Date</th> -->
+                </tr>
+              </thead>
+              <tbody id="appointmentTable">
+                <!-- Table rows will be generated here -->
+              </tbody>
+            </table>
+
+
+            <!-- <div class="dialog" id="dialog">
               <h2 class="dialog-header"> Add Appointment Details </h2>
               <form class="form" id="form">
                 <div class="form-container" align="center">
@@ -298,18 +333,18 @@
                   <div class="event-name-container">
                     <label class="text2" id="eventname" for="name">Event name</label>
                     <input class="text text-center" style="font-size: 10px; color: aqua;" id="valueFromMyButton"
-                      placeholder="Please key in your event name">
-                    <!-- <input class="input" type="text" id="name" maxlength="36"> -->
-                  </div>
+                      placeholder="Please key in your event name"> -->
+            <!-- <input class="input" type="text" id="name" maxlength="36"> -->
+            <!-- </div> -->
 
 
-                  <!-- <span><textarea pplaceholder ="Event Description">Evegitnt </textarea></span> -->
-                  <br><br>
+            <!-- <span><textarea pplaceholder ="Event Description">Evegitnt </textarea></span> -->
+            <!-- <br><br>
                   <span>
                     <textarea id="event-description" placeholder="Appointment Description"></textarea>
-                  </span>
+                  </span> -->
 
-                  <br>
+            <!-- <br>
                   <br>
                   <br>
                   <button type="submit" style="width: 100%;">Ok</button>
@@ -325,60 +360,98 @@
               <ion-icon name="chevron-up"></ion-icon>
             </a>
           </div>
+        </div> -->
+            <div class="col-md-2 col-lg-2"></div>
+
+          </div>
+          <script>
+            function clearTable() {
+              const appointmentTable = document.getElementById("appointmentTable");
+              while (appointmentTable.firstChild) {
+                appointmentTable.removeChild(appointmentTable.firstChild);
+              }
+            }
+
+            function populateTable(appointments) {
+              const appointmentTable = document.getElementById("appointmentTable");
+
+              // Iterate through the list and generate table rows dynamically, only including "time," "date," and "service"
+              appointments.forEach(appointment => {
+                const { time, date, service } = appointment;
+                const row = document.createElement("tr");
+                [time, date, service].forEach(value => {
+                  const cell = document.createElement("td");
+                  cell.textContent = value;
+                  row.appendChild(cell);
+                });
+                appointmentTable.appendChild(row);
+              });
+            }
+
+            function fetchAppointments() {
+              console.log('inside fetchAppointments')
+              axios.get('http://localhost:5000/calendar/appointment').then((res) => {
+                console.log('res.data', res.data)
+                const appointments = res.data
+                // Clear the existing table content
+                clearTable();
+
+                // Populate the table with new data
+                populateTable(appointments);
+              })
+            } </script>
         </div>
-        <div class="col-md-2 col-lg-2"></div>
-
       </div>
-    </div>
-    </div>
 
 
 
 
 
-    <script>
-      // retrieve data localstorsge
-      localStorage.getItem('');
+      <script>
 
-      // Initialize flatpickr for date and time input fields
-      flatpickr('#date', {
-        enableTime: false, // Date only
-        dateFormat: "m/d/Y", // Format as MM/DD/YYYY
-      });
-      flatpickr('#time', {
-        enableTime: true, // Enable time selection
-        noCalendar: true, // Time only
-        dateFormat: "h:i K", // Format as HH:MM AM/PM
-      });
-      // Handle form submission
-      const form = document.getElementById('form');
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        // Handle form submission (saving appointment details) here
-      });
 
-      // Handle cancel button click
-      const cancelButton = document.getElementById('cancel-event');
-      cancelButton.addEventListener('click', function () {
-        // Handle cancel button click here
-      });
+        // retrieve data localstorsge
+        localStorage.getItem('');
 
-      const bookingData = JSON.parse(localStorage.getItem('bookingData'));
+        // Initialize flatpickr for date and time input fields
+        flatpickr('#date', {
+          enableTime: false, // Date only
+          dateFormat: "m/d/Y", // Format as MM/DD/YYYY
+        });
+        flatpickr('#time', {
+          enableTime: true, // Enable time selection
+          noCalendar: true, // Time only
+          dateFormat: "h:i K", // Format as HH:MM AM/PM
+        });
+        // Handle form submission
+        const form = document.getElementById('form');
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          // Handle form submission (saving appointment details) here
+        });
 
-      if (bookingData) {
-        // Display a success message if bookingData is present
-        const bookingSuccessMessage = document.getElementById('booking-success');
-        bookingSuccessMessage.style.display = 'block';
+        // Handle cancel button click
+        const cancelButton = document.getElementById('cancel-event');
+        cancelButton.addEventListener('click', function () {
+          // Handle cancel button click here
+        });
 
-        // You can also access the booking data here and display it as needed
-        // For example:
-        // document.getElementById('eventname').value = bookingData.fullName;
-        // document.getElementById('event-description').value = bookingData.specialRequest;
+        const bookingData = JSON.parse(localStorage.getItem('bookingData'));
 
-        // Clear the booking data from local storage to avoid displaying it again
-        localStorage.removeItem('bookingData');
-      }
-    </script>
+        if (bookingData) {
+          // Display a success message if bookingData is present
+          const bookingSuccessMessage = document.getElementById('booking-success');
+          bookingSuccessMessage.style.display = 'block';
+
+          // You can also access the booking data here and display it as needed
+          // For example:
+          // document.getElementById('eventname').value = bookingData.fullName;
+          // document.getElementById('event-description').value = bookingData.specialRequest;
+
+          // Clear the booking data from local storage to avoid displaying it again
+          localStorage.removeItem('bookingData');
+        }
+      </script>
     </div>
 
     <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
