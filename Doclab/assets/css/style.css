@@ -1808,7 +1808,7 @@ h2#consultationCost, h2#medicineCost {
 }
 
 .row > .col-md-12.red-bg {
-    background-color: #ff0000;
+    background-color:  rgb(11, 161, 84);
     color: #fff;
     padding: 20px;
     text-align: center;
@@ -1831,16 +1831,31 @@ small#total-includes {
     font-size: 14px;
 }
 
+.btn-container {
+  max-width: 400px; /* Adjust this value as needed */
+  margin: 0 auto;
+}
+
+/* Style the "Make a Payment" button */
 .btn.btn-info.placeicon {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%; /* Make the button fill its container */
 }
 
 .btn.btn-info.placeicon i {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
+/* Adjust the button margin for better centering */
+.btn-container {
+  margin-top: 20px;
+}
+
+.btn-info {
+	color: #ffffff !important;
+}
 
