@@ -25,9 +25,10 @@ body {
     padding-bottom: 0px;
     padding-right: 10px;
     background: #263238;
-    height: auto; /* Remove the height: 100% property. */
-    width: 90%; /* Adjust the width as needed. */
-    max-width: 600px; /* Limit the maximum width to keep the card centered. */
+    /* height: auto; Remove the height: 100% property. */
+    /* width: 90%; Adjust the width as needed. */
+    /* max-width: 600px; Limit the maximum width to keep the card centered. */
+    height: 100%;
 }
 
 .bill-head {

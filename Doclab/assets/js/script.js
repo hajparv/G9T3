@@ -1,6 +1,6 @@
 
 
-// 'use strict';
+'use strict';
 /**
  * add event listener on multiple elements
  */
