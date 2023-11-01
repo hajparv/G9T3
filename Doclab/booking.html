@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Axios -->
-<script src='https://unpkg.com/axios/dist/axios.min.js'></script>
+  <!-- Axios -->
+  <script src='https://unpkg.com/axios/dist/axios.min.js'></script>
 
   <!-- zz
     - primary meta tags
@@ -42,6 +42,21 @@
     /* ================================================= */
     /* ----------------- Booking Style ----------------- */
     /* ================================================= */
+    /* Increase spacing between elements in the booking form */
+    /* Increase spacing between elements in the booking form */
+    #booking .control-group {
+      margin-bottom: 35px;
+    }
+
+    /* Increase spacing between the header and the form */
+    #booking .section-header {
+      margin-bottom: 40px;
+    }
+
+
+
+
+
 
     #booking {
       position: relative;
@@ -213,23 +228,23 @@
                 <div class="form-row">
                   <div class="control-group col-sm-6">
                     <label>Full Name</label>
-                    <input type="text" name="full-name" class="form-control" placeholder="E.g. Jamie Tan"
+                    <input style = "background-color: white;" type="text" name="full-name" class="form-control" placeholder="E.g. Jamie Tan"
                       required="required" />
                   </div>
                   <div class="control-group col-sm-6">
                     <label>Email</label>
-                    <input type="email" name="email" class="form-control" placeholder="E.g. email@example.com"
+                    <input style = "background-color: white;" type="email" name="email" class="form-control" placeholder="E.g. email@example.com"
                       required="required" />
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="control-group col-sm-6">
                     <label>Mobile</label>
-                    <input type="text" name="mobile" class="form-control" placeholder="8772 2367" required="required" />
+                    <input style = "background-color: white;" type="text" name="mobile" class="form-control" placeholder="8772 2367" required="required" />
                   </div>
                   <div class="control-group col-sm-6">
-                    <label>Select a Service</label>
-                    <select name="service" class="custom-select">
+                    <label>Select a Service</label><br>
+                    <select  style = "background-color: white;" name="service" class="custom-select">
                       <option value="">Consultation</option>
                       <option>Health Checkup</option>
                       <option>Flu Shots</option>
@@ -245,116 +260,117 @@
                 <div class="form-row">
                   <div class="control-group col-sm-6">
                     <label>Appointment Date</label>
-                    <input type="date" class="form-control" id="date" name="date" placeholder="E.g. MM/DD/YYYY"
+                    <input style = "background-color: white;" type="date" class="form-control" id="date" name="date" placeholder="E.g. MM/DD/YYYY"
                       required="required" />
                   </div>
                   <div class="control-group col-sm-6">
                     <label>Appointment Time</label>
-                    <input type="time" name="time" class="form-control" id="time" placeholder="E.g. HH:MM AM" required="required" />
+                    <input style = "background-color: white;" type="time" name="time" class="form-control" id="time" placeholder="E.g. HH:MM AM"
+                      required="required" />
                   </div>
                 </div>
                 <div class="control-group">
                   <label>Special Request</label>
-                  <input type="text" name="special-request" class="form-control"
+                  <input style = "background-color: white;"type="text" name="special-request" class="form-control"
                     placeholder="E.g. Patient has poor mobility, requires wheelchair." />
                 </div>
-                <button type="submit" onclick="bookAppointment()" style='width: 100%;'>Book Now</button>
-                </form>
-                </div>
-                </div>
-                </div>
-                </div>
-                </section>
-                <script>
-                function bookAppointment() {
-                  const fullName = document.querySelector('input[name="full-name"]').value;
-                  const email = document.querySelector('input[name="email"]').value;
-                  const mobile = document.querySelector('input[name="mobile"]').value;
-                  const service = document.querySelector('select[name="service"]').value;
-                  const date = document.querySelector('input[name="date"]').value;
-                  const time = document.querySelector('input[name="time"]').value;
+                <button type="submit" onclick="bookAppointment()" style='width: 100%; '>Book Now</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script>
+      function bookAppointment() {
+        const fullName = document.querySelector('input[name="full-name"]').value;
+        const email = document.querySelector('input[name="email"]').value;
+        const mobile = document.querySelector('input[name="mobile"]').value;
+        const service = document.querySelector('select[name="service"]').value;
+        const date = document.querySelector('input[name="date"]').value;
+        const time = document.querySelector('input[name="time"]').value;
 
-                  const eventData = {
-                    eventName: fullName,
-                    service,
-                    time,
-                  };
+        const eventData = {
+          eventName: fullName,
+          service,
+          time,
+        };
 
-                  axios
-                    .post('http://localhost:3000/appointment', eventData)
-                    .then((response) => {
-                      console.log('Data sent successfully.');
-                      // You can also update the UI with a success message
-                    })
-                    .catch((error) => {
-                      console.error('Error sending data: ', error);
-                      // Handle the error, show an error message, etc.
-                    });
+        axios
+          .post('http://localhost:3000/appointment', eventData)
+          .then((response) => {
+            console.log('Data sent successfully.');
+            // You can also update the UI with a success message
+          })
+          .catch((error) => {
+            console.error('Error sending data: ', error);
+            // Handle the error, show an error message, etc.
+          });
 
-                  // Store the date in local storage
-                  localStorage.setItem('bookingDate', date);
-                }
-                </script>
+        // Store the date in local storage
+        localStorage.setItem('bookingDate', date);
+      }
+    </script>
 
-                <!-- Booking Section End -->
+    <!-- Booking Section End -->
 
-                <!-- Include flatpickr library for date and time picking -->
-                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-                <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-                <script>
-                // Initialize flatpickr for date and time input fields
-                flatpickr('#date', {
-                  enableTime: false, // Date only
-                  dateFormat: "m/d/Y", // Format as MM/DD/YYYY
-                });
-                flatpickr('#time', {
-                  enableTime: true, // Enable time selection
-                  noCalendar: true, // Time only
-                  dateFormat: "h:i K", // Format as HH:MM AM/PM
-                });
-                document.getElementById('bookingForm').addEventListener('submit', function (e) {
-                  e.preventDefault();
-                  // Extract user input data
-                  const fullName = document.querySelector('input[name="full-name"]').value;
-                  const email = document.querySelector('input[name="email"]').value;
-                  const mobile = document.querySelector('input[name="mobile"]').value;
-                  const service = document.querySelector('select[name="service"]').value;
-                  const date = document.querySelector('input[name="date"]').value;
-                  const time = document.querySelector('input[name="time"]').value;
-                  const specialRequest = document.querySelector('input[name="special-request"]').value;
+    <!-- Include flatpickr library for date and time picking -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+      // Initialize flatpickr for date and time input fields
+      flatpickr('#date', {
+        enableTime: false, // Date only
+        dateFormat: "m/d/Y", // Format as MM/DD/YYYY
+      });
+      flatpickr('#time', {
+        enableTime: true, // Enable time selection
+        noCalendar: true, // Time only
+        dateFormat: "h:i K", // Format as HH:MM AM/PM
+      });
+      document.getElementById('bookingForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        // Extract user input data
+        const fullName = document.querySelector('input[name="full-name"]').value;
+        const email = document.querySelector('input[name="email"]').value;
+        const mobile = document.querySelector('input[name="mobile"]').value;
+        const service = document.querySelector('select[name="service"]').value;
+        const date = document.querySelector('input[name="date"]').value;
+        const time = document.querySelector('input[name="time"]').value;
+        const specialRequest = document.querySelector('input[name="special-request"]').value;
 
-                  // Store the data in local storage to pass to the calendar page
-                  localStorage.setItem('bookingData', JSON.stringify({
-                    fullName,
-                    email,
-                    mobile,
-                    service,
-                    date,
-                    time,
-                    specialRequest,
-                  }));
+        // Store the data in local storage to pass to the calendar page
+        localStorage.setItem('bookingData', JSON.stringify({
+          fullName,
+          email,
+          mobile,
+          service,
+          date,
+          time,
+          specialRequest,
+        }));
 
-                  // Redirect to the calendar page
-                  window.location.href = 'calendar.html';
-                });
-                </script>
-                </div>
+        // Redirect to the calendar page
+        window.location.href = 'calendar.html';
+      });
+    </script>
+    </div>
 
-                <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
-                  <ion-icon name="chevron-up"></ion-icon>
-                </a>
+    <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+      <ion-icon name="chevron-up"></ion-icon>
+    </a>
 
-                <!-- 
+    <!-- 
                         - custom js link
                       -->
-                <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/script.js"></script>
 
-                <!-- 
+    <!-- 
                         - ionicon link
                       -->
-                <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-                <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-                </body>
-                </html>
+  </body>
 
+</html>
