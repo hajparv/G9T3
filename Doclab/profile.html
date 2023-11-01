@@ -6,10 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" 
-  rel="stylesheet" 
-  integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" 
-  crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 
 
   <!-- 
@@ -154,52 +152,95 @@
     </div>
   </header>
   <!--insert your own css -->
-<body class="profilepage">
-    <section>
-        <div class="container">
-            <div class="table-responsive">
-                <thead>
-                    <tr>
-                        <td>Invoice ID</td>
-                        <td>Reciept ID</td>
-                        <td>Date</td>
-                        <td>Appointment ID</td>
-                        <td>Clinic Name</td>
-                        <td>Cost</td>
-                    </tr>
-                </thead>
-                <div id="data"></div>
+
+  <body class="profilepage">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-3 col-lg-3">
+          <div class="rectangle">
+            <div class="profiletitle">Profile</div>
+            <div class="image-container">
+              <img src="assets/images/profileicon.png" width="100px">
             </div>
+            <!--Either hardcode or import data from database the user's name,email,address,phone no-->
+          </div>
         </div>
+        <div class="col-md-9 col-lg-9">
+          <div class="rectangle">
+            <div class="profiletitle">Payment Records</div>
+            <div class="table-responsive profiletext">
+              <div class="profiletext">Payment History</div>
+              <thead>
+                <tr>
+                  <th class="custom-th">Invoice ID</th>
+                  <th class="custom-th">Reciept ID</th>
+                  <th class="custom-th">Date</th>
+                  <th class="custom-th">Appointment ID</th>
+                  <th class="custom-th">Clinic Name</th>
+                  <th class="custom-th">Cost</th>
+                </tr>
+              </thead>
+              <div id="data"></div>
+            </div>
+            <div class="profiletext">Pending Payemnt</div>
+            <table>
+              <tr>
+                <th class="custom-th">Reciept ID</th>
+                <th class="custom-th">Date</th>
+                <th class="custom-th">Appointment ID</th>
+                <th class="custom-th">Clinic Name</th>
+                <th class="custom-th">Cost</th>
+                <th class="custom-th">Due Date</th>
+              </tr>
+              <div id="pending" class="profiletext"></div>
+
+            </table>
+
+
+          </div>
+        
+
+        </div>
+      </div>
+    </div>
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class=" col-12 col-md-3">
+            <div class="profiletitle">Profile</div>
+          </div>
+          
+        </div>
+      </div>
     </section>
-    
 
 
 
-  
-  
-    
-    
+
+
+
+
+
     <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
-        <ion-icon name="chevron-up"></ion-icon>
-      </a>
-    
-    
-    
-    
-    
-      <!-- 
+      <ion-icon name="chevron-up"></ion-icon>
+    </a>
+
+
+
+
+
+    <!-- 
         - custom js link
       -->
-      <script src="profile.js"></script>
-      <script src="./assets/js/script.js"></script>
-    
-      <!-- 
+    <script src="profile.js"></script>
+    <script src="./assets/js/script.js"></script>
+
+    <!-- 
         - ionicon link
       -->
-      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    
-    </body>
-    
-    </html>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  </body>
+
+</html>
