@@ -207,6 +207,10 @@
       <!-- <a href="#" class="btn has-before title-md">Make Appointment</a> -->
 
       <div class="overlay" data-nav-toggler data-overlay></div>
+      <li class="navbar-item">
+        <a href="profile.html" class="navbar-link title-md"><img height="55" width="55"
+            src="./assets/images/profileicon.png"></a>
+      </li>
 
     </div>
   </header>
@@ -228,23 +232,24 @@
                 <div class="form-row">
                   <div class="control-group col-sm-6">
                     <label>Full Name</label>
-                    <input style = "background-color: white;" type="text" name="full-name" class="form-control" placeholder="E.g. Jamie Tan"
-                      required="required" />
+                    <input style="background-color: white;" type="text" name="full-name" class="form-control"
+                      placeholder="E.g. Jamie Tan" required="required" />
                   </div>
                   <div class="control-group col-sm-6">
                     <label>Email</label>
-                    <input style = "background-color: white;" type="email" name="email" class="form-control" placeholder="E.g. email@example.com"
-                      required="required" />
+                    <input style="background-color: white;" type="email" name="email" class="form-control"
+                      placeholder="E.g. email@example.com" required="required" />
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="control-group col-sm-6">
                     <label>Mobile</label>
-                    <input style = "background-color: white;" type="text" name="mobile" class="form-control" placeholder="8772 2367" required="required" />
+                    <input style="background-color: white;" type="text" name="mobile" class="form-control"
+                      placeholder="8772 2367" required="required" />
                   </div>
                   <div class="control-group col-sm-6">
                     <label>Select a Service</label><br>
-                    <select  style = "background-color: white;" name="service" class="custom-select">
+                    <select style="background-color: white;" name="service" class="custom-select">
                       <option value="">Consultation</option>
                       <option>Health Checkup</option>
                       <option>Flu Shots</option>
@@ -260,18 +265,18 @@
                 <div class="form-row">
                   <div class="control-group col-sm-6">
                     <label>Appointment Date</label>
-                    <input style = "background-color: white;" type="date" class="form-control" id="date" name="date" placeholder="E.g. MM/DD/YYYY"
-                      required="required" />
+                    <input style="background-color: white;" type="date" class="form-control" id="date" name="date"
+                      placeholder="E.g. MM/DD/YYYY" required="required" />
                   </div>
                   <div class="control-group col-sm-6">
                     <label>Appointment Time</label>
-                    <input style = "background-color: white;" type="time" name="time" class="form-control" id="time" placeholder="E.g. HH:MM AM"
-                      required="required" />
+                    <input style="background-color: white;" type="time" name="time" class="form-control" id="time"
+                      placeholder="E.g. HH:MM AM" required="required" />
                   </div>
                 </div>
                 <div class="control-group">
                   <label>Special Request</label>
-                  <input style = "background-color: white;"type="text" name="special-request" class="form-control"
+                  <input style="background-color: white;" type="text" name="special-request" class="form-control"
                     placeholder="E.g. Patient has poor mobility, requires wheelchair." />
                 </div>
                 <button type="submit" onclick="bookAppointment()" style='width: 100%; '>Book Now</button>
