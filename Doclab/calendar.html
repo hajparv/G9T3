@@ -7,8 +7,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Axios -->
-<script src='https://unpkg.com/axios/dist/axios.min.js'></script>
+  <!-- Axios -->
+  <script src='https://unpkg.com/axios/dist/axios.min.js'></script>
 
   <!-- 
     - primary meta tags
@@ -63,8 +63,8 @@
       margin-top: 12px;
       margin-bottom: 12px;
     }
-    
-    .text2{
+
+    .text2 {
       color: #1c948e;
     }
 
@@ -89,8 +89,9 @@
       /* Adjust the padding as needed */
       font-size: 16px
     }
-    .dialog-header{
-      color:#1c948e
+
+    .dialog-header {
+      color: #1c948e
     }
 
     button[type="submit"]:hover {
@@ -221,6 +222,7 @@
       </button>
 
       <!-- <a href="#" class="btn has-before title-md">Make Appointment</a> -->
+      <a href="booking.html" class="btn has-before title-md">Make Appointment</a>
 
       <div class="overlay" data-nav-toggler data-overlay></div>
 
@@ -382,28 +384,28 @@
     <script>
       // Function to handle the incoming data and update the event-card div
       function handleIncomingData() {
-  axios
-    .get('http://localhost:3000/appointment')
-    .then((response) => {
-      if (response.data) {
-        const eventCard = document.querySelector('.event-card');
-        eventCard.textContent = `Patient: ${response.data.eventName}, Service: ${response.data.service}, Time: ${response.data.time}`;
+        axios
+          .get('http://localhost:3000/appointment')
+          .then((response) => {
+            if (response.data) {
+              const eventCard = document.querySelector('.event-card');
+              eventCard.textContent = `Patient: ${response.data.eventName}, Service: ${response.data.service}, Time: ${response.data.time}`;
+            }
+          })
+          .catch((error) => {
+            console.error('Error getting data: ', error);
+          });
       }
-    })
-    .catch((error) => {
-      console.error('Error getting data: ', error);
-    });
-}
-</script>
+    </script>
 
 
-    
+
 
     <!-- 
         - custom js link
       -->
     <!-- <script src="./assets/js/script.js"></script> -->
-    
+
 
     <!-- 
         - ionicon link
