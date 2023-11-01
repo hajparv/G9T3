@@ -1,51 +1,36 @@
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
-
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
---
 -- Database: `healthrecord`
---
 CREATE DATABASE IF NOT EXISTS `healthrecord` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `healthrecord`;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `paymentrecord`
---
-
-DROP TABLE IF EXISTS `healthrecord`;
-CREATE TABLE IF NOT EXISTS `healthrecord` (
- `recordID` INT NOT NULL,
-	`name` VARCHAR(20) NOT NULL,
-  `date` VARCHAR(20) NOT NULL,
-  `location` varchar(64) NOT NULL,
-
-  PRIMARY KEY (`recordID`)
+-- Table structure for table `healthrecord`
+DROP TABLE IF EXISTS `record`;
+CREATE TABLE IF NOT EXISTS `record` (
+  `recordID` INT AUTO_INCREMENT PRIMARY KEY,
+  `name` VARCHAR(100) NOT NULL,
+  `record_date` DATE NOT NULL,
+  `location` VARCHAR(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `paymentrecord`
---
-
-INSERT INTO `healthrecord` (`recordID`,`name`,`date`,`location`) VALUES
-('1','COVID-19 PFIZER-BIONTECH/COMIRNATY ORIGINAL (A-COV)','23 Dec 2021','FULLERTON HEALTH VACCINATION CENTRE @JALAN BESAR'),
-('2','COVID-19 PFIZER-BIONTECH/COMIRNATY ORIGINAL (A-COV)','10 Jul 2021','FULLERTON HEALTH VACCINATION CENTRE @JALAN BESAR'),
-('3','COVID-19 PFIZER-BIONTECH/COMIRNATY ORIGINAL (A-COV)','01 Jun 2021','FULLERTON HEALTH VACCINATION CENTRE @JALAN BESAR'),
-('4','Measles (AMI)','10 May 2010','HOUGANG POLYCLINIC'),
-('5','Poliomyelitis (SAB)','20 Mar 2000','OVERSEAS IMMUNISATION'),
-('6','Tetanus Toxoid, Reduced Diphtheria Toxoid and acellular Pertussis Vaccine, Absorbed (Tdap)',' 01 Jul 2014','HOUGANG POLYCLINIC'),
-('7','Diphtheria/Tetanus with acellular Pertussis (DTPa)','09 Aug 2001', 'OVERSEAS IMMUNISATION'),
-('8','Inactivated Polio Vaccine (IPV)','09 Aug 2001','OVERSEAS IMMUNISATION');
-
+-- Dumping data for table `healthrecord`
+INSERT INTO `record` (`name`, `record_date`, `location`) VALUES
+('COVID-19 PFIZER-BIONTECH/COMIRNATY ORIGINAL (A-COV)', '2021-12-23', 'FULLERTON HEALTH VACCINATION CENTRE @JALAN BESAR'),
+('COVID-19 PFIZER-BIONTECH/COMIRNATY ORIGINAL (A-COV)', '2021-07-10', 'FULLERTON HEALTH VACCINATION CENTRE @JALAN BESAR'),
+('COVID-19 PFIZER-BIONTECH/COMIRNATY ORIGINAL (A-COV)', '2021-06-01', 'FULLERTON HEALTH VACCINATION CENTRE @JALAN BESAR'),
+('Measles (AMI)', '2010-05-10', 'HOUGANG POLYCLINIC'),
+('Poliomyelitis (SAB)', '2000-03-20', 'OVERSEAS IMMUNISATION'),
+('Tetanus Toxoid, Reduced Diphtheria Toxoid and Acellular Pertussis Vaccine, Absorbed (Tdap)', '2014-07-01', 'HOUGANG POLYCLINIC'),
+('Diphtheria/Tetanus with Acellular Pertussis (DTPa)', '2001-08-09', 'OVERSEAS IMMUNISATION'),
+('Inactivated Polio Vaccine (IPV)', '2001-08-09', 'OVERSEAS IMMUNISATION');
 
 COMMIT;
 

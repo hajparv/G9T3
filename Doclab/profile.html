@@ -6,12 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" 
+  rel="stylesheet" 
+  integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" 
+  crossorigin="anonymous">
+
+
   <!-- 
     - primary meta tags
   -->
-  <title>Doclab - health</title>
+  <title>Doclab - home</title>
   <meta name="title" content="Doclab - home">
   <meta name="description" content="This is a madical html template made by codewithsadee">
 
@@ -39,59 +43,9 @@
   <link rel="preload" as="image" href="./assets/images/hero-banner.png">
   <link rel="preload" as="image" href="./assets/images/hero-bg.png">
 
-
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  </script>
-  <style>
-    /* ================================================= */
-    /* ----------------- Booking Style ----------------- */
-    /* ================================================= */
 
-    #booking {
-      position: relative;
-      padding: 60px 0;
-    }
-
-    #booking .container {
-      max-width: 900px;
-    }
-
-    #booking label {
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    #booking .booking-form input,
-    #booking .booking-form select {
-      font-size: 16px;
-      padding: 10px 14px;
-      border: 1px solid #ddd;
-      border-radius: 20px;
-      box-shadow: none;
-      margin-bottom: 15px;
-    }
-
-    #booking .booking-form input:focus,
-    #booking .booking-form textarea:focus {
-      border: 1px solid #A52A2A;
-    }
-
-    #booking .booking-form button[type="submit"] {
-      background: #FFFFFF;
-      border: none;
-      padding: 8px 30px 10px 30px;
-      color: #ffffff;
-      background: #A52A2A;
-      transition: 0.4s;
-      cursor: pointer;
-      border-radius: 30px;
-    }
-
-    #booking .booking-form button[type="submit"]:hover {
-      background: #540000;
-    }
-  </style>
 </head>
 
 <body id="top">
@@ -111,8 +65,8 @@
   <header class="header" data-header>
     <div class="container">
 
-      <a href="index.html" class="logo">
-        <img src="./assets/images/medimatelogo2.png" width="100" height="46" alt="Medimate home">
+      <a href="#" class="logo">
+        <img src="./assets/images/logo.svg" width="136" height="46" alt="Doclab home">
       </a>
 
       <nav class="navbar" data-navbar>
@@ -120,7 +74,7 @@
         <div class="navbar-top">
 
           <a href="#" class="logo">
-            <img src="./assets/images/medimatelogo2.png" width=136 height="46" alt="Doclab home">
+            <img src="./assets/images/logo.svg" width="136" height="46" alt="Doclab home">
           </a>
 
           <button class="nav-close-btn" aria-label="clsoe menu" data-nav-toggler>
@@ -132,11 +86,11 @@
         <ul class="navbar-list">
 
           <li class="navbar-item">
-            <a href="index.html" class="navbar-link title-md">Home</a>
+            <a href="#" class="navbar-link title-md">Home</a>
           </li>
 
           <li class="navbar-item">
-            <a href="searchclinic.html" class="navbar-link title-md">Search Clinic</a>
+            <a href="#" class="navbar-link title-md">Search Clinic</a>
           </li>
 
           <li class="navbar-item">
@@ -144,7 +98,7 @@
           </li>
 
           <li class="navbar-item">
-            <a href="payment.html" class="navbar-link title-md">Payment</a>
+            <a href="#" class="navbar-link title-md">Payment</a>
           </li>
 
           <li class="navbar-item">
@@ -193,46 +147,59 @@
         <ion-icon name="menu-outline"></ion-icon>
       </button>
 
-      <!-- <a href="#" class="btn has-before title-md">Make Appointment</a> -->
+      <a href="#" class="btn has-before title-md">Make Appointment</a>
 
-      <a href="booking.html" class="btn has-before title-md">Make Appointment</a>
       <div class="overlay" data-nav-toggler data-overlay></div>
 
     </div>
   </header>
-
-  <body class="immunisation">
-
-    <section class="section blog" aria-labelledby="blog-label">
-
-      <div class="container-fluid">
-        <h2 class="section-title headline-md text-center pt-5" data-reveal="bottom">Personal Health - Immunisation</h2>
-        <div class="row" id="data">
+  <!--insert your own css -->
+<body class="profilepage">
+    <section>
+        <div class="container">
+            <div class="table-responsive">
+                <thead>
+                    <tr>
+                        <td>Invoice ID</td>
+                        <td>Reciept ID</td>
+                        <td>Date</td>
+                        <td>Appointment ID</td>
+                        <td>Clinic Name</td>
+                        <td>Cost</td>
+                    </tr>
+                </thead>
+                <div id="data"></div>
+            </div>
         </div>
-      </div>
     </section>
-
-    <script src="test.js">
-    </script>
+    
 
 
 
+  
+  
+    
+    
     <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
-      <ion-icon name="chevron-up"></ion-icon>
-    </a>
-
-    <!-- 
+        <ion-icon name="chevron-up"></ion-icon>
+      </a>
+    
+    
+    
+    
+    
+      <!-- 
         - custom js link
       -->
-    <script src="./assets/js/script.js"></script>
-
-
-    <!-- 
+      <script src="profile.js"></script>
+      <script src="./assets/js/script.js"></script>
+    
+      <!-- 
         - ionicon link
       -->
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
-  </body>
-
-</html>
+      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    
+    </body>
+    
+    </html>
