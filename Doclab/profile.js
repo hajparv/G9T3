@@ -95,3 +95,48 @@ var application = new Vue({
    this.fetchAllData();
   }
  });
+
+ var application = new Vue({
+  el:'#crudApp',
+  data:{
+   allData:'',
+   myModel:false,
+   
+  },
+  methods:{
+   fetchAllData:function(){
+    axios.post('userform.php', {
+     action:'fetchall'
+    }).then(function(response){
+      result = '';
+     application.allData = response.data;
+     console.log(response.data)
+     for (information of response.data){
+      console.log(information.name);
+      var name = information.name;
+      var email = information.email;
+      var address = information.address;
+      var phone = information.phone;
+      result += `
+      Name : ${name}
+      <br>
+      Email : ${email}
+      <br>
+      Address : ${address}
+      <br>
+      Phone Number : ${phone}
+      `
+      
+     }
+     console.log(result);
+
+     document.getElementById("userform").innerHTML += result;
+
+
+    });
+   },
+  },
+  created:function(){
+   this.fetchAllData();
+  }
+ });
