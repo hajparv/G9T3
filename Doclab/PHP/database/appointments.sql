@@ -29,7 +29,7 @@ CREATE TABLE appointments (
     name VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
     time TIME NOT NULL,
-    date DATE NOT NULL,
+    date VARCHAR(30) NOT NULL,
     mobile VARCHAR(15) NOT NULL,
     service VARCHAR(255) NOT NULL,
     special_request TEXT,
