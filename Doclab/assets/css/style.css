@@ -14,7 +14,7 @@
   #CUSTOM PROPERTY
 \*-----------------------------------*/
 
-.template{
+.template {
   background-color: var(--midnight-green);
 }
 
@@ -375,9 +375,10 @@ body.nav-active {
 /*-----------------------------------*\
   #HEADER
 \*-----------------------------------*/
-.header .navbar-link{
+.header .navbar-link {
   text-decoration: none;
 }
+
 .header .btn {
   display: none;
 }
@@ -572,9 +573,10 @@ body.nav-active {
 /*-----------------------------------*\
   #SERVICE
 \*-----------------------------------*/
-.service{
+.service {
   padding-top: 50px;
 }
+
 .service-list {
   padding-block: 60px 30px;
   padding-inline: 25px;
@@ -584,12 +586,12 @@ body.nav-active {
   margin-block-start: -60px;
   background-color: var(--white);
   box-shadow: var(--shadow-1);
-  
+
 }
 
 .service-card {
   text-align: center;
-  border : 3px var(--midnight-green) solid;
+  border: 3px var(--midnight-green) solid;
   border-radius: 10px;
   padding-top: 10px;
 }
@@ -630,33 +632,89 @@ body.nav-active {
 .healthpage {
   background-color: var(--midnight-green);
   color: white;
-  padding : 170px 10px;
+  padding: 170px 10px;
 
 }
-.health{
+
+.health {
   background-color: var(--verdigris);
 }
-.row-title{
-  text-align: center;
-  color : var(--midnight-green)
 
+.row-title {
+  text-align: center;
+  color: var(--midnight-green)
 }
-.row-body{
+
+.row-body {
   padding: 10px 10px;
 }
-.health-card{
+
+.health-card {
   border: var(--midnight-green) 3px solid;
   border-radius: 10px;
 }
-.immunisation{
+
+.immunisation {
   background-color: var(--midnight-green);
   color: white;
-  padding : 200px;
+  padding: 200px;
 }
-.profilepage{
+
+
+
+/*-----------------------------------*\
+  #PROFILE.HTML
+\*-----------------------------------*/
+
+.profilepage {
   background-color: var(--midnight-green);
   color: white;
-  padding : 170px 10px;
+  padding: 170px 10px;
+}
+
+.profiletitle {
+  color: var(--midnight-green);
+  font-size: 30px;
+  font-weight: var(--fw-700);
+  text-align: center;
+}
+.profiletext{
+  color: var(--midnight-green);
+  font-size: 10px;
+  font-weight: var(--fw-700);
+  text-align: center;
+
+}
+/* Specific CSS rules to target the table and headings */
+.custom-table {
+  width: 100%;
+}
+
+.custom-th {
+  width: 14%;
+  padding: 8px;
+}
+
+
+.rectangle {
+  background-color: white;
+  /* Background color */
+  color: #fff;
+  /* Text color */
+  border-radius: 10px;
+  /* Rounded corners */
+  padding: 10px;
+  /* Spacing inside the rectangle */
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
 }
 
 /*-----------------------------------*\
@@ -747,7 +805,7 @@ body.nav-active {
 
 .listing-card .card-text {
   color: var(--midnight-green);
-  font-size : 10px;
+  font-size: 10px;
 }
 
 
@@ -847,8 +905,10 @@ body.nav-active {
 
 @media (min-width: 992px) {
   .calendar-container {
-    width: 80%; /* You can adjust this value as needed */
-    font-size: 24px; /* You can adjust this value as needed */
+    width: 80%;
+    /* You can adjust this value as needed */
+    font-size: 24px;
+    /* You can adjust this value as needed */
   }
 }
 
@@ -857,7 +917,8 @@ body.nav-active {
   .calendar-container {
     padding: 0;
     width: 100%;
-    font-size: 20px; /* You can adjust this value as needed */
+    font-size: 20px;
+    /* You can adjust this value as needed */
   }
 }
 
@@ -866,7 +927,8 @@ body.nav-active {
   .calendar-container {
     padding: 0;
     width: 100%;
-    font-size: 18px; /* You can adjust this value as needed */
+    font-size: 18px;
+    /* You can adjust this value as needed */
   }
 }
 
@@ -1121,6 +1183,7 @@ body.nav-active {
 .blog .section-title {
   margin-block-end: 60px;
 }
+
 .blog .card-title {
   margin-block-end: 1px;
   font-family: var(--ff-oswald);
@@ -1129,11 +1192,11 @@ body.nav-active {
 
 .blog .card-text {
   color: var(--midnight-green);
-  font-size : 10px;
+  font-size: 10px;
 }
 
 .blog-card {
-  padding : 25px 16px;
+  padding: 25px 16px;
   border-radius: var(--radius-12);
   border: 2px solid var(--alice-blue);
   background-image: url('../images/blog-card.jpg');
@@ -1205,23 +1268,29 @@ body.nav-active {
 .blog-card:is(:hover, :focus-within) :is(.card-meta, .card-title, .date, .card-text, .btn-text) {
   color: var(--white);
 }
+
 @media (max-width: 767px) {
   .blog-card {
-    padding: 10px; /* Adjust padding as needed */
-    margin: 5px; /* Adjust margin as needed */
+    padding: 10px;
+    /* Adjust padding as needed */
+    margin: 5px;
+    /* Adjust margin as needed */
   }
 }
 
 @media (max-width: 767px) {
   .blog-card::before {
-    opacity: 0.7; /* Adjust opacity as needed */
+    opacity: 0.7;
+    /* Adjust opacity as needed */
   }
 }
+
 .blog-card .card-title,
 .blog-card .card-text,
 .blog-card .date,
 .blog-card .btn-text {
-  z-index: 1; /* Ensure that the content is on top of background */
+  z-index: 1;
+  /* Ensure that the content is on top of background */
 }
 
 
@@ -1755,89 +1824,91 @@ body.nav-active {
   #PAYMENT
 \*-----------------------------------*/
 
-  .container-fluid {
-    background-color: #f5f5f5;
-    padding: 20px;
+.container-fluid {
+  background-color: #f5f5f5;
+  padding: 20px;
 }
 
 .row.justify-content-center {
-    justify-content: center;
+  justify-content: center;
 }
 
 .col-sm-12.col-lg-11 {
-    padding: 0;
+  padding: 0;
 }
 
 .rounded-0 {
-    border: 1px solid #ccc;
-    padding: 20px;
+  border: 1px solid #ccc;
+  padding: 20px;
 }
 
 .row {
-    margin: 0;
+  margin: 0;
 }
 
 .col-md-5.p-0.box {
-    background-color: #fff;
-    padding: 20px;
+  background-color: #fff;
+  padding: 20px;
 }
 
 .card.rounded-0.border-0.card1 {
-    background-color: #fff;
-    border: none;
-    overflow: hidden;
+  background-color: #fff;
+  border: none;
+  overflow: hidden;
 }
 
 #bill {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 h3#heading1 {
-    text-align: center;
+  text-align: center;
 }
 
-.row > .col-lg-7.col-8.mt-4.line {
-    border-left: 1px solid #ccc;
+.row>.col-lg-7.col-8.mt-4.line {
+  border-left: 1px solid #ccc;
 }
 
 h2.bill-head {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 .col-lg-5.col-4.mt-4 {
-    text-align: right;
+  text-align: right;
 }
 
-h2#consultationCost, h2#medicineCost {
-    font-weight: bold;
+h2#consultationCost,
+h2#medicineCost {
+  font-weight: bold;
 }
 
-.row > .col-md-12.red-bg {
-    background-color:  rgb(11, 161, 84);
-    color: #fff;
-    padding: 20px;
-    text-align: center;
+.row>.col-md-12.red-bg {
+  background-color: rgb(11, 161, 84);
+  color: #fff;
+  padding: 20px;
+  text-align: center;
 }
 
 p#total-label {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 h2#total {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 span#total-amount {
-    font-weight: bold;
-    font-size: 30px;
+  font-weight: bold;
+  font-size: 30px;
 }
 
 small#total-includes {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 .btn-container {
-  max-width: 400px; /* Adjust this value as needed */
+  max-width: 400px;
+  /* Adjust this value as needed */
   margin: 0 auto;
 }
 
@@ -1848,7 +1919,8 @@ small#total-includes {
   padding: 10px 20px;
   border: none;
   cursor: pointer;
-  width: 100%; /* Make the button fill its container */
+  width: 100%;
+  /* Make the button fill its container */
 }
 
 .btn.btn-info.placeicon i {
@@ -1861,6 +1933,5 @@ small#total-includes {
 }
 
 .btn-info {
-	color: #ffffff !important;
+  color: #ffffff !important;
 }
-
