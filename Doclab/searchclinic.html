@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -89,16 +88,17 @@
     #map {
       height: 400px;
       width: 100%;
+      text-align: center;
     }
 
-    #clinicsTable {
-      margin-top: 20px;
-      border-collapse: collapse;
+    #clinic-table {
+      margin: 0 auto;
+      text-align: center;
     }
-    #clinicsTable th,
-    #clinicsTable td {
+
+    #clinic-table th,
+    #clinic-table td {
       padding: 8px;
-      border: 1px solid #ddd;
     }
   </style>
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">  -->
@@ -163,188 +163,160 @@
 
         </ul>
 
-        <ul class="social-list"><li>
-          <a href="#" class="social-link">
-            <ion-icon name="logo-twitter"></ion-icon>
-          </a>
-        </li>
+        <ul class="social-list">
 
-        <li>
-          <a href="#" class="social-link">
-            <ion-icon name="logo-facebook"></ion-icon>
-          </a>
-        </li>
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
 
-        <li>
-          <a href="#" class="social-link">
-            <ion-icon name="logo-pinterest"></ion-icon>
-          </a>
-        </li>
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-pinterest"></ion-icon>
+            </a>
+          </li>
 
-        <li>
-          <a href="#" class="social-link">
-            <ion-icon name="logo-instagram"></ion-icon>
-          </a>
-        </li>
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
 
-        <li>
-          <a href="#" class="social-link">
-            <ion-icon name="logo-youtube"></ion-icon>
-          </a>
-        </li>
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </li>
 
-      </ul>
+        </ul>
 
-    </nav>
+      </nav>
 
-    <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
-      <ion-icon name="menu-outline"></ion-icon>
-    </button>
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <ion-icon name="menu-outline"></ion-icon>
+      </button>
 
-    <!-- <a href="#" class="btn has-before title-md">Make Appointment</a> -->
+      <!-- <a href="#" class="btn has-before title-md">Make Appointment</a> -->
 
-    <div class="overlay" data-nav-toggler data-overlay></div>
+      <div class="overlay" data-nav-toggler data-overlay></div>
 
-  </div>
-</header>
+    </div>
+  </header>
 
-<body class="healthpage">
+  <body>
 
-  <input type="text" id="searchInput" placeholder="Search for a clinic">
-  <select id="filterSelect">
-    <option value="all">All</option>
-    <option value="hospital">Hospital</option>
-    <option value="clinic">Clinic</option>
-  </select>
-  <div id="map"></div>
+    <div id="map"></div>
+    <table id="clinic-table">
+      <thead>
+        <tr>
+          <th>Clinic Name</th>
+          <th>Distance (km)</th>
+          <th>Directions</th>
+        </tr>
+      </thead>
+      <tbody id="clinic-table-body"></tbody>
+    </table>
 
-    <input type="text" id="searchInput" placeholder="Search for a clinic">
+    <!-- <input type="text" id="searchInput" placeholder="Search for a clinic">
     <select id="filterSelect">
       <option value="all">All</option>
       <option value="hospital">Hospital</option>
       <option value="clinic">Clinic</option>
-    </select>
+    </select> -->
 
-    <div id="map"></div>
+    <script>
+      // Initialize and display the map
+    function initMap() {
+      // Create a map centered on the user's location
+      navigator.geolocation.getCurrentPosition(position => {
+        const userLocation = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
 
-    <table id="clinicsTable">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Address</th>
-        </tr>
-      </thead>
-      <tbody id="clinicsTableBody"></tbody>
-    </table>
-
-<script>
-function initMap() {
-      // Create a map object
-      var map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 1.3521, lng: 103.8198}, // Singapore coordinates
-        zoom: 12
-      });
-
-      // Get user's location
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-          var userLocation = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-          };
-
-          map.setCenter(userLocation);
-
-          // Sample clinic locations
-          var locations = [
-            {name: 'Hospital A', type: 'hospital', lat: 37.7831, lng: -122.4039},
-            {name: 'Clinic B', type: 'clinic', lat: 37.7749, lng: -122.4194},
-            {name: 'Pharmacy C', type: 'pharmacy', lat: 37.7694, lng: -122.4862}
-            // Add more clinic locations here
-          ];
-
-          // Create markers for each clinic location
-          var markers = locations.map(function(location) {
-            var marker = new google.maps.Marker({
-              position: {lat: location.lat, lng: location.lng},
-              map: map,
-              title: location.name
-            });
-
-            // Attach location data to the marker
-            marker.data = location;
-
-            return marker;
-          });
-
-          // Filter markers based on selected option
-          function filterMarkers() {
-            var selectedType = document.getElementById('filterSelect').value;
-
-            markers.forEach(function(marker) {
-              if (selectedType === 'all' || marker.data.type === selectedType) {
-                marker.setVisible(true);
-              } else {
-                marker.setVisible(false);
-              }
-            });
-
-            displayClinicsTable();
-          }
-
-          // Search for a clinic
-          function searchClinic() {
-            var searchQuery = document.getElementById('searchInput').value.toLowerCase();
-
-            markers.forEach(function(marker) {
-              var clinicName = marker.data.name.toLowerCase();
-
-              if (clinicName.includes(searchQuery)) {
-                marker.setVisible(true);
-              } else {
-                marker.setVisible(false);
-              }
-            });
-            displayClinicsTable();
-          }
-
-          // Display filtered clinics as an HTML table
-          function displayClinicsTable() {
-            var selectedType = document.getElementById('filterSelect').value;
-            var searchQuery = document.getElementById('searchInput').value.toLowerCase();
-            var clinicsTableBody = document.getElementById('clinicsTableBody');
-            clinicsTableBody.innerHTML = '';
-
-            markers.forEach(function(marker) {
-              var clinicName = marker.data.name.toLowerCase();
-              var clinicType = marker.data.type;
-              var clinicAddress = marker.data.address;
-
-              if ((selectedType === 'all' || clinicType === selectedType) && clinicName.includes(searchQuery)) {
-                var row = clinicsTableBody.insertRow();
-                var nameCell = row.insertCell();
-                var typeCell = row.insertCell();
-                var addressCell = row.insertCell();
-
-                nameCell.textContent = clinicName;
-                typeCell.textContent = clinicType;
-                addressCell.textContent = clinicAddress;
-              }
-            });
-          }
-
-          // Event listeners for filter and search
-          document.getElementById('filterSelect').addEventListener('change', filterMarkers);
-          document.getElementById('searchInput').addEventListener('input', searchClinic);
+        const map = new google.maps.Map(document.getElementById("map"), {
+          center: userLocation,
+          zoom: 12
         });
-      }
+
+        // Add a marker for the user's location
+        const userMarker = new google.maps.Marker({
+          position: userLocation,
+          map: map,
+          title: "Your Location",
+          icon: 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png' // Blue marker for user location
+        });
+
+        // Search for nearby clinics and hospitals
+        const service = new google.maps.places.PlacesService(map);
+        service.nearbySearch({
+          location: userLocation,
+          radius: 1000, // Search within a 1km radius
+          type: ["hospital", "clinic"]
+        }, (results, status) => {
+          if (status === google.maps.places.PlacesServiceStatus.OK) {
+            const tableBody = document.getElementById("clinic-table-body");
+
+            // Sort the results by distance
+            results.sort((a, b) => {
+              const distanceA = google.maps.geometry.spherical.computeDistanceBetween(
+                userLocation,
+                a.geometry.location
+              );
+              const distanceB = google.maps.geometry.spherical.computeDistanceBetween(
+                userLocation,
+                b.geometry.location
+              );
+              return distanceA - distanceB;
+            });
+
+            // Display only the top 3 results
+            const top3Results = results.slice(0, 3);
+
+            for (let i = 0; i < top3Results.length; i++) {
+              const place = top3Results[i];
+              const distance = google.maps.geometry.spherical.computeDistanceBetween(
+                userLocation,
+                place.geometry.location
+              ) / 1000; // Convert distance to kilometers
+
+              const row = document.createElement("tr");
+
+              const nameCell = document.createElement("td");
+              nameCell.textContent = place.name;
+              row.appendChild(nameCell);
+
+              const distanceCell = document.createElement("td");
+              distanceCell.textContent = distance.toFixed(2);
+              row.appendChild(distanceCell);
+
+              const directionsCell = document.createElement("td");
+              const directionsLink = document.createElement("a");
+              directionsLink.href = `https://www.google.com/maps/dir/?api=1&origin=${userLocation.lat},${userLocation.lng}&destination=${place.geometry.location.lat()},${place.geometry.location.lng()}`;
+              directionsLink.textContent = "Get Directions";
+              directionsCell.appendChild(directionsLink);
+              row.appendChild(directionsCell);
+
+              tableBody.appendChild(row);
+
+              // Create a marker for each nearby place
+              const marker = new google.maps.Marker({
+                position: place.geometry.location,
+                map: map,
+                title: place.name
+              });
+            }
+          }
+        });
+      });
     }
-  </script>
 
-</script>
+    </script>
 
-<!-- Include flatpickr library for date and time picking -->
+    </script>
+
+    <!-- Include flatpickr library for date and time picking -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
@@ -369,7 +341,8 @@ function initMap() {
         - custom js link
       -->
     <script src="./assets/js/script.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhmX0sPrd7ESqMZfTW8U3MwJ6jUe2T8V0&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDhmX0sPrd7ESqMZfTW8U3MwJ6jUe2T8V0&callback=initMap"
+      async defer></script>
 
     <!-- 
         - ionicon link
