@@ -260,7 +260,7 @@
           service.nearbySearch({
             location: userLocation,
             radius: 5000, // Search within a 5km radius
-            type: ["clinic"]
+            type: [" medical clinic"]
           }, (results, status) => {
             if (status === google.maps.places.PlacesServiceStatus.OK) {
               const tableBody = document.getElementById("clinic-table-body");
