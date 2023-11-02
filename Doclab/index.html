@@ -36,12 +36,36 @@
   -->
   <link rel="preload" as="image" href="./assets/images/hero-banner.png">
   <link rel="preload" as="image" href="./assets/images/hero-bg.png">
-  
+
 
 </head>
 
 <body id="top">
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const tabs = document.querySelectorAll(".tab-btn");
+      const tabContents = document.querySelectorAll(".tab-text");
 
+      tabs.forEach((tab, index) => {
+        tab.addEventListener("click", () => {
+          // Hide all tab contents
+          tabContents.forEach((content) => (content.style.display = "none"));
+
+          // Show the selected tab content
+          tabContents[index].style.display = "block";
+
+          // Remove "active" class from all tabs
+          tabs.forEach((t) => t.classList.remove("active"));
+
+          // Add "active" class to the clicked tab
+          tab.classList.add("active");
+        });
+      });
+
+      // Initially, show the "Vision" tab and content
+      document.querySelector(".tab-btn:first-child").click();
+    });
+  </script>
   <!-- 
     - #PRELOADER
   -->
@@ -148,8 +172,9 @@
       <div class="overlay" data-nav-toggler data-overlay></div>
 
       <li class="navbar-item">
-          <a href="profile.html" class="navbar-link title-md"><img height = "55" width = "55" src ="./assets/images/profileicon.png"></a>
-      </li> 
+        <a href="profile.html" class="navbar-link title-md"><img height="55" width="55"
+            src="./assets/images/profileicon.png"></a>
+      </li>
 
     </div>
   </header>
@@ -231,17 +256,18 @@
                 </div>
 
                 <h3 class="headline-sm card-title">
-                  <a href="#">Psychiatry</a>
+                  <a href="#">My Bookings</a>
                 </h3>
 
                 <p class="card-text">
-                  Diagnosis, treatment and prevention of mental disorder
+                  Check your bookings here
                 </p>
 
-                <button class="btn-circle" aria-label="read more about psychiatry">
-                  <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
-                </button>
-
+                <a href="calendar.html">
+                  <button class="btn-circle" aria-label="read more about psychiatry">
+                    <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                  </button>
+                </a>
               </div>
             </li>
 
@@ -253,16 +279,18 @@
                 </div>
 
                 <h3 class="headline-sm card-title">
-                  <a href="#">Gynecology</a>
+                  <a href="#">Payments</a>
                 </h3>
 
                 <p class="card-text">
-                  Seek comprehensive care for women
+                  Too busy? Check out online here!
                 </p>
 
-                <button class="btn-circle" aria-label="read more about Gynecology">
-                  <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
-                </button>
+                <a href="payment.html">
+                  <button class="btn-circle" aria-label="read more about psychiatry">
+                    <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                  </button>
+                </a>
 
               </div>
             </li>
@@ -275,16 +303,18 @@
                 </div>
 
                 <h3 class="headline-sm card-title">
-                  <a href="#">Pulmonology</a>
+                  <a href="#">Find a clinic near you</a>
                 </h3>
 
                 <p class="card-text">
-                  Seek care for respiratory problems 
+                  No clinic is too far away
                 </p>
 
-                <button class="btn-circle" aria-label="read more about Pulmonology">
-                  <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
-                </button>
+                <a href="searchclinic.html">
+                  <button class="btn-circle" aria-label="read more about psychiatry">
+                    <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                  </button>
+                </a>
 
               </div>
             </li>
@@ -297,14 +327,16 @@
                 </div>
 
                 <h3 class="headline-sm card-title">
-                  <a href="#">Orthopedics</a>
+                  <a href="#">Ready?</a>
                 </h3>
 
                 <p class="card-text">
-                  Seek care for musculosketal system
-                </p><button class="btn-circle" aria-label="read more about Orthopedics">
-                  <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
-                </button>
+                  let's get you to a clinic
+                  <a href="booking.html">
+                    <button class="btn-circle" aria-label="read more about psychiatry">
+                      <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
+                    </button>
+                  </a>
 
               </div>
             </li>
@@ -327,54 +359,50 @@
 
           <div class="about-content">
 
-            <p class="section-subtitle title-lg has-after" id="about-label" data-reveal="left">About Us</p>
+            <p class="section-subtitle title-lg has-after" id="about-label" data-reveal="left"></p>
 
-            <h2 class="headline-md" data-reveal="left">Affordability</h2>
+            <h2 class="headline-md" data-reveal="left">About Us</h2>
 
             <p class="section-text" data-reveal="left">
-              
+
             </p>
 
             <ul class="tab-list" data-reveal="left">
 
-              <li>
-                <button class="tab-btn active">Vision</button>
-              </li>
 
-              <li>
-                <button class="tab-btn">Mission</button>
-              </li>
 
-              <li>
-                <button class="tab-btn">Strategy</button>
-              </li>
 
             </ul>
+            <!-- Replace this with your desired Mission content -->
+           
 
-            <p class="tab-text" data-reveal="left">
-              Your well-being is our utmost priority, and we are committed to providing you with the highest standard of medical care
-            </p>
+
 
             <div class="wrapper">
+              <p class="tab-text" data-reveal="left">
+                Our vision is to empower individuals to make informed healthcare decisions. We believe that everyone
+                deserves affordable and transparent healthcare access, and we're committed to making that a reality. </p>
+                <p></p>
 
-              <ul class="about-list">
+              <ul>
 
                 <li class="about-item" data-reveal="left">
                   <ion-icon name="checkmark-circle-outline"></ion-icon>
 
-                  <span class="span">Committed to delivering exceptional care and positive outcomes</span>
+                  <span class="span">Patients have the power to choose clinics that best meet their needs.</span>
                 </li>
 
                 <li class="about-item" data-reveal="left">
                   <ion-icon name="checkmark-circle-outline"></ion-icon>
 
-                  <span class="span">Ensuring your health and confidence in our services</span>
+                  <span class="span">Consultation and medicine fees are clear, fair, and fixed.</span>
                 </li>
 
                 <li class="about-item" data-reveal="left">
                   <ion-icon name="checkmark-circle-outline"></ion-icon>
 
-                  <span class="span">Your health and well-being are our top priority</span>
+                  <span class="span">Access to quality healthcare is no longer a luxury, but a fundamental right for
+                    all.</span>
                 </li>
 
                 <li class="about-item" data-reveal="left">
@@ -383,7 +411,9 @@
                   <span class="span">Ensuring your satisfaction and well-being through our services</span>
                 </li>
 
+
               </ul>
+
 
             </div>
 
@@ -405,117 +435,7 @@
         - #LISTING
       -->
 
-      <section class="section listing" aria-labelledby="listing-label">
-        <div class="container">
-
-          <ul class="grid-list">
-
-            <li>
-              <p class="section-subtitle title-lg" id="listing-label" data-reveal="left">Doctors Listing</p>
-
-              <h2 class="headline-md" data-reveal="left">Browse by specialist</h2>
-            </li>
-
-            <li>
-              <div class="listing-card" data-reveal="bottom">
-
-                <div class="card-icon">
-                  <img src="./assets/images/icon-1.png" width="71" height="71" loading="lazy" alt="icon">
-                </div>
-
-                <div>
-                  <h3 class="headline-sm card-title">Psychiatry</h3>
-
-                  <p class="card-text">Go now!</p>
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="listing-card" data-reveal="bottom">
-
-                <div class="card-icon">
-                  <img src="./assets/images/icon-2.png" width="71" height="71" loading="lazy" alt="icon">
-                </div>
-
-                <div>
-                  <h3 class="headline-sm card-title">Gynecology</h3>
-                  <p class="card-text">Go now!</p>
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="listing-card" data-reveal="bottom">
-
-                <div class="card-icon">
-                  <img src="./assets/images/icon-4.png" width="71" height="71" loading="lazy" alt="icon">
-                </div>
-
-                <div>
-                  <h3 class="headline-sm card-title">Pulmonology</h3>
-
-                  <p class="card-text">Go now!</p>
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="listing-card" data-reveal="bottom">
-
-                <div class="card-icon">
-                  <img src="./assets/images/icon-5.png" width="71" height="71" loading="lazy" alt="icon">
-                </div>
-
-                <div>
-                  <h3 class="headline-sm card-title">Orthopedics</h3>
-
-                  <p class="card-text">Go now!</p>
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="listing-card" data-reveal="bottom">
-
-                <div class="card-icon">
-                  <img src="./assets/images/icon-6.png" width="71" height="71" loading="lazy" alt="icon">
-                </div>
-
-                <div>
-                  <h3 class="headline-sm card-title">Pediatrics</h3>
-
-                  <p class="card-text">Go now!</p>
-                </div>
-
-              </div>
-            </li>
-
-            <li>
-              <div class="listing-card" data-reveal="bottom">
-
-                <div class="card-icon">
-                  <img src="./assets/images/icon-7.png" width="71" height="71" loading="lazy" alt="icon">
-                </div>
-
-                <div>
-                  <h3 class="headline-sm card-title">Osteology</h3>
-
-                  <p class="card-text">Go now!</p>
-                </div>
-
-              </div>
-            </li>
-
-          </ul>
-
-        </div>
-      </section>
-
+     
 
 
 
@@ -584,12 +504,13 @@
                     <span class="span">Specialist</span>
                   </div>
 
-                </div><h3 class="headline-sm card-title">Give children more autonomy during the pandemic</h3>
+                </div>
+                <h3 class="headline-sm card-title">Give children more autonomy during the pandemic</h3>
 
                 <time class="title-sm date" datetime="2022-01-28">25 September, 2022</time>
 
                 <p class="card-text">
-                 The leaders of tomorrow, how can we help them to help us instead?
+                  The leaders of tomorrow, how can we help them to help us instead?
                 </p>
 
                 <a href="#" class="btn-text title-lg">Read More</a>
@@ -666,7 +587,8 @@
 
               <div>
                 <p>
-                   Main Email : <a href="mailto:contact@website.com" class="contact-link">medimate_contact@website.com</a>
+                  Main Email : <a href="mailto:contact@website.com"
+                    class="contact-link">medimate_contact@website.com</a>
                 </p>
 
                 <p>
@@ -700,15 +622,6 @@
 
         <div class="footer-list" data-reveal="bottom">
 
-          <p class="headline-sm footer-list-title">About Us</p>
-
-          <p class="text">
-            Welcome to MediMate - Your Trusted Partner in Healthcare Access!
-
-            At MediMate, we are committed to redefining the way you access healthcare services in
-            Singapore. Our mission is to make healthcare more accessible, convenient, and transparent, and we're excited
-            to have you on this journey with us.
-          </p>
 
           <address class="address">
             <ion-icon name="map-outline"></ion-icon>
@@ -721,68 +634,9 @@
 
         </div>
 
-        <ul class="footer-list" data-reveal="bottom">
+        
 
-          <li>
-            <p class="headline-sm footer-list-title">Services</p>
-          </li>
-
-          <li>
-            <a href="#" class="text footer-link">Conditions</a>
-          </li>
-
-          <li>
-            <a href="#" class="text footer-link">Listing</a>
-          </li><li>
-            <a href="#" class="text footer-link">How It Works</a>
-          </li>
-
-          <li>
-            <a href="#" class="text footer-link">What We Offer</a>
-          </li>
-
-          <li>
-            <a href="#" class="text footer-link">Latest News</a>
-          </li>
-
-          <li>
-            <a href="#" class="text footer-link">Contact Us</a>
-          </li>
-
-        </ul>
-
-        <ul class="footer-list" data-reveal="bottom">
-
-          <li>
-            <p class="headline-sm footer-list-title">Useful Links</p>
-          </li>
-
-          <li>
-            <a href="#" class="text footer-link">Conditions</a>
-          </li>
-
-          <li>
-            <a href="#" class="text footer-link">Terms of Use</a>
-          </li>
-
-          <li>
-            <a href="#" class="text footer-link">Our Services</a>
-          </li>
-
-          <li>
-            <a href="#" class="text footer-link">Join as a Doctor</a>
-          </li>
-
-          <li>
-            <a href="#" class="text footer-link">New Guests List</a>
-          </li>
-
-          <li>
-            <a href="#" class="text footer-link">The Team List</a>
-          </li>
-
-        </ul>
-
+       
         <div class="footer-list" data-reveal="bottom">
 
           <p class="headline-sm footer-list-title">Subscribe</p>
@@ -807,40 +661,7 @@
           &copy; MediMate 2023 | All Rights Reserved by G9T3
         </p>
 
-        <ul class="social-list">
-
-          <li>
-            <a href="https://www.facebook.com/login/" class="social-link">
-              <ion-icon name="logo-facebook"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="https://twitter.com/" class="social-link">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="https://www.google.com/" class="social-link">
-              <ion-icon name="logo-google"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="https://sg.linkedin.com/" class="social-link">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="https://www.pinterest.com/login/" class="social-link">
-              <ion-icon name="logo-pinterest"></ion-icon>
-            </a>
-          </li>
-
-        </ul>
-
+        
       </div>
 
     </div>
