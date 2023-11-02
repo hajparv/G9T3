@@ -255,7 +255,7 @@
           const service = new google.maps.places.PlacesService(map);
           service.nearbySearch({
             location: userLocation,
-            radius: 1000, // Search within a 1km radius
+            radius: 5000, // Search within a 5km radius
             type: ["hospital", "clinic"]
           }, (results, status) => {
             if (status === google.maps.places.PlacesServiceStatus.OK) {
