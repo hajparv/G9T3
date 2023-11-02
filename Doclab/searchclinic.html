@@ -259,8 +259,9 @@
           const service = new google.maps.places.PlacesService(map);
           service.nearbySearch({
             location: userLocation,
-            radius: 5000, // Search within a 5km radius
-            type: [" medical clinic"]
+            radius: 7000, // Search within a 7km radius
+            type: ["clinic"],
+            keyword: ["medical clinic, gp"]
           }, (results, status) => {
             if (status === google.maps.places.PlacesServiceStatus.OK) {
               const tableBody = document.getElementById("clinic-table-body");
