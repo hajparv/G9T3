@@ -256,7 +256,7 @@
           service.nearbySearch({
             location: userLocation,
             radius: 5000, // Search within a 5km radius
-            type: ["hospital", "clinic"]
+            type: ["clinic"]
           }, (results, status) => {
             if (status === google.maps.places.PlacesServiceStatus.OK) {
               const tableBody = document.getElementById("clinic-table-body");
@@ -274,11 +274,11 @@
                 return distanceA - distanceB;
               });
 
-              // Display only the top 3 results
-              const top3Results = results.slice(0, 3);
+              // Display only the top 5 results
+              const top5Results = results.slice(0, 5);
 
               for (let i = 0; i < top3Results.length; i++) {
-                const place = top3Results[i];
+                const place = top5Results[i];
                 const distance = google.maps.geometry.spherical.computeDistanceBetween(
                   userLocation,
                   place.geometry.location
