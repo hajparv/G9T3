@@ -678,21 +678,81 @@ body.nav-active {
   font-weight: var(--fw-700);
   text-align: center;
 }
-.profiletext{
+
+.profiletext {
   color: var(--midnight-green);
   font-size: 10px;
   font-weight: var(--fw-700);
   text-align: center;
 
 }
-/* Specific CSS rules to target the table and headings */
-.custom-table {
-  width: 100%;
+.search-bar{
+  width : 100px;
+}
+#search {
+  width: 200px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #f0f0f0;
+  color: #333;
+  outline: none;
+  margin-bottom: 10px;
+
 }
 
-.custom-th {
-  width: 14%;
-  padding: 8px;
+
+/* Style for placeholder text */
+#search::placeholder {
+  color: #999; /* Customize the placeholder text color */
+}
+
+/* Style for when the input is focused (active) */
+#search:focus {
+  border-color: #007bff; /* Change the border color on focus */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add a subtle box shadow on focus */
+}
+
+
+/* Specific CSS rules to target the table and headings */
+
+
+table,
+th,
+td {
+  padding: 1rem;
+}
+
+th {
+  position: sticky;
+  top: 0;
+  background-color: #f6f9fc;
+  color: #8493a5;
+  font-size: 15px;
+
+}
+
+th,
+td {
+  border-bottom: 1px solid #dddddd;
+  word-break: break-all;
+  text-align: center;
+}
+
+td{
+  font-size: 12px;
+}
+
+tr:hover td {
+  color: red;
+}
+
+.inline-buttons{
+  display: inline-block;
+  margin-top : 10px;
+  margin-bottom: 20px;
+  font-size : 15px;
 }
 
 
@@ -716,6 +776,7 @@ body.nav-active {
   display: flex;
   justify-content: center;
 }
+
 
 /*-----------------------------------*\
   #ABOUT

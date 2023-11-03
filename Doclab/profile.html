@@ -170,33 +170,25 @@
         <div class="col-md-9 col-lg-9">
           <div class="rectangle">
             <div class="profiletitle">Payment Records</div>
-            <div class="table-responsive profiletext">
-              <div class="profiletext">Payment History</div>
-              <thead>
-                <tr>
-                  <th class="custom-th">Invoice ID</th>
-                  <th class="custom-th">Reciept ID</th>
-                  <th class="custom-th">Date</th>
-                  <th class="custom-th">Appointment ID</th>
-                  <th class="custom-th">Clinic Name</th>
-                  <th class="custom-th">Cost</th>
-                </tr>
-              </thead>
-              <div id="data"></div>
+            <div class="row">
+              <div class="offset-md-3 col-md-6">
+                <input type="search" class="form-control" id="search" placeholder="search...">
+              </div>
             </div>
-            <div class="profiletext">Pending Payemnt</div>
-            <table>
-              <tr>
-                <th class="custom-th">Reciept ID</th>
-                <th class="custom-th">Date</th>
-                <th class="custom-th">Appointment ID</th>
-                <th class="custom-th">Clinic Name</th>
-                <th class="custom-th">Cost</th>
-                <th class="custom-th">Due Date</th>
-              </tr>
-              <div id="pending" class="profiletext"></div>
 
-            </table>
+            <div class="profiletable profiletext">
+              <table>
+                <tr>
+                  <th>Receipt ID</th>
+                  <th>Clinic Name</th>
+                  <th>Date Of Visit</th>
+                  <th id="status">Status Of Payment</th>
+                  <th>Cost</th>
+                  <th>Due Date</th>
+                </tr>
+                <tbody id="payment"></tbody>
+              </table>
+            </div>
 
 
           </div>
@@ -217,7 +209,7 @@
     </section>
 
 
-
+    
 
 
 

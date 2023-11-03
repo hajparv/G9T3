@@ -8,8 +8,8 @@ $data = array();
 if($received_data->action == 'fetchall')
 {
  $query = "
- SELECT * FROM paymentrecord
- ORDER BY appointmentID 
+ SELECT * FROM payment
+ ORDER BY receiptID 
  ";
  $statement = $connect->prepare($query);
  $statement->execute();
