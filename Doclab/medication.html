@@ -5,17 +5,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-
   <!-- 
     - primary meta tags
   -->
-    <title>Doclab - health</title>
-    <meta name="title" content="Doclab - home">
-    <meta name="description" content="This is a madical html template made by codewithsadee">
+  <title>Doclab - health</title>
+  <meta name="title" content="Doclab - home">
+  <meta name="description" content="This is a madical html template made by codewithsadee">
 
   <!-- 
     - favicon
@@ -40,6 +38,11 @@
   -->
   <link rel="preload" as="image" href="./assets/images/hero-banner.png">
   <link rel="preload" as="image" href="./assets/images/hero-bg.png">
+
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </script>
   <style>
     /* ================================================= */
     /* ----------------- Booking Style ----------------- */
@@ -116,9 +119,9 @@
 
         <div class="navbar-top">
 
-                    <a href="index.html" class="logo">
-                        <img src="./assets/images/medimatelogo2.png" width="136" height="46" alt="Doclab home">
-                    </a>
+          <a href="#" class="logo">
+            <img src="./assets/images/medimatelogo2.png" width=136 height="46" alt="Doclab home">
+          </a>
 
           <button class="nav-close-btn" aria-label="clsoe menu" data-nav-toggler>
             <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
@@ -137,7 +140,7 @@
           </li>
 
           <li class="navbar-item">
-            <a href="calendar.html" class="navbar-link title-md">Check Reserved Timings</a>
+            <a href="calendar.html" class="navbar-link title-md">Calendar</a>
           </li>
 
           <li class="navbar-item">
@@ -198,95 +201,21 @@
     </div>
   </header>
 
-  <body class="healthpage">
+  <body class="immunisation">
 
-    <!--Card-->
-    <section class="section listing" aria-labelledby="listing-label">
-      <div class="container">
-        <div class="row">
-          <h1 class="headline-md">Personal Health</h1>
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="listing-card text-center" data-reveal="bottom">
-              <div class="card-icon d-flex justify-content-center align-items-center d-flex justify-content-center align-items-center"> <!-- Use d-flex, justify-content-center, and align-items-center classes -->
-                <img src="./assets/images/icon-1.png" width="71" height="71" loading="lazy" alt="icon">
-              </div>
-              <h3 class="headline-sm card-title"><a href="immunisation.html">Immunisation</a></h3>
-              <p class="card-text">Vaccination Record</p>
-            </div>
-          </div>
-          
-          
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="listing-card text-center" data-reveal="bottom">
-              <div class="card-icon d-flex justify-content-center align-items-center">
-                <img src="./assets/images/icon-2.png" width="71" height="71" loading="lazy" alt="icon">
-              </div>
-              <h3 class="headline-sm card-title"><a href="drugallergy.html">Drug Allergy</a></h3>
-              <p class="card-text">Medical alert/allergy</p>
-            </div>
-          </div>
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="listing-card text-center" data-reveal="bottom">
-              <div class="card-icon d-flex justify-content-center align-items-center">
-                <img src="./assets/images/icon-4.png" width="71" height="71" loading="lazy" alt="icon">
-              </div>
-              <h3 class="headline-sm card-title"><a href="healthscreening.html">Health Screening</a></h3>
-              <p class="card-text">View health screening services available</p>
-            </div>
-          </div>
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="listing-card text-center" data-reveal="bottom">
-              <div class="card-icon d-flex justify-content-center align-items-center">
-                <img src="./assets/images/icon-5.png" width="71" height="71" loading="lazy" alt="icon">
-              </div>
-              <h3 class="headline-sm card-title"><a href="labtest.html">Lab Test</a></h3>
-              <p class="card-text">View lab tests available at our clinic</p>
-            </div>
-          </div>
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="listing-card text-center" data-reveal="bottom">
-              <div class="card-icon d-flex justify-content-center align-items-center">
-                <img src="./assets/images/icon-6.png" width="71" height="71" loading="lazy" alt="icon">
-              </div>
-              <h3 class="headline-sm card-title"><a href="medication.html">Medication</a></h3>
-              <p class="card-text">Medication Record</p>
-            </div>
-          </div>
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="listing-card text-center" data-reveal="bottom">
-              <div class="card-icon d-flex justify-content-center align-items-center">
-                <img src="./assets/images/icon-7.png" width="71" height="71" loading="lazy" alt="icon">
-              </div>
-              <h3 class="headline-sm card-title"><a href="subsidies.html">Subsidies</a></h3>
-              <p class="card-text">Available for you</p>
-            </div>
-          </div>
+    <section class="section blog" aria-labelledby="blog-label">
+
+      <div class="container-fluid">
+        <h2 class="section-title headline-md text-center pt-5" data-reveal="bottom">Medication</h2>
+        <div class="row" id="data">
         </div>
       </div>
     </section>
 
-
-
-
-
-
-
-    <!-- Include flatpickr library for date and time picking -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script>
-      // Initialize flatpickr for date and time input fields
-      flatpickr('#date', {
-        enableTime: false, // Date only
-        dateFormat: "m/d/Y", // Format as MM/DD/YYYY
-      });
-      flatpickr('#time', {
-        enableTime: true, // Enable time selection
-        noCalendar: true, // Time only
-        dateFormat: "h:i K", // Format as HH:MM AM/PM
-      });
+    <script src="medication.js">
     </script>
-    </div>
+
+
 
     <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
       <ion-icon name="chevron-up"></ion-icon>
@@ -297,6 +226,7 @@
       -->
     <script src="./assets/js/script.js"></script>
 
+
     <!-- 
         - ionicon link
       -->
@@ -304,5 +234,5 @@
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
   </body>
-
+  <!-- <script src="newtest.js"></script> -->
 </html>

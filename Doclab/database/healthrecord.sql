@@ -168,6 +168,116 @@ CREATE TABLE `user_form` (
 INSERT INTO `user_form` (`name`, `email`, `address`, `phone`, `password`, `user_type`) VALUES
 ('david', 'dd@gmail.com', 'blk 111 lorong ah soo road', '90090099', '202cb962ac59075b964b07152d234b70', 'user');
 
+
+
+
+--
+-- Table structure for table `labtest_results`
+--
+-- Create the labtest_results table
+CREATE TABLE LabTestResults (
+    ResultID INT AUTO_INCREMENT PRIMARY KEY,
+    TestName VARCHAR(255) NOT NULL,
+    ResultValue DECIMAL(10, 2) NOT NULL,
+    ResultDate DATE NOT NULL
+);
+
+INSERT INTO LabTestResults (TestName, ResultValue, ResultDate)
+VALUES
+    ('Basic Metabolic Panel (BMP)', 95.5, '2023-09-20'),
+    ('Lipid Panel', 150.2, '2023-09-18'),
+    ('Thyroid Function Tests', 2.5, '2023-09-19'),
+    ('Mammogram', 0.1, '2023-10-10'),
+    ('Complete Blood Count (CBC)', 4.8, '2023-10-05'),
+    ('Prostate-Specific Antigen (PSA) Test', 3.2, '2023-10-08'),
+    ('Pap Smear', 0.02, '2023-10-12'),
+    ('Colonoscopy', 1.8, '2023-10-11'),
+    ('Bone Density Scan', 1.2, '2023-09-25');
+
+-- Table structure for table `drugallergy`
+-- Create the patients table
+CREATE TABLE drug_allergy (
+    AllergyID INT AUTO_INCREMENT PRIMARY KEY,
+    DrugName VARCHAR(255) NOT NULL,
+    AllergyDescription TEXT,
+    Severity VARCHAR(50)
+);
+
+INSERT INTO drug_allergy (DrugName, AllergyDescription, Severity)
+VALUES
+    ('Penicillin', 'Patient is allergic to penicillin', 'Severe'),
+    ('Sulfa Drugs', 'Severe allergic reaction to sulfa drugs', 'Critical'),
+    ('Aspirin', 'Mild rash when taking aspirin', 'Mild'),
+    ('Amoxicillin', 'Hives and itching after taking amoxicillin', 'Moderate'),
+    ('Codeine', 'Breathing difficulties when taking codeine', 'Critical'),
+    ('Ibuprofen', 'Stomach ache and nausea when taking ibuprofen', 'Mild');
+
+
+
+-- Table structure for table `HealthScreenings`
+-- Create the HealthScreenings table
+
+
+CREATE TABLE HealthScreenings (
+    ScreeningID INT AUTO_INCREMENT PRIMARY KEY,
+    ScreeningName VARCHAR(255) NOT NULL,
+    ScreeningDescription TEXT
+);
+INSERT INTO HealthScreenings (ScreeningName, ScreeningDescription)
+VALUES
+    ('Annual Physical Examination', 'A comprehensive examination to assess overall health, including blood pressure, cholesterol, and general wellness.'),
+    ('Mammogram', 'A screening test for breast cancer in women, typically performed using X-rays.'),
+    ('Colonoscopy', 'A screening procedure to detect and prevent colorectal cancer by examining the colon and rectum.'),
+    ('Prostate-Specific Antigen (PSA) Test', 'A blood test to screen for prostate cancer in men.'),
+    ('Pap Smear', 'A cervical cancer screening test for women, involving the collection and examination of cervical cells.'),
+    ('Bone Density Scan', 'A test to measure bone density and assess the risk of osteoporosis.');
+
+
+-- Table structure for table `Subsidies`
+-- Create the Subsidies table
+
+
+
+CREATE TABLE Subsidies (
+    SubsidyID INT AUTO_INCREMENT PRIMARY KEY,
+    SubsidyName VARCHAR(255) NOT NULL,
+    SubsidyDescription TEXT,
+    EligibilityCriteria TEXT
+);
+
+INSERT INTO Subsidies (SubsidyName, SubsidyDescription, EligibilityCriteria)
+VALUES
+    ('Low-Income Assistance', 'Financial assistance for patients with low income.', 'Annual income below a specified threshold.'),
+    ('Senior Citizen Discount', 'Discount for senior citizens to make healthcare more affordable.', 'Age above a specified limit, such as 65 or 60.'),
+    ('Student Discount', 'Discount for students to reduce healthcare costs.', 'Valid student ID or enrollment proof required.'),
+    ('Family Health Plan', 'Subsidy for families to promote family healthcare.', 'Eligible for families with a certain number of members.'),
+    ('Chronic Disease Subsidy', 'Assistance for patients with chronic illnesses.', 'Valid medical diagnosis for a chronic condition required.'),
+    ('Veterans Discount', 'Discount for military veterans to support their healthcare needs.', 'Veteran status verified with military service records.');
+
+
+
+
+-- Table structure for table `MedicationRecords`
+-- Create the MedicationRecords table
+
+CREATE TABLE MedicationRecords (
+    RecordID INT AUTO_INCREMENT PRIMARY KEY,
+    MedicationName VARCHAR(255) NOT NULL,
+    Dosage VARCHAR(50) NOT NULL,
+    StartDate DATE NOT NULL,
+    EndDate DATE,
+    Notes TEXT
+);
+
+INSERT INTO MedicationRecords (MedicationName, Dosage, StartDate, EndDate, Notes)
+VALUES
+    ('Aspirin', '1 tablet daily', '2023-09-15', '2023-09-30', 'For pain relief'),
+    ('Lisinopril', '10 mg once a day', '2023-09-10', '2023-10-10', 'For hypertension'),
+    ('Amoxicillin', '500 mg three times a day', '2023-09-20', '2023-09-30', 'For infection'),
+    ('Atorvastatin', '20 mg daily', '2023-09-18', NULL, 'For cholesterol control'),
+    ('Ibuprofen', '400 mg as needed', '2023-10-01', '2023-10-10', 'For pain relief'),
+    ('Metformin', '1000 mg twice a day', '2023-09-15', NULL, 'For diabetes control');
+
 --
 -- Indexes for dumped tables
 --
