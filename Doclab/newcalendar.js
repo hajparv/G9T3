@@ -23,8 +23,8 @@ var application = new Vue({
 
 
 
-                const bookings = JSON.parse(localStorage.getItem('bookingData'));
-                console.log(bookings.date);
+                //const bookings = JSON.parse(localStorage.getItem('bookingData'));
+                //console.log(bookings.date);
 
 
 
@@ -174,13 +174,13 @@ var application = new Vue({
                             const holidayOfTheDay = holidays.find((e) => e.hdate == dateText);
 
 
-                            const bookingDate = bookings.date;
+                            //const bookingDate = bookings.date;
 
-                            const formattedDate = bookingDate.replace(/\//g, "-");
-                            const parts = formattedDate.split("-");
-                            const finalDate = `${parts[1]}-${parts[0]}-${parts[2]}`;
+                            //const formattedDate = bookingDate.replace(/\//g, "-");
+                            //const parts = formattedDate.split("-");
+                            //const finalDate = `${parts[1]}-${parts[0]}-${parts[2]}`;
 
-                            console.log(finalDate);
+                            //console.log(finalDate);
 
 
                             console.log(dateText);
