@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE-edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <!-- styling for arrows-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+  <title>MediMate - health</title>
+  <meta name="title" content="MediMate - home">
+  <meta name="description" content="This is a medical HTML template made by codewithsadee">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Rubik:wght@400;500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/calendar.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <style>
+    .yay{
+      background-color: #004953;
+    }
+    div.container{
+      height: 131.04px;
+      width: 1200px;
+    }
+    body {
+      background-color: #004953;
+      /* Set the background color */
+    }
+    header.header{
+      width: 1802.67px;
+      height: 179.04px
+    }
+
+    .header .navbar-link {
+      text-decoration: none;
+      list-style: none;
+      /* Remove bullets */
+      padding: 0;
+      /* Remove padding */
+
+    }
+
+    .nav-open-btn {
+      color: var(--white);
+      font-size: 4rem;
+    }
+
+    .navbar,
+    .overlay {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      height: 100vh;
+    }
+
+    .navbar {
+      right: -300px;
+      max-width: 300px;
+      background-color: transparent; /* Remove background color */
+      z-index: 3;
+      transition: 0.25s var(--cubic-in);
+      visibility: hidden;
+    }
+
+    .navbar.active {
+      transform: translateX(-300px);
+      visibility: visible;
+      transition: 0.5s var(--cubic-out);
+    }
+
+    .navbar-top {
+      position: relative;
+      padding-inline: 25px;
+      padding-block: 55px 100px;
+    }
+
+    .nav-close-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      color: var(--white);
+      font-size: 2.8rem;
+    }
+
+    .navbar-list {
+      margin-block-end: 30px;
+      border-block-end: 1px solid var(--white_a10);
+    }
+
+    .navbar-item {
+      border-block-start: none; /* Remove the border for the first item */
+      list-style-type: none;
+      color: white;
+      font-weight: bold;
+    }
+    a.navbar-link.title-md{
+      border-top: 10px;
+      border-bottom: 10px;
+      border-left: 24px;
+      border-right: 24000px;
+    }
+
+    .navbar-link {
+      color: var(--white);
+      text-transform: uppercase;
+      padding: 10px 24px;
+      list-style: none; /* Remove visible bullets */
+    }
+
+    .nav-open-btn {
+      margin-inline-start: auto;
+    }
+
+    .nav-open-btn,
+    .overlay,
+    .navbar-top,
+    .navbar .social-list {
+      display: none;
+    }
+
+    .navbar,
+    .navbar.active,
+    .navbar-list {
+      all: unset;
+      display: block;
+    }
+
+    .navbar {
+      margin-inline-start: auto;
+    }
+
+    .navbar-list {
+      display: flex;
+      gap: 8px;
+    }
+
+    .navbar-item {
+      border-block-start: none;
+    }
+
+    .navbar-link {
+      --title-md: 1.8rem;
+      font-weight: var(--fw-500);
+      padding-inline: 16px;
+      text-transform: capitalize;
+    }
+  </style>
+</head>
+
+<body id="top">
+  <div class="preloader" data-preloader>
+    <div class="circle"></div>
+  </div>
+  <header class="header" data-header>
+    <div class="container yay">
+      <a href="index.html" class="logo">
+        <img src="./assets/images/medimatelogo2.png" width="100" height="131.04" alt="Medimate home">
+      </a>
+      <nav class="navbar" data-navbar>
+        <div class="navbar-top">
+          <a href="index.html" class="logo">
+            <img src="./assets/images/medimatelogo2.png" width="136" height="46" alt="MediMate home">
+          </a>
+          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
+        </div>
+        <ul class="navbar-list">
+          <li class="navbar-item">
+            <a href="index.html" class="navbar-link title-md">Home</a>
+          </li>
+          <li class="navbar-item">
+            <a href="searchclinic.html" class="navbar-link title-md">Search Clinic</a>
+          </li>
+          <li class="navbar-item">
+            <a href="calendar.html" class="navbar-link title-md">Calendar</a>
+          </li>
+          <li class="navbar-item">
+            <a href="payment.html" class="navbar-link title-md">Payment</a>
+          </li>
+          <li class="navbar-item">
+            <a href="health.html" class="navbar-link title-md">My Health</a>
+          </li>
+        </ul>
+        <ul class="social-list">
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a href="#" class "social-link">
+              <ion-icon name="logo-pinterest"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <ion-icon name="menu-outline"></ion-icon>
+      </button>
+      <div class="overlay" data-nav-toggler data-overlay></div>
+      <li class="navbar-item">
+        <a  style = "padding-left: 40px;" href="profile.html" class="navbar-link title-md"><img height="55" width="55"
+            src="./assets/images/profileicon.png"></a>
+      </li>
+    </div>
+  </header>
+
+  <body class="healthpage">
+    <!-- Your page content here -->
+    <div class="container">
+      <div class="calendar-header">
+        <div id="month"></div>
+        <div>
+          <button id="btnBack"><i class="fa fa-angle-left"></i></button>
+          <button id="btnNext"><i class="fa fa-angle-right"></i></button>
+        </div>
+      </div>
+      <div class="weekdays">
+        <div>Sun</div>
+        <div>Mon</div>
+        <div>Tue</div>
+        <div>Wed</div>
+        <div>Thu</div>
+        <div>Fri</div>
+        <div>Sat</div>
+      </div>
+      <div id="calendar"></div>
+    </div>
+    <div id="modal"></div>
+    <div id="addEvent">
+      <h2>Add Event</h2>
+      <input type="text" id="txtTitle" placeholder="Event Title" />
+      <button id="btnSave">Save</button>
+      <button class="btnClose">Close</button>
+    </div>
+
+    <div id="viewEvent">
+      <h2>Event</h2>
+      <p id="eventText">This is Sample Event</p>
+      <button id="btnDelete">Delete</button>
+      <button class="btnClose">Close</button>
+    </div>
+
+
+    <!-- Include flatpickr library for date and time picking -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+      <ion-icon name="chevron-up"></ion-icon>
+    </a>
+    <script src="./assets/js/script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="newcalendar.js"></script>
+
+  </body>
+
+</html>
