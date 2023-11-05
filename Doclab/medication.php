@@ -1,6 +1,6 @@
 <?php
 
-$connect = new PDO("mysql:host=localhost;dbname=healthrecord", "root", "root");
+$connect = new PDO("mysql:host=localhost;dbname=healthrecord", "root", "");
 $received_data = json_decode(file_get_contents("php://input"));
 $data = array();
 if($received_data->action == 'fetchall')
