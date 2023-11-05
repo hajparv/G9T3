@@ -23,13 +23,13 @@ var application = new Vue({
                
         var name = information.ScreeningName;
         var description = information.ScreeningDescription;
-
+      
         result += `
         <div class="col-12 col-sm-6 col-md-4 col-lg-3 pt-5" >
             <div class="blog-card has-before has-after revealed" data-reveal="bottom">
               <div class="meta-wrapper">
                 <div class="card-meta">
-                  <span class="span" id="title">${name}</span>
+                  <span class="span d-block " >${name}</span>
                 </div>
               </div>
               <h3 class="headline-sm card-title"></h3>
