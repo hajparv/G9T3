@@ -660,6 +660,16 @@ body.nav-active {
   padding: 200px;
 }
 
+/*-----------------------------------*\
+  #SCREENING.HTML
+\*-----------------------------------*/
+.screening{
+  background-color: var(--midnight-green);
+}
+.boxes{
+  margin-top : 200px;
+  justify-content: center;
+}
 
 
 /*-----------------------------------*\
