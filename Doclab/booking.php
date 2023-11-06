@@ -181,10 +181,6 @@ if(isset($_POST['submit'])){
           </li>
 
           <li class="navbar-item">
-            <a href="calendar.html" class="navbar-link title-md">Calendar</a>
-          </li>
-
-          <li class="navbar-item">
             <a href="payment.html" class="navbar-link title-md">Payment</a>
           </li>
 
