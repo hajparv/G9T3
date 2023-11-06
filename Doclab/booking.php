@@ -277,17 +277,9 @@ if(isset($_POST['submit'])){
                     <label>Select a Clinic</label><br>
                     <select name="clinic" class="custom-select" id="service">
                       <option value="Complete Healthcare International">Complete Healthcare International</option>
-                      <option>Orchard Group Clinic</option>
-                      <option>Tanglin Medical Clinic</option>
-                      <option>Minmed Clinic (Juron East)</option>
-                      <option>UNIHEALTH 24-HR CLINIC (JURONG EAST)</option>
-                      <option>Summit Medical Clinic</option>
-                      <option>NTUC Health Medicine Clinic</option>
-                      <option>326 Avenue 3 Clinic</option>
-                      <option>Affinity Medical Clinic</option>
-                      <option>AcuMed Medical (Bedok)</option>
-                      <option>Health Line Family Clinic and Surgery</option>
-                      <option>Minmed Clinic (Bedok)</option>
+                      <option>GP Healthcare</option>
+                      <option>DTAP Clinic @ Robertson GP</option>
+                      <option>Cross Street Medical Clinic</option>
                     </select>
                   </div>
                   <div class="control-group col-sm-6">
