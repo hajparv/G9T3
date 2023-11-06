@@ -1,5 +1,5 @@
 <?php
 
-$conn = mysqli_connect('localhost','root','root','healthrecord');
+$conn = mysqli_connect('localhost','root','','healthrecord');
 
 ?>
