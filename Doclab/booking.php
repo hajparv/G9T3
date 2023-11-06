@@ -181,6 +181,10 @@ if(isset($_POST['submit'])){
           </li>
 
           <li class="navbar-item">
+            <a href="calendar.html" class="navbar-link title-md">Calendar</a>
+          </li>
+
+          <li class="navbar-item">
             <a href="payment.html" class="navbar-link title-md">Payment</a>
           </li>
 
@@ -280,6 +284,17 @@ if(isset($_POST['submit'])){
                       <option>GP Healthcare</option>
                       <option>DTAP Clinic @ Robertson GP</option>
                       <option>Cross Street Medical Clinic</option>
+                      <option>Orchard Group Clinic</option>
+                      <option>Tanglin Medical Clinic</option>
+                      <option>Minmed Clinic (Juron East)</option>
+                      <option>UNIHEALTH 24-HR CLINIC (JURONG EAST)</option>
+                      <option>Summit Medical Clinic</option>
+                      <option>NTUC Health Medicine Clinic</option>
+                      <option>326 Avenue 3 Clinic</option>
+                      <option>Affinity Medical Clinic</option>
+                      <option>AcuMed Medical (Bedok)</option>
+                      <option>Health Line Family Clinic and Surgery</option>
+                      <option>Minmed Clinic (Bedok)</option>
                     </select>
                   </div>
                   <div class="control-group col-sm-6">
