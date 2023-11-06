@@ -97,11 +97,6 @@ CREATE TABLE `booking` (
 -- Dumping data for table `booking`
 --
 
-INSERT INTO `booking` (`name`, `email`, `time`, `date`, `mobile`, `clinic`, `service`, `special_request`, `created_at`) VALUES
-('pp', 'pp@gmail.com', '15:43:00', '2023-11-24', '89991112', '', '', 'Need wheelchair', '2023-11-04 05:47:51'),
-('aa', 'aa@gmail.com', '13:00:00', '2023-11-14', '89991111', 'Complete Healthcare International', '', 'Need wheelchair', '2023-11-04 06:01:08'),
-('anny', 'anny@gmail.com', '17:48:00', '2023-11-05', '89991114', 'Complete Healthcare International', 'Consultation', 'Need wheelchair', '2023-11-04 07:49:01'),
-('dap', 'dap@gmail.com', '12:29:00', '2023-11-30', '82231102', 'Complete Healthcare International', 'Consultation', 'Need wheelchair', '2023-11-04 10:29:12');
 
 -- --------------------------------------------------------
 
