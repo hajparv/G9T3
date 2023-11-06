@@ -23,12 +23,12 @@ if(isset($_POST['submit'])){
       if($row['user_type'] == 'admin'){
 
          $_SESSION['admin_name'] = $row['name'];
-         header('location:admin_page.php');
+         header('location:/G9T3/Doclab/index.html');
 
       }elseif($row['user_type'] == 'user'){
 
          $_SESSION['user_name'] = $row['name'];
-         header('location:user_page.php');
+         header('location:/G9T3/Doclab/index.html');
 
       }
      
