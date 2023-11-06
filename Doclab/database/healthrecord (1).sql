@@ -27,6 +27,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `appointment`
 --
 
+DROP TABLE IF EXISTS `appointment`;
 CREATE TABLE `appointment` (
   `appointmentID` int(11) NOT NULL,
   `clinicName` varchar(200) NOT NULL,
@@ -56,6 +57,7 @@ INSERT INTO `appointment` (`appointmentID`, `clinicName`, `nric`, `mobile`, `nam
 -- Table structure for table `appointments`
 --
 
+DROP TABLE IF EXISTS `appointments`;
 CREATE TABLE `appointments` (
   `appointment_id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -81,6 +83,7 @@ INSERT INTO `appointments` (`appointment_id`, `name`, `email`, `time`, `date`, `
 -- Table structure for table `booking`
 --
 
+DROP TABLE IF EXISTS `booking`;
 CREATE TABLE `booking` (
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
@@ -104,25 +107,12 @@ CREATE TABLE `booking` (
 -- Table structure for table `drugallergy`
 --
 
-CREATE TABLE `drugallergy` (
-  `allergyname` varchar(255) NOT NULL,
-  `allergyreaction` varchar(300) NOT NULL,
-  `treatment` varchar(300) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `drugallergy`
---
-
-INSERT INTO `drugallergy` (`allergyname`, `allergyreaction`, `treatment`) VALUES
-('Allergy To Antibiotics', 'Rash : including raised or flat skin color changes,Hives, or itchy, raised bumps, Swelling of the skin or mouth, Tightness in the throat or hoarse voice, Trouble breathing or wheezing', 'Antihistamines to reduce itch, Epinephrine to treat severe reactions, Steroids to reduce inflammation');
-
--- --------------------------------------------------------
 
 --
 -- Table structure for table `drug_allergy`
 --
 
+DROP TABLE IF EXISTS `drug_allergy`;
 CREATE TABLE `drug_allergy` (
   `AllergyID` int(11) NOT NULL,
   `DrugName` varchar(255) NOT NULL,
@@ -148,6 +138,7 @@ INSERT INTO `drug_allergy` (`AllergyID`, `DrugName`, `AllergyDescription`, `Seve
 -- Table structure for table `healthrecord`
 --
 
+DROP TABLE IF EXISTS `healthrecord`;
 CREATE TABLE `healthrecord` (
   `recordID` int(11) NOT NULL,
   `name` varchar(20) NOT NULL,
@@ -175,6 +166,7 @@ INSERT INTO `healthrecord` (`recordID`, `name`, `date`, `location`) VALUES
 -- Table structure for table `HealthScreenings`
 --
 
+DROP TABLE IF EXISTS `HealthScreenings`;
 CREATE TABLE `HealthScreenings` (
   `ScreeningID` int(11) NOT NULL,
   `ScreeningName` varchar(255) NOT NULL,
@@ -199,6 +191,7 @@ INSERT INTO `HealthScreenings` (`ScreeningID`, `ScreeningName`, `ScreeningDescri
 -- Table structure for table `LabTestResults`
 --
 
+DROP TABLE IF EXISTS `LabTestResults`;
 CREATE TABLE `LabTestResults` (
   `ResultID` int(11) NOT NULL,
   `TestName` varchar(255) NOT NULL,
@@ -227,6 +220,7 @@ INSERT INTO `LabTestResults` (`ResultID`, `TestName`, `ResultValue`, `ResultDate
 -- Table structure for table `MedicationRecords`
 --
 
+DROP TABLE IF EXISTS `MedicationRecords`;
 CREATE TABLE `MedicationRecords` (
   `RecordID` int(11) NOT NULL,
   `MedicationName` varchar(255) NOT NULL,
@@ -254,6 +248,7 @@ INSERT INTO `MedicationRecords` (`RecordID`, `MedicationName`, `Dosage`, `StartD
 -- Table structure for table `payment`
 --
 
+DROP TABLE IF EXISTS `payment`;
 CREATE TABLE `payment` (
   `date` varchar(20) NOT NULL,
   `receiptID` int(11) NOT NULL,
@@ -279,6 +274,7 @@ INSERT INTO `payment` (`date`, `receiptID`, `clinicName`, `cost`, `status`, `due
 -- Table structure for table `paymentrecord`
 --
 
+DROP TABLE IF EXISTS `paymentrecord`;
 CREATE TABLE `paymentrecord` (
   `invoiceID` varchar(50) NOT NULL,
   `date` varchar(20) NOT NULL,
@@ -302,6 +298,7 @@ INSERT INTO `paymentrecord` (`invoiceID`, `date`, `receiptID`, `appointmentID`, 
 -- Table structure for table `pendingpayment`
 --
 
+DROP TABLE IF EXISTS `pendingpayment`;
 CREATE TABLE `pendingpayment` (
   `date` varchar(20) NOT NULL,
   `receiptID` int(11) NOT NULL,
@@ -325,6 +322,7 @@ INSERT INTO `pendingpayment` (`date`, `receiptID`, `appointmentID`, `clinicName`
 -- Table structure for table `record`
 --
 
+DROP TABLE IF EXISTS `record`;
 CREATE TABLE `record` (
   `recordID` int(11) NOT NULL,
   `name` varchar(100) NOT NULL,
@@ -352,6 +350,7 @@ INSERT INTO `record` (`recordID`, `name`, `record_date`, `location`) VALUES
 -- Table structure for table `Subsidies`
 --
 
+DROP TABLE IF EXISTS `Subsidies`;
 CREATE TABLE `Subsidies` (
   `SubsidyID` int(11) NOT NULL,
   `SubsidyName` varchar(255) NOT NULL,
@@ -377,6 +376,7 @@ INSERT INTO `Subsidies` (`SubsidyID`, `SubsidyName`, `SubsidyDescription`, `Elig
 -- Table structure for table `user_form`
 --
 
+DROP TABLE IF EXISTS `user_form`;
 CREATE TABLE `user_form` (
   `name` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
@@ -390,8 +390,7 @@ CREATE TABLE `user_form` (
 -- Dumping data for table `user_form`
 --
 
-INSERT INTO `user_form` (`name`, `email`, `address`, `phone`, `password`, `user_type`) VALUES
-('david', 'dd@gmail.com', 'blk 111 lorong ah soo road', '90090099', '202cb962ac59075b964b07152d234b70', 'user');
+
 
 --
 -- Indexes for dumped tables
