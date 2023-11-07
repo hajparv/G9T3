@@ -5,7 +5,7 @@ The problem identified by the group for clincs is that private clinics maintain 
 
 The purpose of this page to to establish a unified platform where all private clinics or GPs can be easily located and where payment can be facilitated within the website itself.
 
-In this webpage, we have key features that will direct the user to make a booking at the clinic nearest to them. Upon completion of the consultation, users can make payment directly through the webpage. 
+In this webpage, we have key features that will direct the user to make a booking at the clinic nearest to them. The new booking will be added into the calender for their ease. Upon completion of the consultation, users can make payment directly through the webpage. 
 
 The tech stack used in this web page is listed below:
 1. Bootstrap Version 5.2
