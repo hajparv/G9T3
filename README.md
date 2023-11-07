@@ -16,3 +16,11 @@ The tech stack used in this web page is listed below:
 The APIs that were used:
 1. Google Maps API
 2. Stripe Payment API
+
+Libraries used:
+1. Flatpickr
+2. JS AXIOS
+
+Beyond the Lab:
+1. Github Action Control & Collaboration
+2. AWS to host the webpage on the server
