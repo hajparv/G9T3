@@ -371,7 +371,7 @@ body.nav-active {
 
 
 
-
+@media (min-width : 500px){
 /*-----------------------------------*\
   #HEADER
 \*-----------------------------------*/
@@ -380,8 +380,9 @@ body.nav-active {
 }
 
 .header .btn {
-  display: none;
-}
+  display: block;
+  
+}}
 
 .header {
   position: absolute;
